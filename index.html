@@ -14,11 +14,14 @@
         Update them again here if they ever change.
      2. Pricing on each service card        → search "₹"
      3. Real client testimonials            → search "TESTIMONIAL"
-     4. Photos                              → drop files into an /images folder using
-                                               the exact names referenced below
-                                               (hero-bg.jpg, nisha-portrait.jpg, og-image.jpg)
-                                               Until you add them, tasteful generated
-                                               backgrounds are shown instead.
+                                               (the live site currently shows a "quotes are
+                                               private" card; drop real quotes in when Nisha
+                                               shares some, with permission)
+     4. Photos → everything lives locally in /images, no hotlinks:
+                                               hero-bg.jpg      1672×941  hero background
+                                               nisha-portrait.jpg 490×612  about section (4:5)
+                                               teaser-card.jpg 618×618   Instagram teaser
+                                               og-image.jpg    1200×630  social share card
      5. Current offer banner text           → search "OFFER BANNER"
      ============================================================ -->
 
@@ -31,12 +34,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tarot With Nisha | Online Tarot, Numerology & Candle Rituals">
 <meta property="og:description" content="Your sign to stop overthinking — the universe has already answered. Book a private tarot, numerology or ritual session with Nisha Pathak.">
-<meta property="og:image" content="images/og-image.jpg">
+<meta property="og:image" content="https://www.tarotwithnisha.com/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tarot With Nisha — astrologer and psychic Nisha Pathak">
 <meta property="og:url" content="https://www.tarotwithnisha.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tarot With Nisha | Online Tarot, Numerology & Candle Rituals">
 <meta name="twitter:description" content="Book a private tarot, numerology or candle ritual session with Nisha Pathak.">
-<meta name="twitter:image" content="images/og-image.jpg">
+<meta name="twitter:image" content="https://www.tarotwithnisha.com/images/og-image.jpg">
 
 <!-- Favicon (simple moon glyph, no file needed) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23120A1E'/%3E%3Cpath d='M62 20a32 32 0 1 0 0 60 26 26 0 1 1 0-60Z' fill='%23C9A15A'/%3E%3C/svg%3E">
@@ -45,6 +51,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high">
 
 <!-- Structured data for SEO -->
 <script type="application/ld+json">
@@ -178,7 +185,8 @@
     align-items:center;
     justify-content:center;
     text-align:center;
-    background-image:url('https://i.ibb.co/60PLgXyS/Chat-GPT-Image-Aug-31-2026-05-09-42-AM.png');
+    background-color:var(--ink);
+    background-image:url('images/hero-bg.jpg');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -225,10 +233,11 @@
   .about-photo{
     aspect-ratio:4/5;border-radius:2px;position:relative;overflow:hidden;
     border:1px solid var(--line);
+    background-color:var(--ink-2);
     background:
-      linear-gradient(155deg, rgba(201,161,90,0.12), rgba(168,66,90,0.1)),
-      url('https://i.ibb.co/V08sbC4Y/Image-31-08-26-at-4-50-AM.png');
-    background-size:cover;background-position:65% center;
+      linear-gradient(155deg, rgba(201,161,90,0.10), rgba(168,66,90,0.08)),
+      url('images/nisha-portrait.jpg');
+    background-size:cover;background-position:center 30%;
   }
   .about-photo .frame{
     position:absolute;inset:14px;border:1px solid rgba(201,161,90,0.45);pointer-events:none;
@@ -298,7 +307,7 @@
   .teaser h2{font-size:clamp(26px,3.2vw,34px);margin-bottom:14px;}
   .teaser p{color:var(--muted);max-width:48ch;}
   .teaser-card{
-    justify-self:center;width:100%;max-width:280px;aspect-ratio:4/5;border-radius:8px;
+    justify-self:center;align-self:center;width:100%;max-width:300px;height:auto;aspect-ratio:1/1;border-radius:8px;
     object-fit:cover;
     border:1px solid var(--line);
     box-shadow:var(--shadow);
@@ -312,6 +321,17 @@
   .test-card{border:1px solid var(--line);padding:30px 26px;border-radius:4px;background:var(--ink-2);}
   .test-card .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--parchment);}
   .test-card .who{margin-top:16px;font-size:13.5px;color:var(--gold-bright);}
+  .test-private{
+    max-width:720px;margin:0 auto;text-align:center;
+    border:1px solid var(--line);border-radius:6px;background:var(--ink-2);
+    padding:44px 36px;
+  }
+  .test-private .quote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.2vw,23px);
+    color:var(--parchment);line-height:1.5;margin:0;
+  }
+  .test-private .who{margin-top:18px;font-size:13.5px;color:var(--gold-bright);letter-spacing:0.02em;}
+  .test-private .btn{margin-top:26px;}
   .test-note{max-width:640px;margin:34px auto 0;text-align:center;color:var(--muted);font-size:13px;border:1px dashed var(--line);padding:14px 18px;border-radius:4px;}
 
   /* ---------- FAQ ---------- */
@@ -613,7 +633,7 @@
             <a href="#book" class="btn btn-outline">Book a private reading</a>
           </div>
         </div>
-        <img class="teaser-card" src="https://i.ibb.co/Xx9FPTCj/Image-31-08-26-at-4-54-AM.png" alt="Tarot spread laid out for a daily reading with candle and notebook" loading="lazy">
+        <img class="teaser-card" src="images/teaser-card.jpg" width="618" height="618" alt="Tarot spread laid out for a daily reading with candle and notebook" loading="lazy">
         
       </div>
     </div>
@@ -626,22 +646,24 @@
     <div class="wrap">
       <div class="sec-head">
         <h2>What clients say</h2>
-        <p>Real words from real sessions.</p>
+        <p>Readings stay private — the messages clients choose to share are on Instagram.</p>
       </div>
-      <div class="test-grid">
-        <!-- TESTIMONIAL: replace these three with real client quotes (with permission) -->
-        <div class="test-card">
-          <p class="quote">"Add a real client quote here — something specific about what shifted for them after the reading."</p>
-          <p class="who">— Anonymous</p>
+
+      <!-- TESTIMONIAL: when Nisha shares real quotes (with permission), replace
+           the .test-private block below with a .test-grid of cards, like this:
+
+        <div class="test-grid">
+          <div class="test-card">
+            <p class="quote">"Real client quote goes here."</p>
+            <p class="who">— First name, city</p>
+          </div>
         </div>
-        <div class="test-card">
-          <p class="quote">"Add a real client quote here — this is placeholder text until testimonials are shared."</p>
-          <p class="who">— Anonymous</p>
-        </div>
-        <div class="test-card">
-          <p class="quote">"Add a real client quote here — screenshots from your Testimonials highlight work well too."</p>
-          <p class="who">— Anonymous</p>
-        </div>
+      -->
+
+      <div class="test-private">
+        <p class="quote">"Everything you tell me stays between us. That's why you won't find readings published here — but the messages clients send me afterwards are saved in my Instagram highlights."</p>
+        <p class="who">— Nisha</p>
+        <a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">See client messages on Instagram</a>
       </div>
     </div>
   </section>
