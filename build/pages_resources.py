@@ -84,7 +84,7 @@ GUIDES_BODY = page_hero(
         </div>
       </a>
       <a class="card" href="/resources/guides/baby-name-numerology/">
-        <div class="card-img" style="background-image:url('/images/cat-numerology.webp')"></div>
+        <div class="card-img" style="background-image:url('/images/cat-kundali.webp')"></div>
         <div class="card-body">
           <h3>Baby Name Numerology: A Sensible Approach</h3>
           <p>How to use numerology when choosing a name without turning it into a source of anxiety.</p>
@@ -100,7 +100,7 @@ GUIDES_BODY = page_hero(
         </div>
       </a>
       <a class="card" href="/resources/guides/tarot-vs-numerology/">
-        <div class="card-img" style="background-image:url('/images/cat-kundali.webp')"></div>
+        <div class="card-img" style="background-image:url('/images/cat-crystals.webp')"></div>
         <div class="card-body">
           <h3>Tarot vs Numerology: Which Should You Choose?</h3>
           <p>An honest comparison, including when neither is the right tool.</p>
@@ -577,7 +577,7 @@ A4 = article_page(
     ),
     lede="They answer different questions. Choosing the wrong one is the most common reason people feel a reading "
          "didn't help.",
-    img="/images/cat-kundali.webp",
+    img="/images/cat-crystals.webp",
     published="2026-10-24",
     modified="2026-10-24",
     crumbs=[R, G, ("Tarot vs Numerology", "/resources/guides/tarot-vs-numerology/")],
