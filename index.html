@@ -1,878 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ============================================================
-     TAROT WITH NISHA — Website
-     Built from the real brand voice + content themes of
-     instagram.com/tarotwithnisha (Nisha Pathak — Astrologer & Psychic)
-
-     EDIT-ME QUICK LIST (search for "EDIT:" throughout this file):
-     1. WhatsApp (919717201509), email (nishak1410@gmail.com) are set below in CONFIG.
-        Update them again here if they ever change.
-     2. Pricing on each service card        → search "₹"
-     3. Real client testimonials            → search "TESTIMONIAL"
-                                               (the live site currently shows a "quotes are
-                                               private" card; drop real quotes in when Nisha
-                                               shares some, with permission)
-     4. Photos → everything lives locally in /images, no hotlinks:
-                                               hero-bg.jpg      1672×941  hero background
-                                               nisha-portrait.jpg 490×612  about section (4:5)
-                                               teaser-card.jpg 618×618   Instagram teaser
-                                               og-image.jpg    1200×630  social share card
-     5. Current offer banner text           → search "OFFER BANNER"
-     ============================================================ -->
-
-<title>Tarot With Nisha | Online Tarot Reading, Numerology &amp; Candle Rituals</title>
-<meta name="description" content="Book a private online tarot reading with Nisha Pathak — astrologer &amp; psychic. Tarot, numerology and candle rituals to help you stop overthinking and move forward with clarity.">
-<meta name="keywords" content="tarot reading online, tarot card reading, numerology reading, candle rituals, astrologer, psychic reading, book tarot reading India, love tarot reading, career tarot reading">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Tarot, Numerology &amp; Spiritual Guidance | Pan India</title>
+<meta name="description" content="Private online tarot readings, numerology and Vedic kundali consultations with Nisha Pathak. 7+ years, 1,600+ clients. Hindi &amp; English, phone or video, pan-India. From ₹299.">
 <link rel="canonical" href="https://www.tarotwithnisha.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tarot With Nisha | Online Tarot, Numerology & Candle Rituals">
-<meta property="og:description" content="Your sign to stop overthinking — the universe has already answered. Book a private tarot, numerology or ritual session with Nisha Pathak.">
-<meta property="og:image" content="https://www.tarotwithnisha.com/images/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tarot With Nisha — astrologer and psychic Nisha Pathak">
+<meta property="og:site_name" content="Tarot with Nisha">
+<meta property="og:title" content="Online Tarot, Numerology &amp; Spiritual Guidance | Pan India">
+<meta property="og:description" content="Private online tarot readings, numerology and Vedic kundali consultations with Nisha Pathak. 7+ years, 1,600+ clients. Hindi &amp; English, phone or video, pan-India. From ₹299.">
 <meta property="og:url" content="https://www.tarotwithnisha.com/">
+<meta property="og:image" content="https://www.tarotwithnisha.com/images/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tarot With Nisha | Online Tarot, Numerology & Candle Rituals">
-<meta name="twitter:description" content="Book a private tarot, numerology or candle ritual session with Nisha Pathak.">
+<meta name="twitter:title" content="Online Tarot, Numerology &amp; Spiritual Guidance | Pan India">
+<meta name="twitter:description" content="Private online tarot readings, numerology and Vedic kundali consultations with Nisha Pathak. 7+ years, 1,600+ clients. Hindi &amp; English, phone or video, pan-India. From ₹299.">
 <meta name="twitter:image" content="https://www.tarotwithnisha.com/images/og-image.jpg">
 
-<!-- Favicon (simple moon glyph, no file needed) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23120A1E'/%3E%3Cpath d='M62 20a32 32 0 1 0 0 60 26 26 0 1 1 0-60Z' fill='%23C9A15A'/%3E%3C/svg%3E">
 
-<!-- Fonts: Cormorant Garamond (display) + Jost (body/UI) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high">
+<link rel="stylesheet" href="/assets/site.css">
 
-<!-- Structured data for SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Tarot With Nisha",
-  "founder": { "@type": "Person", "name": "Nisha Pathak", "jobTitle": "Astrologer & Psychic" },
-  "description": "Online tarot card reading, numerology and candle ritual consultations with astrologer and psychic Nisha Pathak.",
-  "image": "https://www.tarotwithnisha.com/images/og-image.jpg",
-  "url": "https://www.tarotwithnisha.com/",
-  "priceRange": "₹₹",
-  "areaServed": "Worldwide (online consultations)",
-  "sameAs": [ "https://www.instagram.com/tarotwithnisha/" ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Readings & Rituals",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tarot Card Reading" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Numerology Reading" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Candle Rituals & Manifestation" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energy & Aura Reading" } }
-    ]
-  }
-}
-</script>
-
-<style>
-  :root{
-    --ink:#120A1E;
-    --ink-2:#1C1129;
-    --ink-3:#241734;
-    --gold:#C9A15A;
-    --gold-bright:#E8C878;
-    --rose:#A8425A;
-    --parchment:#F1E7D6;
-    --muted:#B6A8C7;
-    --line:rgba(201,161,90,0.28);
-    --shadow:0 20px 50px rgba(0,0,0,0.35);
-    --maxw:1120px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--parchment);
-    font-family:'Jost',sans-serif;
-    font-weight:400;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.display{
-    font-family:'Cormorant Garamond',serif;
-    font-weight:600;
-    line-height:1.15;
-    margin:0;
-    color:var(--parchment);
-  }
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-  section{position:relative;}
-  ::selection{background:var(--gold);color:var(--ink);}
-
-  /* ---------- background texture: subtle star + moon-phase field ---------- */
-  body::before{
-    content:"";
-    position:fixed;inset:0;
-    background-image:
-      radial-gradient(1.5px 1.5px at 20% 30%, rgba(241,231,214,0.35) 0, transparent 60%),
-      radial-gradient(1.5px 1.5px at 75% 15%, rgba(241,231,214,0.28) 0, transparent 60%),
-      radial-gradient(1px 1px at 60% 70%, rgba(241,231,214,0.3) 0, transparent 60%),
-      radial-gradient(1.5px 1.5px at 85% 80%, rgba(241,231,214,0.22) 0, transparent 60%),
-      radial-gradient(1px 1px at 10% 85%, rgba(241,231,214,0.25) 0, transparent 60%),
-      radial-gradient(1.5px 1.5px at 40% 55%, rgba(241,231,214,0.18) 0, transparent 60%);
-    pointer-events:none;
-    z-index:0;
-  }
-
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(18,10,30,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--maxw);margin:0 auto;}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:0.03em;color:var(--parchment);text-decoration:none;}
-  .logo svg{flex:none;}
-  .navlinks{display:flex;align-items:center;gap:34px;list-style:none;margin:0;padding:0;}
-  .navlinks a{text-decoration:none;color:var(--muted);font-size:15px;transition:color .2s;}
-  .navlinks a:hover{color:var(--gold-bright);}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:13px 26px;border-radius:2px;
-    font-family:'Jost',sans-serif;font-size:14.5px;font-weight:500;letter-spacing:0.02em;
-    text-decoration:none;cursor:pointer;border:1px solid transparent;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-  }
-  .btn-gold{background:var(--gold);color:var(--ink);}
-  .btn-gold:hover{background:var(--gold-bright);transform:translateY(-1px);box-shadow:0 10px 24px rgba(201,161,90,0.28);}
-  .btn-outline{border-color:var(--line);color:var(--parchment);background:transparent;}
-  .btn-outline:hover{border-color:var(--gold);color:var(--gold-bright);}
-  .btn-sm{padding:10px 18px;font-size:13.5px;}
-  .navcta{display:none;}
-  @media(min-width:860px){.navcta{display:inline-flex;}}
-  .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
-  .hamburger span{width:22px;height:1.5px;background:var(--parchment);display:block;}
-  @media(min-width:860px){.hamburger{display:none;}}
-  .navlinks{display:none;}
-  @media(min-width:860px){.navlinks{display:flex;}}
-  .mobile-menu{display:none;flex-direction:column;gap:2px;padding:6px 24px 20px;border-top:1px solid var(--line);}
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{padding:12px 0;text-decoration:none;color:var(--muted);border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;}
-
-  /* ---------- offer banner ---------- */
-  .offer-banner{
-    background:linear-gradient(90deg, var(--rose), #7c2f42);
-    color:var(--parchment);text-align:center;
-    padding:9px 16px;font-size:13.5px;letter-spacing:0.02em;
-  }
-  .offer-banner a{color:var(--gold-bright);text-decoration:underline;}
-
-  /* ---------- hero ---------- */
-  .hero{
-    padding:130px 24px 100px;
-    min-height:85vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background-color:var(--ink);
-    background-image:url('images/hero-bg.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-  }
-  .hero-panel{
-    display:inline-block;
-    background:rgba(18,10,30,0.6);
-    backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-    border:1px solid rgba(201,161,90,0.3);
-    border-radius:14px;
-    padding:44px 36px;
-  }
-  @media(min-width:640px){.hero-panel{padding:56px 64px;}}
-  .hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:1;
-    animation:heroIn .9s ease both;}
-  @keyframes heroIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    color:var(--gold-bright);font-size:14px;letter-spacing:0.03em;margin-bottom:22px;
-  }
-  .eyebrow .rule{width:26px;height:1px;background:var(--gold);display:inline-block;}
-  .hero h1{font-size:clamp(38px, 6vw, 62px);letter-spacing:0.01em;}
-  .hero .sub{
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
-    color:var(--muted);font-size:clamp(18px,2.4vw,22px);margin-top:16px;
-  }
-  .hero p.desc{max-width:520px;margin:22px auto 0;color:var(--muted);font-size:16px;}
-  .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px;}
-  .hero-tags{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:44px;color:var(--muted);font-size:13.5px;}
-  .hero-tags span{display:flex;align-items:center;gap:8px;}
-  .hero-tags .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);display:inline-block;}
-
-  /* ---------- section heading pattern ---------- */
-  .sec-head{max-width:640px;margin:0 auto 52px;text-align:center;}
-  .sec-head h2{font-size:clamp(30px,4vw,42px);}
-  .sec-head p{color:var(--muted);margin-top:14px;font-size:16px;}
-  .section-pad{padding:96px 24px;}
-  .divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto;}
-
-  /* ---------- about ---------- */
-  .about-grid{display:grid;grid-template-columns:1fr;gap:52px;align-items:center;}
-  @media(min-width:860px){.about-grid{grid-template-columns:0.85fr 1.15fr;gap:64px;}}
-  .about-photo{
-    aspect-ratio:4/5;border-radius:2px;position:relative;overflow:hidden;
-    border:1px solid var(--line);
-    background-color:var(--ink-2);
-    background:
-      linear-gradient(155deg, rgba(201,161,90,0.10), rgba(168,66,90,0.08)),
-      url('images/nisha-portrait.jpg');
-    background-size:cover;background-position:center 30%;
-  }
-  .about-photo .frame{
-    position:absolute;inset:14px;border:1px solid rgba(201,161,90,0.45);pointer-events:none;
-  }
-  .about-photo .cap{
-    position:absolute;left:14px;right:14px;bottom:14px;
-    font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-bright);
-    font-size:15px;background:linear-gradient(0deg, rgba(18,10,30,0.75), transparent);
-    padding:26px 8px 6px;
-  }
-  .about-text h2{font-size:clamp(28px,3.6vw,38px);margin-bottom:20px;}
-  .about-text p{color:var(--muted);font-size:16px;margin-bottom:16px;max-width:56ch;}
-  .about-list{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:12px;}
-  .about-list li{
-    border:1px solid var(--line);padding:9px 16px;font-size:13.5px;color:var(--gold-bright);
-    border-radius:2px;
-  }
-
-  /* ---------- services — signature tarot-card flip element ---------- */
-  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
-  @media(min-width:700px){.svc-grid{grid-template-columns:repeat(4,1fr);}}
-  .card-flip{aspect-ratio:5/8;perspective:1400px;cursor:pointer;}
-  .card-flip-inner{
-    position:relative;width:100%;height:100%;transform-style:preserve-3d;
-    transition:transform .7s cubic-bezier(.2,.8,.2,1);
-  }
-  .card-flip.flipped .card-flip-inner{transform:rotateY(180deg);}
-  .card-face{
-    position:absolute;inset:0;backface-visibility:hidden;border-radius:6px;
-    border:1px solid var(--line);display:flex;flex-direction:column;
-  }
-  .card-front{
-    background:
-      repeating-linear-gradient(45deg, rgba(201,161,90,0.10) 0 2px, transparent 2px 14px),
-      linear-gradient(160deg, var(--ink-3), var(--ink-2));
-    align-items:center;justify-content:center;text-align:center;padding:18px;gap:14px;
-  }
-  .card-front .glyph{color:var(--gold);}
-  .card-front .name{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--parchment);}
-  .card-front .tap{font-size:11.5px;letter-spacing:0.06em;color:var(--muted);}
-  .card-back{
-    background:linear-gradient(165deg, var(--ink-2), #150c22);
-    transform:rotateY(180deg);padding:22px 18px;justify-content:space-between;
-  }
-  .card-back .name{font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:8px;}
-  .card-back p{font-size:13.5px;color:var(--muted);line-height:1.55;flex:1;}
-  .card-back .price{color:var(--gold-bright);font-size:14.5px;margin:10px 0 12px;}
-  .card-back .btn{width:100%;}
-  .svc-hint{text-align:center;color:var(--muted);font-size:13.5px;margin-top:26px;}
-
-  /* ---------- how it works ---------- */
-  .steps{display:grid;grid-template-columns:1fr;gap:0;counter-reset:step;}
-  @media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr);gap:28px;}}
-  .step{padding:28px 0;border-top:1px solid var(--line);position:relative;}
-  @media(min-width:760px){.step{border-top:none;border-left:1px solid var(--line);padding:0 0 0 22px;}}
-  .step .num{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--gold);letter-spacing:0.04em;}
-  .step h3{font-size:21px;margin:10px 0 8px;}
-  .step p{color:var(--muted);font-size:14.5px;}
-
-  /* ---------- daily pull / instagram teaser ---------- */
-  .teaser{
-    border:1px solid var(--line);border-radius:6px;
-    background:linear-gradient(160deg, var(--ink-2), var(--ink-3));
-    padding:56px 40px;display:grid;grid-template-columns:1fr;gap:36px;align-items:center;
-  }
-  @media(min-width:860px){.teaser{grid-template-columns:1.1fr 0.9fr;padding:56px;}}
-  .teaser h2{font-size:clamp(26px,3.2vw,34px);margin-bottom:14px;}
-  .teaser p{color:var(--muted);max-width:48ch;}
-  .teaser-card{
-    justify-self:center;align-self:center;width:100%;max-width:300px;height:auto;aspect-ratio:1/1;border-radius:8px;
-    object-fit:cover;
-    border:1px solid var(--line);
-    box-shadow:var(--shadow);
-    animation:float 5s ease-in-out infinite;
-  }
-  @keyframes float{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-10px) rotate(2deg);}}
-
-  /* ---------- testimonials ---------- */
-  .test-grid{display:grid;grid-template-columns:1fr;gap:22px;}
-  @media(min-width:760px){.test-grid{grid-template-columns:repeat(3,1fr);}}
-  .test-card{border:1px solid var(--line);padding:30px 26px;border-radius:4px;background:var(--ink-2);}
-  .test-card .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--parchment);}
-  .test-card .who{margin-top:16px;font-size:13.5px;color:var(--gold-bright);}
-  .test-private{
-    max-width:720px;margin:0 auto;text-align:center;
-    border:1px solid var(--line);border-radius:6px;background:var(--ink-2);
-    padding:44px 36px;
-  }
-  .test-private .quote{
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.2vw,23px);
-    color:var(--parchment);line-height:1.5;margin:0;
-  }
-  .test-private .who{margin-top:18px;font-size:13.5px;color:var(--gold-bright);letter-spacing:0.02em;}
-  .test-private .btn{margin-top:26px;}
-  .test-note{max-width:640px;margin:34px auto 0;text-align:center;color:var(--muted);font-size:13px;border:1px dashed var(--line);padding:14px 18px;border-radius:4px;}
-
-  /* ---------- FAQ ---------- */
-  .faq{max-width:760px;margin:0 auto;}
-  .faq-item{border-bottom:1px solid var(--line);}
-  .faq-q{
-    width:100%;text-align:left;background:none;border:none;color:var(--parchment);
-    font-family:'Cormorant Garamond',serif;font-size:19px;padding:22px 0;
-    display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;
-  }
-  .faq-q .plus{color:var(--gold);font-size:22px;transition:transform .25s;flex:none;}
-  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-  .faq-a p{color:var(--muted);font-size:15px;padding-bottom:22px;max-width:64ch;}
-
-  /* ---------- booking ---------- */
-  .book-grid{display:grid;grid-template-columns:1fr;gap:48px;}
-  @media(min-width:900px){.book-grid{grid-template-columns:0.9fr 1.1fr;}}
-  .book-info h2{font-size:clamp(28px,3.6vw,36px);margin-bottom:16px;}
-  .book-info p{color:var(--muted);max-width:46ch;margin-bottom:26px;}
-  .contact-line{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:15px;}
-  .contact-line .glyph{color:var(--gold);}
-  .form{background:var(--ink-2);border:1px solid var(--line);padding:34px;border-radius:6px;}
-  .field{margin-bottom:18px;}
-  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:7px;letter-spacing:0.02em;}
-  .field input,.field select,.field textarea{
-    width:100%;background:var(--ink);border:1px solid var(--line);color:var(--parchment);
-    padding:12px 14px;border-radius:3px;font-family:'Jost',sans-serif;font-size:15px;
-  }
-  .field textarea{resize:vertical;min-height:90px;}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
-  .form .btn{width:100%;margin-top:6px;}
-  .form-note{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;}
-
-  /* ---------- final cta ---------- */
-  .final-cta{
-    text-align:center;padding:100px 24px;
-    background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(201,161,90,0.14), transparent 65%);
-  }
-  .final-cta h2{font-size:clamp(30px,4.6vw,46px);max-width:720px;margin:0 auto 22px;}
-
-  /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--line);padding:52px 24px 30px;}
-  .foot-grid{display:grid;grid-template-columns:1fr;gap:34px;}
-  @media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr;}}
-  .foot-logo{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:12px;}
-  footer p{color:var(--muted);font-size:14px;}
-  footer h4{font-size:14px;color:var(--gold-bright);letter-spacing:0.03em;margin-bottom:14px;font-family:'Jost',sans-serif;font-weight:500;}
-  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
-  footer a{text-decoration:none;color:var(--muted);font-size:14.5px;}
-  footer a:hover{color:var(--gold-bright);}
-  .foot-bottom{max-width:var(--maxw);margin:40px auto 0;padding-top:22px;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:12.5px;}
-
-  /* ---------- floating whatsapp ---------- */
-  .float-book{
-    position:fixed;right:20px;bottom:20px;z-index:60;
-    display:flex;align-items:center;gap:10px;
-    background:var(--gold);color:var(--ink);padding:14px 20px;border-radius:40px;
-    text-decoration:none;font-size:14px;font-weight:500;box-shadow:0 12px 30px rgba(0,0,0,0.4);
-    transition:transform .2s;
-  }
-  .float-book:hover{transform:translateY(-2px);background:var(--gold-bright);}
-  .float-whatsapp{
-    position:fixed;right:20px;bottom:82px;z-index:61;
-    width:52px;height:52px;border-radius:50%;
-    background:#25D366;display:flex;align-items:center;justify-content:center;
-    box-shadow:0 12px 26px rgba(0,0,0,0.4);
-    transition:transform .2s;
-  }
-  .float-whatsapp:hover{transform:translateY(-2px) scale(1.04);}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important;transition:none !important;}
-  }
-</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://www.tarotwithnisha.com/#business", "name": "Tarot with Nisha", "founder": {"@type": "Person", "name": "Nisha Pathak", "jobTitle": "Tarot Reader & Numerologist"}, "description": "Online tarot readings, numerology consultations and intention-based candle rituals with Nisha Pathak. Private, one-on-one, by phone or video across India.", "url": "https://www.tarotwithnisha.com/", "image": "https://www.tarotwithnisha.com/images/og-image.jpg", "telephone": "+91-97172-01509", "email": "nishak1410@gmail.com", "priceRange": "₹299 - ₹7999", "currenciesAccepted": "INR", "areaServed": {"@type": "Country", "name": "India"}, "availableLanguage": ["en", "hi"], "sameAs": ["https://www.instagram.com/tarotwithnisha/"], "address": {"@type": "PostalAddress", "addressCountry": "IN"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are these readings online or in person?", "acceptedAnswer": {"@type": "Answer", "text": "Everything is online — by phone call or video call, whichever you prefer. Clients join from across India and abroad. You'll get a private, one-on-one session, not a chat with a team."}}, {"@type": "Question", "name": "Do you read in Hindi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Readings are available in Hindi, English or a mix of both. Tell me which you'd prefer when you book and the whole session will be in that language."}}, {"@type": "Question", "name": "How much does a reading cost?", "acceptedAnswer": {"@type": "Answer", "text": "A single-question tarot reading starts at ₹599. A focused 45-minute reading is ₹1,299 and a full 60-minute reading is ₹1,499. Numerology reports start at ₹299, kundali analysis is ₹600, and intention-based candle rituals start at ₹999. Exact pricing is always confirmed before you pay."}}, {"@type": "Question", "name": "How soon can I get an appointment?", "acceptedAnswer": {"@type": "Answer", "text": "Most weeks there are slots within 2–3 days. Message on WhatsApp with your situation and preferred time window and I'll confirm what's available."}}, {"@type": "Question", "name": "Will you tell me exactly what's going to happen?", "acceptedAnswer": {"@type": "Answer", "text": "No — and I'd be careful of anyone who does. A reading shows you where a situation actually stands, what you might be avoiding, and what your realistic options are. The decision stays yours."}}, {"@type": "Question", "name": "Is what I share confidential?", "acceptedAnswer": {"@type": "Answer", "text": "Completely. Nothing from a session is published or shared. The client messages you see on Instagram are shared by those clients themselves, with permission."}}]}</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============ OFFER BANNER (edit or delete this whole div) ============ -->
 <div class="offer-banner">
-  ✦ New moon opening: flat 20% off your first reading this week — <a href="#book">book now</a>
+  ✦ New here? First readings this week are 20% off — <a href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" target="_blank" rel="noopener">book on WhatsApp</a> to claim it
 </div>
 
-<!-- ============ HEADER ============ -->
-<header>
-  <nav class="nav">
-    <a href="#top" class="logo">
-      <svg width="26" height="26" viewBox="0 0 100 100" fill="none"><path d="M62 20a32 32 0 1 0 0 60 26 26 0 1 1 0-60Z" fill="#C9A15A"/></svg>
-      Tarot&nbsp;With&nbsp;Nisha
-    </a>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="/" class="logo"><svg width="25" height="25" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M62 20a32 32 0 1 0 0 60 26 26 0 1 1 0-60Z" fill="#C9A15A"/></svg><span>Tarot&nbsp;With&nbsp;Nisha</span></a>
+
     <ul class="navlinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li data-current="true"><a href="/">Home</a></li>
+      <li>
+        <button type="button" aria-expanded="false" aria-haspopup="true">Consultations <span class="chev"></span></button>
+        <div class="dropdown">
+<a href="/consultations/tarot-readings/">Tarot Readings<small>Love, career and full readings</small></a>
+<a href="/consultations/numerology/">Numerology<small>Name, house, vehicle, marriage</small></a>
+<a href="/consultations/vedic-kundali/">Vedic Kundali &amp; Varshfal<small>Birth chart and annual reading</small></a>
+<a href="/consultations/candle-rituals/">Candle Rituals<small>Intention-based ritual work</small></a>
+<a href="/consultations/custom/">Custom Consultation<small>For situations that don't fit</small></a></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false" aria-haspopup="true">Shop <span class="chev"></span></button>
+        <div class="dropdown">
+<a href="/shop/ritual-oils/">Ritual Oils<small>Intention-based anointing oils</small></a>
+<a href="/shop/crystals/">Crystals &amp; Bracelets<small>Pyrite, tourmaline, quartz</small></a>
+<a href="/shop/">All Products<small>The full collection</small></a></div>
+      </li>
+      <li>
+        <button type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="chev"></span></button>
+        <div class="dropdown">
+<a href="/resources/guides/">Guides<small>Practical reading on tarot &amp; numerology</small></a>
+<a href="/resources/faqs/">FAQs<small>Answers before you book</small></a></div>
+      </li>
+      <li><a href="/about/">About</a></li>
     </ul>
-    <a href="#book" class="btn btn-gold btn-sm navcta">Book a reading</a>
-    <button class="hamburger" id="hamBtn" aria-label="Open menu" aria-expanded="false">
+
+    <a href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" class="btn btn-gold btn-sm navcta" target="_blank" rel="noopener"
+       data-wa-service="" data-wa-placement="nav">Book on WhatsApp</a>
+
+    <button class="hamburger" id="hamBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </nav>
+
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Services</a>
-    <a href="#how">How it works</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#faq">FAQ</a>
-    <a href="#book" class="btn btn-gold btn-sm" style="margin-top:12px;text-align:center;">Book a reading</a>
+    <a href="/">Home</a>
+    <div class="mm-label">Consultations</div>
+    <a href="/consultations/tarot-readings/">Tarot Readings</a><a href="/consultations/numerology/">Numerology</a><a href="/consultations/vedic-kundali/">Vedic Kundali &amp; Varshfal</a><a href="/consultations/candle-rituals/">Candle Rituals</a><a href="/consultations/custom/">Custom Consultation</a>
+    <div class="mm-label">Shop</div>
+    <a href="/shop/ritual-oils/">Ritual Oils</a><a href="/shop/crystals/">Crystals &amp; Bracelets</a><a href="/shop/">All Products</a>
+    <div class="mm-label">Resources</div>
+    <a href="/resources/guides/">Guides</a><a href="/resources/faqs/">FAQs</a>
+    <div class="mm-label">More</div>
+    <a href="/about/">About</a>
+    <a href="/consultations/">All consultations</a>
+    <a href="/disclaimer/">Disclaimer</a>
+    <a href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" class="btn btn-gold" target="_blank" rel="noopener">Book on WhatsApp</a>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
+<section class="hero" style="background-image:url('/images/cat-tarot.webp')">
+  <div class="wrap">
     <div class="hero-inner hero-panel">
       <span class="eyebrow"><span class="rule"></span>Astrologer &amp; Psychic — Nisha Pathak<span class="rule"></span></span>
-      <h1>Your sign to stop overthinking.</h1>
-      <p class="sub">The universe has already answered.</p>
-      <p class="desc">Private online tarot readings, numerology and candle rituals to help you see clearly, choose calmly, and move forward — on love, career and everything in between.</p>
+      <h1>Online Tarot, Numerology &amp; Spiritual Guidance — Pan India</h1>
+      <p class="sub">Clarity for the decision you keep circling.</p>
+      <p class="desc">Private one-on-one consultations with Nisha Pathak — tarot, numerology, Vedic kundali and intention-based rituals. Hindi or English, by phone or video, anywhere in India.</p>
       <div class="hero-ctas">
-        <a href="#book" class="btn btn-gold">Book a reading</a>
-        <a href="#services" class="btn btn-outline">See what I offer</a>
+        <a class="btn btn-gold" href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" target="_blank" rel="noopener" data-wa-service="" data-wa-placement="hero">Book a Consultation</a>
+        <a href="/consultations/" class="btn btn-outline">Browse all services</a>
       </div>
-      <div class="hero-tags">
-        <span><i class="dot"></i>Tarot</span>
-        <span><i class="dot"></i>Numerology</span>
-        <span><i class="dot"></i>Candle rituals</span>
-        <span><i class="dot"></i>1:1 &amp; confidential</span>
-      </div>
+      <div class="hero-tags"><span><i class="dot"></i>7+ years</span><span><i class="dot"></i>1,600+ clients</span><span><i class="dot"></i>Hindi &amp; English</span><span><i class="dot"></i>100% confidential</span></div>
     </div>
-  </section>
+  </div>
+</section>
+<div class="trust-bar"><ul><li><span class="glyph">✦</span>7+ years of practice</li><li><span class="glyph">✦</span>1,600+ clients served</li><li><span class="glyph">✦</span>Hindi &amp; English</li><li><span class="glyph">✦</span>Pan-India · phone or video</li></ul></div>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>Start with what's actually on your mind</h2><p>Most people arrive with a situation, not a service name. Pick the one that sounds closest.</p></div>
+    <div class="grid grid-3">
+      
+      <a class="link-card" href="/consultations/tarot-readings/love/" style="padding:22px 22px 20px">
+        <strong style="font-size:17px;line-height:1.35">A relationship I can't read clearly</strong>
+        <span style="margin-top:6px">Should I stay, wait, or let go?</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+      </a>
+      <a class="link-card" href="/consultations/tarot-readings/career/" style="padding:22px 22px 20px">
+        <strong style="font-size:17px;line-height:1.35">A career decision I keep postponing</strong>
+        <span style="margin-top:6px">Switch, stay, negotiate, or start over?</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+      </a>
+      <a class="link-card" href="/consultations/numerology/marriage/" style="padding:22px 22px 20px">
+        <strong style="font-size:17px;line-height:1.35">Marriage &amp; compatibility questions</strong>
+        <span style="margin-top:6px">Timing, matching, and family pressure.</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+      </a>
+      <a class="link-card" href="/consultations/numerology/name/" style="padding:22px 22px 20px">
+        <strong style="font-size:17px;line-height:1.35">My name or a business name</strong>
+        <span style="margin-top:6px">Spelling, correction, and number alignment.</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+      </a>
+      <a class="link-card" href="/consultations/vedic-kundali/" style="padding:22px 22px 20px">
+        <strong style="font-size:17px;line-height:1.35">I want to understand my birth chart</strong>
+        <span style="margin-top:6px">Kundali analysis and the year ahead.</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+      </a>
+      <a class="link-card" href="/consultations/candle-rituals/" style="padding:22px 22px 20px">
+        <strong style="font-size:17px;line-height:1.35">Something feels heavy and I can't name it</strong>
+        <span style="margin-top:6px">Clearing, protection, and intention work.</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="section-pad" id="about">
-    <div class="wrap about-grid">
-      <div class="about-photo">
-        <div class="frame"></div>
-        <div class="cap">Nisha Pathak — Trust · Heal · Align</div>
-      </div>
-      <div class="about-text">
-        <h2>Readings that meet you where you are</h2>
-        <p>I'm Nisha — an astrologer and psychic reading tarot, numbers and energy to help people move through the moments they feel stuck in. Not vague fortune-telling: a grounded conversation about what's actually going on, and what to do with it.</p>
-        <p>Every reading is a private, one-on-one session built around your real question — love, career, family, or just the quiet feeling that something is off. You'll leave with clarity, not more confusion.</p>
-        <ul class="about-list">
-          <li>🔮 Tarot</li>
-          <li>🔢 Numerology</li>
-          <li>🕯️ Candle rituals</li>
-          <li>✨ Energy readings</li>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>Consultations</h2><p>Four disciplines, one private conversation. Every session is built around your question.</p></div>
+    <div class="grid grid-4">
+      
+<a class="card" href="/consultations/tarot-readings/">
+  <div class="card-img" style="background-image:url('/images/cat-tarot.webp')"></div>
+  <div class="card-body">
+    <h3>Tarot Readings</h3>
+    <p>Love, career, and full readings. A grounded look at where things stand and what to do next.</p>
+    <div class="card-price">From ₹599</div>
+    <span class="card-link">Learn more <span aria-hidden="true">→</span></span>
+  </div>
+</a>
+      
+<a class="card" href="/consultations/numerology/">
+  <div class="card-img" style="background-image:url('/images/cat-numerology.webp')"></div>
+  <div class="card-body">
+    <h3>Numerology</h3>
+    <p>Name, house, vehicle, marriage and baby-name numerology — reports delivered in 24–48 hours.</p>
+    <div class="card-price">From ₹299</div>
+    <span class="card-link">Learn more <span aria-hidden="true">→</span></span>
+  </div>
+</a>
+      
+<a class="card" href="/consultations/vedic-kundali/">
+  <div class="card-img" style="background-image:url('/images/cat-kundali.webp')"></div>
+  <div class="card-body">
+    <h3>Vedic Kundali &amp; Varshfal</h3>
+    <p>Birth chart analysis, planetary placements, and the themes of your coming year.</p>
+    <div class="card-price">From ₹300</div>
+    <span class="card-link">Learn more <span aria-hidden="true">→</span></span>
+  </div>
+</a>
+      
+<a class="card" href="/shop/ritual-oils/">
+  <div class="card-img" style="background-image:url('/images/cat-oils.webp')"></div>
+  <div class="card-body">
+    <h3>Ritual Oils &amp; Crystals</h3>
+    <p>Intention-based oils, bracelets and cleansing tools for your own practice.</p>
+    <div class="card-price">From ₹599</div>
+    <span class="card-link">Shop the collection <span aria-hidden="true">→</span></span>
+  </div>
+</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="split split-wide-left">
+      <div>
+        <div class="section-head-left"><h2>Why people book with Nisha</h2></div>
+        <div class="prose" style="margin-top:14px">
+          <p>Seven years of practice and more than 1,600 clients across India and internationally — but the
+             reason people come back isn't the number. It's that the reading is honest.</p>
+          <p>You won't be told what you want to hear. You'll be told what the cards, the numbers or the chart
+             actually show, in plain language, with something concrete to do next.</p>
+        </div>
+        <ul class="checklist mt-3">
+          <li><strong>Grounded, not theatrical.</strong> No fear-selling, no forced remedies, no "pay more to remove a curse".</li>
+          <li><strong>Personalised.</strong> Your situation gets examined on its own terms, not matched to a template.</li>
+          <li><strong>Transparent pricing.</strong> You know the cost before you pay. Nothing is added afterwards.</li>
+          <li><strong>Hindi or English.</strong> The whole session in the language you think in.</li>
+          <li><strong>Pan-India, by phone or video.</strong> From a metro or a small town — same access.</li>
+          <li><strong>Confidential.</strong> What you share stays between the two of you.</li>
         </ul>
+        <div class="mt-4"><a class="btn btn-gold" href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" target="_blank" rel="noopener" data-wa-service="" data-wa-placement="home-why">Ask a question on WhatsApp</a></div>
       </div>
+      <div class="split-img split-img-tall" style="background-image:url('/images/nisha-portrait.webp')"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- ============ SERVICES — flip cards ============ -->
-  <section class="section-pad" id="services">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Readings &amp; rituals</h2>
-        <p>Tap a card to see what's inside. Every session is one-on-one and tailored to your question.</p>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>How a consultation works</h2><p>Three steps. No forms to fill, no packages to decode.</p></div>
+    <div class="grid grid-4" style="gap:0 28px">
+      <div class="step" style="padding:22px 0;border-top:1px solid var(--line)">
+        <div class="num" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);letter-spacing:.04em">01</div>
+        <h3 style="font-size:20px;margin:8px 0 6px">Message on WhatsApp</h3>
+        <p style="color:var(--muted);font-size:14.5px;margin:0">Tell me in a couple of lines what's going on. I'll suggest the right reading — not the most expensive one.</p>
       </div>
-
-      <div class="svc-grid" id="svcGrid">
-
-        <div class="card-flip" tabindex="0" role="button" aria-label="Tarot Card Reading — tap for details">
-          <div class="card-flip-inner">
-            <div class="card-face card-front">
-              <svg class="glyph" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
-              <div class="name">Tarot Card Reading</div>
-              <div class="tap">tap to reveal</div>
-            </div>
-            <div class="card-face card-back">
-              <div>
-                <div class="name">Tarot Card Reading</div>
-                <p>A focused reading on one area of life — love, career or general direction — or a full spread when things feel tangled. Delivered live on video/voice call.</p>
-              </div>
-              <div>
-                <div class="price">Starting at ₹999</div>
-                <a href="#book" class="btn btn-gold btn-sm" data-service="Tarot Card Reading">Book this</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-flip" tabindex="0" role="button" aria-label="Numerology Reading — tap for details">
-          <div class="card-flip-inner">
-            <div class="card-face card-front">
-              <svg class="glyph" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
-              <div class="name">Numerology Reading</div>
-              <div class="tap">tap to reveal</div>
-            </div>
-            <div class="card-face card-back">
-              <div>
-                <div class="name">Numerology Reading</div>
-                <p>Your date of birth decoded into your life path, strengths and the timing behind what you're going through right now.</p>
-              </div>
-              <div>
-                <div class="price">Starting at ₹799</div>
-                <a href="#book" class="btn btn-gold btn-sm" data-service="Numerology Reading">Book this</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-flip" tabindex="0" role="button" aria-label="Candle Rituals and Manifestation — tap for details">
-          <div class="card-flip-inner">
-            <div class="card-face card-front">
-              <svg class="glyph" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2c2 3 2 4 0 6-2-2-2-3 0-6Z"/><rect x="9" y="9" width="6" height="12" rx="1"/></svg>
-              <div class="name">Candle Rituals &amp; Manifestation</div>
-              <div class="tap">tap to reveal</div>
-            </div>
-            <div class="card-face card-back">
-              <div>
-                <div class="name">Candle Rituals &amp; Manifestation</div>
-                <p>Guided cleansing, protection and manifestation rituals — including salt and candle work — customised to what you're calling in or releasing.</p>
-              </div>
-              <div>
-                <div class="price">Starting at ₹1,199</div>
-                <a href="#book" class="btn btn-gold btn-sm" data-service="Candle Rituals & Manifestation">Book this</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-flip" tabindex="0" role="button" aria-label="Energy and Aura Reading — tap for details">
-          <div class="card-flip-inner">
-            <div class="card-face card-front">
-              <svg class="glyph" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
-              <div class="name">Energy &amp; Aura Reading</div>
-              <div class="tap">tap to reveal</div>
-            </div>
-            <div class="card-face card-back">
-              <div>
-                <div class="name">Energy &amp; Aura Reading</div>
-                <p>A reading on the energy you're currently carrying or picking up from others — useful when something feels heavy and you can't name why.</p>
-              </div>
-              <div>
-                <div class="price">Starting at ₹899</div>
-                <a href="#book" class="btn btn-gold btn-sm" data-service="Energy & Aura Reading">Book this</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="step" style="padding:22px 0;border-top:1px solid var(--line)">
+        <div class="num" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);letter-spacing:.04em">02</div>
+        <h3 style="font-size:20px;margin:8px 0 6px">Confirm your slot</h3>
+        <p style="color:var(--muted);font-size:14.5px;margin:0">Choose a time that works. Payment confirms the booking. You'll get the details straight away.</p>
       </div>
-      <p class="svc-hint">Not sure which one fits? Message me and I'll point you to the right session.</p>
+      <div class="step" style="padding:22px 0;border-top:1px solid var(--line)">
+        <div class="num" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);letter-spacing:.04em">03</div>
+        <h3 style="font-size:20px;margin:8px 0 6px">Talk it through</h3>
+        <p style="color:var(--muted);font-size:14.5px;margin:0">A private call or video session in Hindi or English. You leave with a clear read and next steps.</p>
+      </div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>What clients say</h2><p>Readings are private — the messages clients choose to share live on Instagram.</p></div>
+    <div class="test-private">
+      <p class="quote">"Everything you tell me stays between us. That's why you won't find readings published
+        here — but the messages clients send me afterwards are saved in my Instagram highlights."</p>
+      <p class="who">— Nisha</p>
+      <a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener"
+         class="btn btn-outline btn-sm">See client messages on Instagram</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="section-pad" id="how">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>How a reading works</h2>
-        <p>Simple, private, and built around your actual question.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="num">01</div>
-          <h3>Choose your reading</h3>
-          <p>Pick tarot, numerology, a ritual, or an energy reading — or send a message if you're unsure.</p>
-        </div>
-        <div class="step">
-          <div class="num">02</div>
-          <h3>Share your question</h3>
-          <p>Tell me what's on your mind — love, career, family, or a decision you're sitting with.</p>
-        </div>
-        <div class="step">
-          <div class="num">03</div>
-          <h3>Have your session</h3>
-          <p>We connect over a private video or voice call at a time that works for you.</p>
-        </div>
-        <div class="step">
-          <div class="num">04</div>
-          <h3>Walk away with clarity</h3>
-          <p>You'll get a clear read on your situation, and practical next steps — not just predictions.</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>From the ritual collection</h2><p>Intention-based oils and crystals for your own practice. Pan-India delivery.</p></div>
+    <div class="grid grid-4">
+      
+<a class="product-card" href="/shop/ritual-oils/protection-oil/">
+  <div class="thumb" style="background-image:url('/images/products/protection-oil.webp')"></div>
+  <div class="p-body">
+    <div class="p-tag">Ritual oil</div>
+    <h3>Protection Oil</h3>
+    <div class="p-price">₹799</div>
+  </div>
+</a>
+      
+<a class="product-card" href="/shop/ritual-oils/money-oil/">
+  <div class="thumb" style="background-image:url('/images/products/money-oil.webp')"></div>
+  <div class="p-body">
+    <div class="p-tag">Ritual oil</div>
+    <h3>Money Oil</h3>
+    <div class="p-price">₹799</div>
+  </div>
+</a>
+      
+<a class="product-card" href="/shop/ritual-oils/love-attraction-oil/">
+  <div class="thumb" style="background-image:url('/images/products/love-oil.webp')"></div>
+  <div class="p-body">
+    <div class="p-tag">Ritual oil</div>
+    <h3>Love Attraction Oil</h3>
+    <div class="p-price">₹799</div>
+  </div>
+</a>
+      
+<a class="product-card" href="/shop/crystals/pyrite-bracelet/">
+  <div class="thumb" style="background-image:url('/images/products/pyrite-bracelet.webp')"></div>
+  <div class="p-body">
+    <div class="p-tag">Crystal</div>
+    <h3>Pyrite Bracelet</h3>
+    <div class="p-price">₹599</div>
+  </div>
+</a>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ============ DAILY PULL / INSTAGRAM TEASER ============ -->
-  <section class="section-pad">
-    <div class="wrap">
-      <div class="teaser">
-        <div>
-          <h2>A daily card, straight to your feed</h2>
-          <p>Every day I pull a card and post what it means — the messages that keep showing up for people right now, before they even ask. It's the easiest way to see if a reading is for you.</p>
-          <div style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener" class="btn btn-gold">Follow @tarotwithnisha</a>
-            <a href="#book" class="btn btn-outline">Book a private reading</a>
-          </div>
-        </div>
-        <img class="teaser-card" src="images/teaser-card.jpg" width="618" height="618" alt="Tarot spread laid out for a daily reading with candle and notebook" loading="lazy">
-        
-      </div>
+    <div class="text-center mt-4">
+      <a href="/shop/" class="btn btn-outline">View the full collection</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="section-pad" id="testimonials">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>What clients say</h2>
-        <p>Readings stay private — the messages clients choose to share are on Instagram.</p>
-      </div>
-
-      <!-- TESTIMONIAL: when Nisha shares real quotes (with permission), replace
-           the .test-private block below with a .test-grid of cards, like this:
-
-        <div class="test-grid">
-          <div class="test-card">
-            <p class="quote">"Real client quote goes here."</p>
-            <p class="who">— First name, city</p>
-          </div>
-        </div>
-      -->
-
-      <div class="test-private">
-        <p class="quote">"Everything you tell me stays between us. That's why you won't find readings published here — but the messages clients send me afterwards are saved in my Instagram highlights."</p>
-        <p class="who">— Nisha</p>
-        <a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">See client messages on Instagram</a>
-      </div>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h2>Common questions</h2><p>If yours isn't here, message me — I'll answer honestly, before you pay anything.</p></div>
+    <div class="faq">
+    <div class="faq-item open">
+      <button class="faq-q" type="button" aria-expanded="true">
+        <span>Are these readings online or in person?</span><span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><p>Everything is online — by phone call or video call, whichever you prefer. Clients join from across India and abroad. You'll get a private, one-on-one session, not a chat with a team.</p></div>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ============ FAQ ============ -->
-  <section class="section-pad" id="faq">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Good to know before you book</h2>
-      </div>
-      <div class="faq" id="faqList">
-        <div class="faq-item open">
-          <button class="faq-q"><span>Are tarot readings accurate?</span><span class="plus">+</span></button>
-          <div class="faq-a"><p>A reading offers guidance and insight based on intuitive interpretation. It's meant to bring clarity and a new perspective on your situation — not to hand you a fixed, guaranteed outcome.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Can tarot predict the future?</span><span class="plus">+</span></button>
-          <div class="faq-a"><p>Tarot can point to the paths and energies around a situation, but the future isn't fixed — it depends on the choices you make from here.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>How is the session delivered?</span><span class="plus">+</span></button>
-          <div class="faq-a"><p>Over a private video or voice call at a time we agree on together, once your booking is confirmed over WhatsApp or Instagram.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Is what I share confidential?</span><span class="plus">+</span></button>
-          <div class="faq-a"><p>Yes. Everything you share in a session stays between us.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>What if I'm going through something emotionally heavy?</span><span class="plus">+</span></button>
-          <div class="faq-a"><p>A reading can bring emotional clarity, but it isn't a substitute for professional support. If you're in serious distress, please also reach out to a licensed counsellor or a crisis helpline in your area.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q"><span>Can I reschedule my session?</span><span class="plus">+</span></button>
-          <div class="faq-a"><p>Life happens — message me at least a few hours ahead and we'll find another time.</p></div>
-        </div>
-      </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Do you read in Hindi?</span><span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><p>Yes. Readings are available in Hindi, English or a mix of both. Tell me which you'd prefer when you book and the whole session will be in that language.</p></div>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ============ BOOKING ============ -->
-  <section class="section-pad" id="book">
-    <div class="wrap book-grid">
-      <div class="book-info">
-        <h2>Ready when you are</h2>
-        <p>Fill in a few details and I'll send you my availability on WhatsApp — or just message me directly on Instagram if that's easier.</p>
-        <div class="contact-line"><span class="glyph">✦</span> <span id="waDisplay">WhatsApp: +91 97172 01509</span></div>
-        <div class="contact-line"><span class="glyph">✦</span> <a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener">@tarotwithnisha on Instagram</a></div>
-        <div class="contact-line"><span class="glyph">✦</span> <span id="emailDisplay">nishak1410@gmail.com</span></div>
-      </div>
-
-      <form class="form" id="bookForm">
-        <div class="field">
-          <label for="name">Your name</label>
-          <input type="text" id="name" required placeholder="e.g. Priya Sharma">
-        </div>
-        <div class="field">
-          <label for="service">What would you like to book?</label>
-          <select id="service">
-            <option>Tarot Card Reading</option>
-            <option>Numerology Reading</option>
-            <option>Candle Rituals & Manifestation</option>
-            <option>Energy & Aura Reading</option>
-            <option>Not sure — help me choose</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="phone">Your WhatsApp number</label>
-          <input type="tel" id="phone" required placeholder="e.g. 98765 43210">
-        </div>
-        <div class="field">
-          <label for="msg">A little about what's on your mind (optional)</label>
-          <textarea id="msg" placeholder="e.g. I'd like a reading about my career direction"></textarea>
-        </div>
-        <button type="submit" class="btn btn-gold">Send &amp; continue on WhatsApp</button>
-        <p class="form-note">This opens WhatsApp with your details pre-filled so we can confirm timing directly.</p>
-      </form>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>How much does a reading cost?</span><span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><p>A single-question tarot reading starts at ₹599. A focused 45-minute reading is ₹1,299 and a full 60-minute reading is ₹1,499. Numerology reports start at ₹299, kundali analysis is ₹600, and intention-based candle rituals start at ₹999. Exact pricing is always confirmed before you pay.</p></div>
     </div>
-  </section>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>How soon can I get an appointment?</span><span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><p>Most weeks there are slots within 2–3 days. Message on WhatsApp with your situation and preferred time window and I'll confirm what's available.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Will you tell me exactly what's going to happen?</span><span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><p>No — and I'd be careful of anyone who does. A reading shows you where a situation actually stands, what you might be avoiding, and what your realistic options are. The decision stays yours.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Is what I share confidential?</span><span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><p>Completely. Nothing from a session is published or shared. The client messages you see on Instagram are shared by those clients themselves, with permission.</p></div>
+    </div></div>
+    <div class="text-center mt-4">
+      <a href="/resources/faqs/" class="btn btn-outline">Read all FAQs</a>
+    </div>
+  </div>
+</section>
 
-  <!-- ============ FINAL CTA ============ -->
-  <section class="final-cta">
-    <h2>The universe has already answered — let's find out what it said.</h2>
-    <a href="#book" class="btn btn-gold">Book your reading now</a>
-  </section>
-
+<section class="section">
+  <div class="wrap">
+    <div class="cta-block">
+      <h2>Not sure which reading you need?</h2>
+      <p>Send a couple of lines about your situation. I'll tell you which consultation fits — and if none of them do, I'll say so.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" target="_blank" rel="noopener" data-wa-service="" data-wa-placement="cta">Book on WhatsApp</a>
+        <a href="/consultations/" class="btn btn-outline">See all consultations</a>
+      </div>
+      <p class="small muted" style="margin-top:18px;margin-bottom:0">
+        Usually replies within a few hours, 10am–8pm IST. Hindi &amp; English.
+      </p>
+    </div>
+  </div>
+</section>
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer>
+<footer class="site-footer">
   <div class="foot-grid">
     <div>
       <div class="foot-logo">Tarot With Nisha</div>
-      <p>Tarot, numerology and candle rituals with astrologer &amp; psychic Nisha Pathak. Private, one-on-one, online.</p>
+      <p>Private online tarot readings, numerology and intention-based rituals with Nisha Pathak.
+         7+ years, 1,600+ clients. Hindi &amp; English, phone or video, pan-India.</p>
     </div>
     <div>
-      <h4>Explore</h4>
+      <h4>Consultations</h4>
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="/consultations/tarot-readings/">Tarot Readings</a></li>
+        <li><a href="/consultations/numerology/">Numerology</a></li>
+        <li><a href="/consultations/vedic-kundali/">Vedic Kundali &amp; Varshfal</a></li>
+        <li><a href="/consultations/candle-rituals/">Candle Rituals</a></li>
+        <li><a href="/consultations/custom/">Custom Consultation</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="/shop/ritual-oils/">Ritual Oils</a></li>
+        <li><a href="/shop/crystals/">Crystals &amp; Bracelets</a></li>
+        <li><a href="/shop/">All Products</a></li>
       </ul>
     </div>
     <div>
       <h4>Connect</h4>
       <ul>
         <li><a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener">Instagram — @tarotwithnisha</a></li>
-        <li><a href="#book">WhatsApp / Book</a></li>
-        <li><a href="mailto:nishak1410@gmail.com">Email — nishak1410@gmail.com</a></li>
+        <li><a href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" target="_blank" rel="noopener">WhatsApp — +91 97172 01509</a></li>
+        <li><a href="mailto:nishak1410@gmail.com">Email</a></li>
+        <li><a href="/about/">About Nisha</a></li>
+        <li><a href="/disclaimer/">Disclaimer</a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© <span id="year"></span> Tarot With Nisha. All rights reserved.</span>
-    <span>Readings are for guidance and reflection, and are not a substitute for professional medical, legal or financial advice.</span>
+    <span>© <span id="year">2026</span> Tarot with Nisha. All rights reserved.</span>
+    <span>Readings and rituals are offered as guidance and reflection. They are not a substitute for
+    medical, legal or financial advice, and no outcome is guaranteed.</span>
   </div>
 </footer>
 
-<a href="#book" class="float-book" id="floatBook">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c2 3 2 4 0 6-2-2-2-3 0-6Z"/><rect x="9" y="9" width="6" height="12" rx="1"/></svg>
-  Book a reading
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-outline" href="/consultations/">Consultations</a>
+  <a class="btn btn-gold" href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" target="_blank" rel="noopener" data-wa-service="" data-wa-placement="sticky">Book on WhatsApp</a>
+</div>
+
+<a href="https://wa.me/919717201509?text=Hi%20Nisha%2C%20I%27d%20like%20to%20know%20more%20about%20a%20reading.%20Could%20you%20share%20availability%3F" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   data-wa-service="" data-wa-placement="float">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.39.63 4.63 1.72 6.57L4 29l7.6-1.66a11.94 11.94 0 0 0 4.41.84h.01c6.63 0 12-5.38 12-12.01C28.02 8.38 22.65 3 16.01 3zm0 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-4.51.99.98-4.4-.23-.37a9.78 9.78 0 0 1-1.51-5.23c0-5.41 4.4-9.81 9.82-9.81 2.62 0 5.09 1.02 6.94 2.88a9.75 9.75 0 0 1 2.87 6.94c0 5.41-4.4 9.58-9.99 9.58zm5.38-7.34c-.29-.15-1.75-.87-2.02-.96-.27-.1-.47-.15-.67.15-.2.29-.77.96-.94 1.16-.17.2-.35.22-.64.07-.29-.15-1.23-.46-2.35-1.47-.87-.78-1.45-1.74-1.62-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.63-.92-2.23-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.68.25-1.27.17-1.4-.07-.12-.26-.2-.55-.35z"/></svg>
 </a>
 
-<a href="#" target="_blank" rel="noopener" class="float-whatsapp" id="floatWhatsapp" aria-label="Chat on WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.39.63 4.63 1.72 6.57L4 29l7.6-1.66a11.94 11.94 0 0 0 4.41.84h.01c6.63 0 12-5.38 12-12.01C28.02 8.38 22.65 3 16.01 3zm0 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-4.51.99.98-4.4-.23-.37a9.78 9.78 0 0 1-1.51-5.23c0-5.41 4.4-9.81 9.82-9.81 2.62 0 5.09 1.02 6.94 2.88a9.75 9.75 0 0 1 2.87 6.94c0 5.41-4.4 9.58-9.99 9.58zm5.38-7.34c-.29-.15-1.75-.87-2.02-.96-.27-.1-.47-.15-.67.15-.2.29-.77.96-.94 1.16-.17.2-.35.22-.64.07-.29-.15-1.23-.46-2.35-1.47-.87-.78-1.45-1.74-1.62-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.63-.92-2.23-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.68.25-1.27.17-1.4-.07-.12-.26-.2-.55-.35z"/></svg>
-</a>
-
-<script>
-  /* ================= CONFIG — EDIT THESE ================= */
-  const CONFIG = {
-    whatsappNumber: "919717201509",     // Nisha's WhatsApp number
-    email: "nishak1410@gmail.com",       // Nisha's email
-    instagram: "https://www.instagram.com/tarotwithnisha/"
-  };
-  document.getElementById('waDisplay').textContent = "WhatsApp: +" + CONFIG.whatsappNumber.replace(/(\d{2})(\d{5})(\d+)/, "$1 $2 $3");
-  document.getElementById('emailDisplay').innerHTML = '<a href="mailto:' + CONFIG.email + '">' + CONFIG.email + '</a>';
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('floatWhatsapp').href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent("Hi Nisha! I'd like to know more about booking a reading.")}`;
-
-  /* mobile menu */
-  const hamBtn = document.getElementById('hamBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamBtn.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamBtn.setAttribute('aria-expanded', open);
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-  /* flip cards (click + keyboard) */
-  document.querySelectorAll('.card-flip').forEach(card => {
-    const toggle = () => card.classList.toggle('flipped');
-    card.addEventListener('click', (e) => {
-      // if the click is on the "Book this" link inside the back, let it navigate normally
-      if (e.target.closest('a')) return;
-      toggle();
-    });
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
-  });
-
-  /* prefill service dropdown when a card's "Book this" is clicked */
-  document.querySelectorAll('[data-service]').forEach(link => {
-    link.addEventListener('click', () => {
-      const sel = document.getElementById('service');
-      const val = link.getAttribute('data-service');
-      for (const opt of sel.options) { if (opt.text === val) { sel.value = val; break; } }
-    });
-  });
-
-  /* FAQ accordion */
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-q');
-    const a = item.querySelector('.faq-a');
-    const sync = () => { a.style.maxHeight = item.classList.contains('open') ? a.scrollHeight + 'px' : '0px'; };
-    sync();
-    q.addEventListener('click', () => {
-      item.classList.toggle('open');
-      sync();
-    });
-    window.addEventListener('resize', sync);
-  });
-
-  /* booking form -> WhatsApp deep link */
-  document.getElementById('bookForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const service = document.getElementById('service').value;
-    const phone = document.getElementById('phone').value.trim();
-    const msg = document.getElementById('msg').value.trim();
-    let text = `Hi Nisha! I'm ${name} and I'd like to book: ${service}.`;
-    text += ` My WhatsApp number is ${phone}.`;
-    if (msg) text += ` A bit about what's on my mind: ${msg}`;
-    const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
-  });
-
-  /* hide floating button once booking form is in view */
-  const floatBook = document.getElementById('floatBook');
-  const bookSection = document.getElementById('book');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { floatBook.style.display = entry.isIntersecting ? 'none' : 'flex'; });
-  }, { threshold: 0.2 });
-  io.observe(bookSection);
-</script>
-
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
