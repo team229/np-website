@@ -65,7 +65,7 @@ BODY = (
       <a class="link-card" href="{u}" style="padding:22px 22px 20px">
         <strong style="font-size:17px;line-height:1.35">{t}</strong>
         <span style="margin-top:6px">{d}</span>
-        <span style="margin-top:12px;color:var(--gold-ink);font-size:13px;font-weight:500">See the right reading →</span>
+        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
       </a>''' for u, t, d in SITUATIONS)}
     </div>
   </div>

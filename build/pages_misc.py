@@ -311,7 +311,7 @@ DISCLAIMER = Page(
 NOTFOUND_BODY = """
 <section class="section" style="padding-top:88px;padding-bottom:88px">
   <div class="wrap-narrow text-center">
-    <div style="font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--gold-ink);line-height:1">404</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--gold);line-height:1">404</div>
     <h1 style="margin:14px 0 12px;font-size:32px">This page isn't here</h1>
     <p class="muted" style="max-width:44ch;margin:0 auto 28px">
       The link may be old, or the page may have moved. Here are the places people usually want.
