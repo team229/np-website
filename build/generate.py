@@ -122,7 +122,8 @@ def main() -> int:
     (ROOT / "robots.txt").write_text(
         "User-agent: *\n"
         "Allow: /\n"
-        "Disallow: /404.html\n\n"
+        "Disallow: /404.html\n"
+        "Disallow: /theme-preview/\n\n"
         f"Sitemap: {SITE_URL}/sitemap.xml\n",
         encoding="utf-8",
     )
