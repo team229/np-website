@@ -35,6 +35,7 @@ def attr(text: str) -> str:
 
 def wa(service: str = "", placement: str = "generic") -> str:
     """Build a WhatsApp deep link with a pre-filled message."""
+    service = html.unescape(service)  # content files may pass &amp; entities
     if service:
         msg = f"Hi Nisha, I'm interested in {service}. Could you share availability and pricing?"
     else:
@@ -50,9 +51,10 @@ def wa_btn(
     cls: str = "btn btn-gold",
     extra: str = "",
 ) -> str:
+    clean = html.unescape(service)
     return (
         f'<a class="{cls}" href="{wa(service, placement)}" target="_blank" rel="noopener" '
-        f'data-wa-service="{attr(service)}" data-wa-placement="{attr(placement)}"{extra}>{label}</a>'
+        f'data-wa-service="{attr(clean)}" data-wa-placement="{attr(placement)}"{extra}>{label}</a>'
     )
 
 
