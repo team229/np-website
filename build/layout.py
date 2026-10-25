@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 SITE_URL = "https://www.tarotwithnisha.com"
 BRAND = "Tarot with Nisha"
 PRACTITIONER = "Nisha Pathak"
-WHATSAPP = "919717201509"
+WHATSAPP = "918796590763"
 EMAIL = "nishak1410@gmail.com"
 INSTAGRAM = "https://www.instagram.com/tarotwithnisha/"
 
@@ -207,7 +207,7 @@ def footer() -> str:
       <h4>Connect</h4>
       <ul>
         <li><a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram — @tarotwithnisha</a></li>
-        <li><a href="{wa()}" target="_blank" rel="noopener">WhatsApp — +91 97172 01509</a></li>
+        <li><a href="{wa()}" target="_blank" rel="noopener">WhatsApp — +91 87965 90763</a></li>
         <li><a href="mailto:{EMAIL}">Email</a></li>
         <li><a href="/about/">About Nisha</a></li>
         <li><a href="/disclaimer/">Disclaimer</a></li>
@@ -248,7 +248,7 @@ def org_schema() -> dict:
         ),
         "url": SITE_URL + "/",
         "image": SITE_URL + DEFAULT_OG,
-        "telephone": "+91-97172-01509",
+        "telephone": "+91-87965-90763",
         "email": EMAIL,
         "priceRange": "₹299 - ₹7999",
         "currenciesAccepted": "INR",

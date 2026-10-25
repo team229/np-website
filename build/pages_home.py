@@ -116,7 +116,7 @@ BODY = (
         </ul>
         <div class="mt-4">{wa_btn("Ask a question on WhatsApp", "", "home-why", "btn btn-gold")}</div>
       </div>
-      <div class="split-img split-img-tall" style="background-image:url('/images/nisha-portrait.webp')"></div>
+      <div class="split-img" style="background-image:url('/images/nisha-portrait.webp');background-position:center 38%;aspect-ratio:1/1"></div>
     </div>
   </div>
 </section>

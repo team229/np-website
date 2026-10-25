@@ -41,7 +41,7 @@ ABOUT_BODY = page_hero(
 <section class="section">
   <div class="wrap">
     <div class="split split-wide-right" style="align-items:start">
-      <div class="split-img split-img-tall" style="background-image:url('/images/nisha-portrait.webp')"></div>
+      <div class="split-img" style="background-image:url('/images/nisha-portrait.webp');background-position:center 38%;aspect-ratio:1/1"></div>
       <div class="prose">
         <h2 style="margin-top:0">How this started</h2>
         <p>My introduction to tarot wasn't dramatic. It was curiosity that turned into study, and study that turned
@@ -268,7 +268,7 @@ DISCLAIMER_BODY = page_hero(
 
       <h2>Contact</h2>
       <p>Questions about anything here can be sent to
-         <a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a> or via WhatsApp on +91 97172 01509.</p>
+         <a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a> or via WhatsApp on +91 87965 90763.</p>
     </div>
   </div>
 </section>
