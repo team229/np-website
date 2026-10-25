@@ -221,13 +221,13 @@ SHOP_BODY = page_hero(
 
 <section class="section">
   <div class="wrap">
-    {section_head("Two collections", "Oils for anointing and candle work. Crystals for wearing and grounding.")}
+    {section_head("Two collections", "Twenty ritual oils for anointing and candle work. Twelve crystal pieces for wearing and grounding.")}
     <div class="grid grid-2">
       {service_card("/shop/ritual-oils/", "Ritual Oils",
-                    "Protection, money, love and cleansing oils. 10ml and 20ml, dressed for intention work.",
+                    "Twenty intention oils — protection, money, love, cleansing, career and more. 10 ml and 20 ml.",
                     "From ₹799", "/images/cat-oils.webp", "Shop oils")}
       {service_card("/shop/crystals/", "Crystals &amp; Bracelets",
-                    "Pyrite, rose quartz, black tourmaline and more. Simple pieces, honestly described.",
+                    "Pyrite, rose quartz, black tourmaline, amethyst, selenite. Twelve pieces, honestly described.",
                     "From ₹599", "/images/cat-crystals.webp", "Shop crystals")}
     </div>
   </div>
@@ -244,6 +244,7 @@ SHOP_BODY = page_hero(
       {product_card("/shop/ritual-oils/love-attraction-oil/", "Love Attraction Oil", "₹799", "/images/products/love-oil.webp")}
       {product_card("/shop/crystals/pyrite-bracelet/", "Pyrite Bracelet", "₹599", "/images/products/pyrite-bracelet.webp", "Crystal")}
       {product_card("/shop/crystals/rose-quartz-bracelet/", "Rose Quartz Bracelet", "₹599", "/images/products/rose-quartz-bracelet.webp", "Crystal")}
+      {product_card("/shop/ritual-oils/personalised-intention-oil/", "Personalised Intention Oil", "From ₹799", "/images/cat-oils.webp", "Custom blend")}
     </div>
   </div>
 </section>
@@ -284,44 +285,162 @@ SHOP = Page(
 )
 
 
-# ============================================================ OILS CATEGORY
+# ============================================================ OIL CATALOGUE
+
+# (slug, name, subtitle, description, intention chips)
+OIL_ITEMS = [
+    ("protection-oil", "Protection Oil", "Protection &amp; Energetic Boundaries",
+     "For those who want to bring spiritual protection into their personal rituals, meditation and "
+     "intention-setting practice.",
+     ["Personal protection rituals", "Energetic boundaries", "Spiritual grounding"]),
+    ("negativity-removal-oil", "Negativity Removal Oil", "Cleansing &amp; Release",
+     "For intentions centred on releasing unwanted emotional heaviness, letting go of stagnant energy and "
+     "creating a fresh spiritual atmosphere.",
+     ["Release and renewal", "Emotional reset", "Spiritual cleansing"]),
+    ("love-attraction-oil", "Love Attraction Oil", "Love &amp; Connection",
+     "For rituals focused on welcoming healthy love, emotional openness, self-love and meaningful romantic "
+     "connection.",
+     ["Love attraction intentions", "Self-love rituals", "Openness to connection"]),
+    ("love-binding-oil", "Love Binding Oil", "Commitment &amp; Relationship Intentions",
+     "A specialised oil for practices centred on commitment, devotion, relationship harmony and "
+     "strengthening an existing bond. Intention-based spiritual practice — not a means of controlling "
+     "another person's feelings or choices.",
+     ["Commitment-focused rituals", "Relationship harmony", "Devotion and connection"]),
+    ("money-oil", "Money Oil", "Wealth &amp; Financial Growth",
+     "For prosperity rituals focused on financial opportunity, abundance, business growth and developing "
+     "a mindset of possibility.",
+     ["Money attraction intentions", "Business prosperity", "Financial opportunity"]),
+    ("luck-oil", "Luck Oil", "Good Fortune &amp; New Opportunities",
+     "For rituals centred on favourable opportunities, positive beginnings, confidence and welcoming good "
+     "fortune.",
+     ["Good luck rituals", "New beginnings", "Opportunity and success"]),
+    ("charm-oil", "Charm Oil", "Personal Magnetism &amp; Charisma",
+     "For rituals focused on confidence, personal presence, charm and feeling more comfortable and "
+     "magnetic in social situations.",
+     ["Personal magnetism", "Confidence and charisma", "Social and romantic appeal"]),
+    ("fame-recognition-oil", "Fame &amp; Recognition Oil", "Visibility &amp; Public Recognition",
+     "For intentions related to recognition, reputation, creative expression and being seen for your work "
+     "and talents.",
+     ["Public recognition", "Career visibility", "Creative success"]),
+    ("peace-harmony-oil", "Peace &amp; Harmony Oil", "Calm &amp; Harmony at Home",
+     "For intentions involving calm, harmony at home and more peaceful day-to-day interactions.",
+     ["Household calm", "Peaceful interactions", "Emotional steadiness"]),
+    ("success-career-oil", "Success &amp; Career Oil", "Professional Growth",
+     "For professional growth, interviews, promotions, business ambitions and achievement-focused rituals.",
+     ["Interviews and promotions", "Business ambition", "Achievement"]),
+    ("opportunity-opener-oil", "Opportunity Opener Oil", "Fresh Starts &amp; New Possibilities",
+     "For setting intentions around fresh starts, moving past perceived obstacles and noticing new "
+     "possibilities.",
+     ["Fresh starts", "Overcoming obstacles", "Noticing opportunity"]),
+    ("self-love-beauty-oil", "Self-Love &amp; Beauty Oil", "Self-Worth &amp; Self-Care",
+     "For self-worth, self-appreciation, confidence and personal-care rituals.",
+     ["Self-worth", "Self-appreciation", "Personal care"]),
+    ("intuition-oil", "Intuition &amp; Psychic Awareness Oil", "Meditation &amp; Intuition",
+     "For meditation, tarot preparation, reflection and spiritual-intuition rituals.",
+     ["Meditation", "Tarot preparation", "Reflection"]),
+    ("aura-cleansing-oil", "Aura Cleansing Oil", "Cleansing &amp; Grounding",
+     "For symbolic aura-cleansing rituals, grounding and setting a fresh personal intention. Distinct "
+     "from Protection Oil, which comes after the clearing.",
+     ["Aura cleansing", "Grounding", "Fresh intentions"]),
+    ("business-client-attraction-oil", "Business &amp; Client Attraction Oil", "Growth &amp; Client Engagement",
+     "For entrepreneurs, creators and service providers setting intentions around business growth and "
+     "customer engagement.",
+     ["Business growth", "Client engagement", "Visibility"]),
+    ("reconciliation-oil", "Reconciliation &amp; Healing Bonds Oil", "Repair &amp; Forgiveness",
+     "For reflection on repairing relationships, forgiveness, open communication and rebuilding trust "
+     "where both people are willing.",
+     ["Repairing relationships", "Forgiveness", "Open communication"]),
+    ("confidence-courage-oil", "Confidence &amp; Courage Oil", "Self-Belief &amp; Assertiveness",
+     "For intentions involving self-belief, courage, assertiveness and facing important decisions.",
+     ["Self-belief", "Courage", "Assertiveness"]),
+    ("victory-competition-oil", "Victory &amp; Competition Oil", "Competition &amp; Achievement",
+     "For competitive situations, examinations, important presentations and achieving personal goals.",
+     ["Exams and competitions", "Presentations", "Personal goals"]),
+    ("dream-connection-oil", "Dream &amp; Spiritual Connection Oil", "Dreamwork &amp; Reflection",
+     "For pre-meditation rituals, dream journaling and setting intentions for spiritual reflection.",
+     ["Dream journaling", "Pre-meditation", "Spiritual reflection"]),
+    ("abundance-blessings-oil", "Abundance &amp; Blessings Oil", "Gratitude &amp; Receiving",
+     "For gratitude, a sense of abundance, receiving opportunities and welcoming positive developments.",
+     ["Gratitude practice", "Receiving", "Welcoming good fortune"]),
+]
+
+
+OIL_PAGES = {"protection-oil", "money-oil", "love-attraction-oil", "personalised-intention-oil"}
+
+
+def oil_card(slug, name, sub, desc, chips, priced=True) -> str:
+    price = ('₹799 <small>10 ml · ₹1,299 for 20 ml</small>' if priced
+             else 'From ₹1,499 <small>quoted after consultation</small>')
+    title = (f'<a href="/shop/ritual-oils/{slug}/">{name}</a>'
+             if slug in OIL_PAGES else name)
+    return f"""
+    <div class="cat-item" id="{slug}">
+      <h3>{title}</h3>
+      <span class="cat-sub">{sub}</span>
+      <p>{desc}</p>
+      <div class="chips">{''.join(f'<span class="chip">{c}</span>' for c in chips)}</div>
+      <div class="cat-foot">
+        <span class="cat-price">{price}</span>
+        {wa_btn("Order", name, "catalogue", "btn btn-gold btn-sm")}
+      </div>
+    </div>"""
+
+
+CRYSTAL_PAGES = {"pyrite-bracelet", "rose-quartz-bracelet"}
+
+
+def crystal_card(slug, name, desc, price) -> str:
+    title = (f'<a href="/shop/crystals/{slug}/">{name}</a>'
+             if slug in CRYSTAL_PAGES else name)
+    return f"""
+    <div class="cat-item" id="{slug}">
+      <h3>{title}</h3>
+      <p>{desc}</p>
+      <div class="cat-foot">
+        <span class="cat-price">₹{price}</span>
+        {wa_btn("Order", name, "catalogue", "btn btn-gold btn-sm")}
+      </div>
+    </div>"""
+
 
 OILS_FAQ = [
-    ("What's the difference between the oils?",
-     "Each is dressed for a different intention. Protection is for boundaries and grounding. Money is for financial "
-     "focus and opportunity. Love Attraction is for openness and self-worth. Negativity Removal is for clearing "
-     "before you begin anything else. If you're unsure, message me."),
-    ("How long does a 10ml bottle last?",
-     "With typical use — a drop or two at a time, a few times a week — roughly two to three months."),
-    ("Can I use more than one oil?",
-     "Yes, but not at the same time on the same area. Most people use one for daily practice and another for "
+    ("How do I choose between the oils?",
+     "By intention, not by strength. If something feels heavy and unnamed, start with Negativity Removal or "
+     "Aura Cleansing. Once it's clear, use Protection to hold the space. For money, career or love, pick the "
+     "oil that names the thing you're actually working on. If you're torn, message me — I'd rather point you "
+     "to one than sell you three."),
+    ("What sizes are the oils available in?",
+     "Every standard oil comes in 10 ml (₹799) and 20 ml (₹1,299). A 10 ml bottle lasts roughly two to three "
+     "months with regular use."),
+    ("Can I use more than one oil at a time?",
+     "Yes, but not on the same area at once. Most people keep one for daily practice and use another for "
      "specific ritual work."),
-    ("Are the oils edible?",
-     "No. External use only. Not for ingestion."),
-    ("Do you make a custom blend?",
-     "Yes — a personalised intention oil blended around your situation. It starts with a short conversation and is "
-     "priced from ₹1,499."),
+    ("Do you make custom blends?",
+     "Yes. The Personalised Intention Oil is blended around your situation after a short consultation — ₹799 "
+     "for 10 ml, ₹1,299 for 20 ml, or ₹1,499 for a full situation-based blend."),
+    ("Are these oils safe on skin?",
+     "They're for external ritual use — a drop on the wrists, pulse points, or to dress a candle. Patch-test "
+     "first. Not for ingestion, and keep away from eyes and broken skin."),
 ]
 
 OILS_BODY = page_hero(
     "Ritual Oils",
-    "Small-batch anointing oils, dressed for specific intentions. 10ml and 20ml. For personal ritual practice — "
-    "not magic, and not medicine.",
+    "Twenty intention-based oils, dressed for specific purposes. 10 ml ₹799 · 20 ml ₹1,299. Made in small "
+    "batches, shipped pan-India.",
     '<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
     '<span class="sep">/</span><a href="/shop/">Shop</a>'
     '<span class="sep">/</span><span aria-current="page">Ritual Oils</span></nav>',
-    badges=["From ₹799", "10ml &amp; 20ml", "Pan-India delivery", "Small batch"],
-    cta_service="Ritual Oils enquiry", cta_label="Ask about a product", cta_secondary_href="",
+    badges=["20 oils", "10 ml ₹799", "20 ml ₹1,299", "Pan-India delivery"],
+    cta_service="Ritual Oils enquiry", cta_label="Ask about an oil", cta_secondary_href="",
 ) + f"""
 {trust_bar()}
 
 <section class="section">
   <div class="wrap">
-    {section_head("The collection", "")}
-    <div class="grid grid-3">
-      {product_card("/shop/ritual-oils/protection-oil/", "Protection Oil", "₹799", "/images/products/protection-oil.webp")}
-      {product_card("/shop/ritual-oils/money-oil/", "Money Oil", "₹799", "/images/products/money-oil.webp")}
-      {product_card("/shop/ritual-oils/love-attraction-oil/", "Love Attraction Oil", "₹799", "/images/products/love-oil.webp")}
+    {section_head("The collection", "Each oil is dressed for one intention. Order any of them on WhatsApp — "
+                                    "or ask me which one fits.")}
+    <div class="catalogue">
+      {''.join(oil_card(*item) for item in OIL_ITEMS)}
     </div>
   </div>
 </section>
@@ -330,22 +449,37 @@ OILS_BODY = page_hero(
 
 <section class="section">
   <div class="wrap">
+    {section_head("Personalised blends", "For situations that don't fit a standard oil.")}
+    <div class="catalogue">
+      {oil_card(
+        "personalised-intention-oil",
+        "Personalised Intention Oil",
+        "Custom Blend",
+        "A custom intention blend built around your particular situation — relationships, career, confidence "
+        "or a new chapter. Intentions are selected after a short personal consultation.",
+        ["Chosen after consultation", "Blended to your situation", "10 ml or 20 ml"],
+        priced=False,
+      )}
+    </div>
+    <p class="small muted text-center mt-3">
+      Personalised Intention Oil — 10 ml ₹799 · 20 ml ₹1,299 · Situation-Based Ritual Oil ₹1,499
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
     <div class="prose" style="max-width:76ch">
-      <h2 style="margin-top:0">How to choose between them</h2>
-      <p>Most people don't need more than one to begin with. The useful question isn't "which oil is strongest" —
-         it's "what am I actually working on right now".</p>
-      <ul>
-        <li><strong>If something feels heavy and you can't name why</strong> — start with clearing, not protection.
-            Clearing first, then protecting, is the order that makes sense.</li>
-        <li><strong>If you're rebuilding after a setback</strong> — protection is for holding your energy steady
-            while you do that.</li>
-        <li><strong>If money is the focus</strong> — Money Oil is for directing attention at opportunity, not for
-            making money appear.</li>
-        <li><strong>If you're working on self-worth and openness</strong> — Love Attraction is about your own
-            capacity to receive, not about a specific person.</li>
-      </ul>
-      <p>If that still doesn't settle it, message me and describe the situation. I'd rather point you to the right
-         one than sell you three.</p>
+      <h2 style="margin-top:0">A note on how these are described</h2>
+      <p>Every oil here is an intention-based spiritual product for personal ritual practice. None of them is "
+         "claimed to produce a guaranteed outcome, and none is a substitute for medical care.</p>
+      <p><strong>Love Binding Oil</strong> in particular is offered for commitment, devotion and harmony within "
+         "an existing bond. It is not a means of influencing another person against their will, and I will "
+         "decline any request framed that way.</p>
+      <p>If you're working with a situation none of these names quite fit, the personalised blend exists for "
+         "exactly that.</p>
     </div>
   </div>
 </section>
@@ -359,18 +493,18 @@ OILS_BODY = page_hero(
   </div>
 </section>
 """ + disclaimer_box(PRODUCT_DISCLAIMER) + cta_block(
-    "Build a personalised oil",
-    "A custom blend around your specific situation, made after a short conversation. From ₹1,499.",
-    service="Personalised Intention Oil",
+    "Not sure which oil?",
+    "Tell me what you're working on. I'll recommend one — or tell you that a reading would serve you better.",
+    service="Ritual Oils enquiry",
 )
 
 OILS_CAT = Page(
     path="shop/ritual-oils/index.html",
     url="/shop/ritual-oils/",
-    title="Ritual Oils Online India | Protection, Money & Love | ₹799",
+    title="Ritual Oils Online India | 20 Intention Oils | From ₹799",
     description=(
-        "Small-batch intention-based ritual oils — protection, money and love attraction. 10ml and 20ml, shipped "
-        "pan-India. For personal spiritual practice only. From ₹799."
+        "Twenty intention-based ritual oils — protection, money, love, cleansing and more. 10 ml ₹799, 20 ml "
+        "₹1,299. Small batch, shipped pan-India."
     ),
     h1="Ritual Oils",
     body=OILS_BODY,
@@ -381,42 +515,70 @@ OILS_CAT = Page(
 )
 
 
-# ============================================================ CRYSTALS CATEGORY
+# ============================================================ CRYSTALS CATALOGUE
+
+CRYSTAL_ITEMS = [
+    ("pyrite-bracelet", "Pyrite Bracelet",
+     "Natural pyrite cube beads on elastic cord. Metallic gold facets that catch light — the most-worn piece "
+     "for work and business contexts.", "599"),
+    ("pyrite-anklet", "Pyrite Anklet",
+     "The same natural pyrite, strung as an anklet. Worn for grounding through the day.", "699"),
+    ("money-magnet-bracelet", "Money Magnet Bracelet",
+     "A mixed-stone piece built around abundance intentions — pyrite and citrine-toned stones.", "899"),
+    ("protection-bracelet", "Protection Bracelet",
+     "A grounding combination for boundary intentions. Worn when you need to feel less affected by other "
+     "people's energy.", "799"),
+    ("black-tourmaline-bracelet", "Black Tourmaline Bracelet",
+     "Matte black tourmaline beads. The simplest piece in the collection, and the one most people keep on "
+     "daily.", "699"),
+    ("tigers-eye-bracelet", "Tiger's Eye Bracelet",
+     "Golden-brown chatoyant stones. Worn for steadiness before something that requires nerve.", "599"),
+    ("tourmaline-tigers-eye-bracelet", "Black Tourmaline + Tiger's Eye",
+     "Two stones in one piece — grounding and steadiness together. A common pairing for work weeks.", "799"),
+    ("rose-quartz-bracelet", "Rose Quartz Bracelet",
+     "Polished rose quartz in soft translucent pink. Worn for self-worth and openness, not for attracting a "
+     "specific person.", "599"),
+    ("amethyst-bracelet", "Amethyst Bracelet",
+     "Violet amethyst beads, varied in translucency. Used in meditation and pre-reading rituals.", "699"),
+    ("seven-chakra-bracelet", "Seven Chakra Bracelet",
+     "Seven stones in one bracelet, one for each chakra. A broader piece for general practice.", "699"),
+    ("selenite-door-hanging", "Selenite + Black Tourmaline Door Hanging",
+     "A hanging piece for an entrance. Selenite with black tourmaline, on a natural cord.", "799"),
+    ("selenite-charging-plate", "Selenite Charging Plate",
+     "A flat selenite plate used to rest and cleanse other stones overnight.", "799"),
+]
 
 CRYSTALS_FAQ = [
     ("Are these natural stones?",
-     "Yes. Small natural variations in colour, inclusions and shape are normal and are part of what makes each "
-     "piece different. No two bracelets are identical."),
-    ("How do I choose a bracelet size?",
-     "The bracelets are elasticated and fit most adult wrists (roughly 16–19cm). If you need a specific size, "
-     "message before ordering and I'll check what's available."),
-    ("How do I cleanse a crystal?",
-     "Rinse in cool water and leave to dry in indirect light — or place on a selenite plate. Avoid prolonged "
-     "direct sunlight for amethyst and rose quartz, which can fade."),
+     "Yes. Colour, inclusions and shape vary from piece to piece — that's normal and is part of what makes each "
+     "one different. No two are identical."),
+    ("What size are the bracelets?",
+     "Elasticated, roughly 16–19 cm, which fits most adult wrists. Message before ordering if you need a "
+     "specific measurement."),
+    ("How do I cleanse a stone?",
+     "Cool water, pat dry, and rest it on a selenite plate or in indirect light. Avoid prolonged direct sun on "
+     "amethyst and rose quartz, which can fade."),
     ("Do crystals have healing properties?",
-     "They're used in spiritual practice for focus and intention. I won't claim they cure anything. If you're "
-     "dealing with a health issue, please see a doctor."),
-    ("Can I wear more than one bracelet?",
-     "Yes. Many people wear two — commonly one for grounding and one for intention."),
+     "They're used in spiritual practice for focus and intention. I won't claim they cure anything, and if "
+     "you're managing a health condition you should see a doctor."),
 ]
 
 CRYSTALS_BODY = page_hero(
     "Crystals &amp; Bracelets",
-    "Simple, natural stone pieces for wearing and grounding. Honestly described — no miracle claims.",
+    "Twelve natural stone pieces for wearing, grounding and cleansing. Honestly described — no miracle claims.",
     '<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
     '<span class="sep">/</span><a href="/shop/">Shop</a>'
     '<span class="sep">/</span><span aria-current="page">Crystals &amp; Bracelets</span></nav>',
-    badges=["From ₹599", "Natural stone", "Pan-India delivery", "Elasticated fit"],
-    cta_service="Crystal enquiry", cta_label="Ask about a product", cta_secondary_href="",
+    badges=["12 pieces", "From ₹599", "Natural stone", "Pan-India delivery"],
+    cta_service="Crystal enquiry", cta_label="Ask about a piece", cta_secondary_href="",
 ) + f"""
 {trust_bar()}
 
 <section class="section">
   <div class="wrap">
-    {section_head("The collection", "")}
-    <div class="grid grid-3">
-      {product_card("/shop/crystals/pyrite-bracelet/", "Pyrite Bracelet", "₹599", "/images/products/pyrite-bracelet.webp", "Crystal")}
-      {product_card("/shop/crystals/rose-quartz-bracelet/", "Rose Quartz Bracelet", "₹599", "/images/products/rose-quartz-bracelet.webp", "Crystal")}
+    {section_head("The collection", "Natural stone, simply described. Order on WhatsApp — or ask which one fits.")}
+    <div class="catalogue">
+      {''.join(crystal_card(*item) for item in CRYSTAL_ITEMS)}
     </div>
   </div>
 </section>
@@ -427,15 +589,16 @@ CRYSTALS_BODY = page_hero(
   <div class="wrap">
     <div class="prose" style="max-width:76ch">
       <h2 style="margin-top:0">A note on how crystals actually get used</h2>
-      <p>Crystals work best as physical reminders. A pyrite bracelet isn't going to change your bank balance — but
-         catching sight of it before a meeting can remind you to hold your nerve, and that is a real effect.</p>
-      <p>That framing matters, because it's honest. You'll find sellers promising that a stone will fix your
-         marriage or cure an illness. That isn't how this works, and I won't describe these products that way.</p>
+      <p>Crystals work best as physical reminders. A pyrite bracelet won't change your bank balance — but "
+         "catching sight of it before a meeting can remind you to hold your nerve, and that's a real effect.</p>
+      <p>That framing matters, because you'll find sellers promising a stone will fix a marriage or cure an "
+         "illness. That isn't how this works, and I won't describe these pieces that way.</p>
       <h3>Common pairings</h3>
       <ul>
-        <li><strong>Pyrite</strong> — worn during work and business contexts, for focus and confidence.</li>
-        <li><strong>Rose quartz</strong> — worn for self-worth and openness; commonly paired with a love reading.</li>
-        <li><strong>Black tourmaline</strong> — worn when you need to feel less affected by other people's energy.</li>
+        <li><strong>Pyrite</strong> — work and business contexts, for focus and confidence.</li>
+        <li><strong>Rose quartz</strong> — self-worth and openness; often paired with a love reading.</li>
+        <li><strong>Black tourmaline</strong> — when you need to feel less affected by other people's energy.</li>
+        <li><strong>Selenite</strong> — cleansing and resting other stones.</li>
       </ul>
     </div>
   </div>
@@ -453,17 +616,17 @@ CRYSTALS_BODY = page_hero(
     "Pair it with a reading",
     "Most clients buy a crystal to hold an intention set in a session. If that's what you're after, start with a "
     "reading and I'll suggest the right piece.",
-    service="Crystal & Reading Bundle",
+    service="Crystal &amp; Reading Bundle",
     secondary_label="See consultations",
 )
 
 CRYSTALS_CAT = Page(
     path="shop/crystals/index.html",
     url="/shop/crystals/",
-    title="Crystal Bracelets Online India | Pyrite & Rose Quartz | From ₹599",
+    title="Crystal Bracelets India | Pyrite, Quartz & More | ₹599",
     description=(
-        "Natural crystal bracelets from Tarot with Nisha — pyrite and rose quartz, honestly described for "
-        "spiritual practice. Pan-India delivery in 3–7 working days. From ₹599."
+        "Natural crystal bracelets and stones — pyrite, rose quartz, black tourmaline, amethyst, selenite. "
+        "Honestly described, shipped pan-India. From ₹599."
     ),
     h1="Crystals & Bracelets",
     body=CRYSTALS_BODY,
@@ -793,4 +956,70 @@ ROSE = product_page(
     category="Crystal Bracelet",
 )
 
-PRODUCTS = [PROTECTION, MONEY, LOVE_OIL, PYRITE, ROSE]
+PERSONALISED_FAQ = [
+    ("How does the custom blend work?",
+     "It starts with a short conversation about what you're working on. From that I choose the botanicals and "
+     "the intention the blend is dressed for, and tell you exactly what's in it and how to use it."),
+    ("How long does it take?",
+     "Three to five days, because the blend is made after the consultation rather than pulled off a shelf."),
+    ("What's the difference between the 10 ml, 20 ml and situation-based options?",
+     "Size, mostly. The situation-based blend (₹1,499) is a larger, more involved formulation for a complex "
+     "situation where more than one thing needs addressing."),
+    ("Can you blend for a specific person?",
+     "No. Blends are built around your own intention and practice, not for influencing someone else's choices."),
+]
+
+PERSONALISED = product_page(
+    path="shop/ritual-oils/personalised-intention-oil/index.html",
+    url="/shop/ritual-oils/personalised-intention-oil/",
+    name="Personalised Intention Oil",
+    meta_title="Personalised Intention Oil | Custom Ritual Blend | From ₹799",
+    meta_desc=(
+        "A custom intention oil blended around your situation after a short consultation. 10 ml ₹799, 20 ml "
+        "₹1,299, situation-based ₹1,499. Shipped pan-India."
+    ),
+    lede="A custom blend built around your particular situation — relationships, career, confidence or a new "
+         "chapter. Chosen after a short consultation, not picked from a shelf.",
+    price_main="799",
+    price_note="10 ml · 20 ml · situation-based",
+    variants=[("10 ml", "₹799"), ("20 ml", "₹1,299"), ("Situation-based blend", "₹1,499")],
+    img="/images/cat-oils.webp",
+    tag="Custom blend",
+    description_html="""
+      <p>Most people who ask for a custom blend have already tried a standard oil and found it almost right.
+         The situation has two or three strands to it, and no single intention covers all of them.</p>
+      <p>This is the oil for that. We start with a short conversation — what you're working on, what you've
+         already tried, and what you want the practice to actually do for you. From there I build the blend,
+         tell you what's in it, and explain how to use it.</p>
+      <h3>What you get</h3>
+      <ul>
+        <li>A blend chosen for your situation, not a generic intention</li>
+        <li>A written note on what's in it and why</li>
+        <li>Usage guidance — anointing, candle dressing, or both</li>
+        <li>Made in 3–5 days, then shipped</li>
+      </ul>
+      <p><strong>Options:</strong> 10 ml ₹799 · 20 ml ₹1,299 · situation-based blend ₹1,499.</p>
+    """,
+    howto_html="""
+      <p><strong>Before you start:</strong> patch-test on your inner wrist and wait an hour.</p>
+      <ol>
+        <li><strong>Read the note first.</strong> The blend is built around one intention — knowing what it is
+            makes the practice more deliberate.</li>
+        <li><strong>Anoint or dress a candle.</strong> A drop on each wrist, or a thin line down a candle away
+            from you.</li>
+        <li><strong>Name the intention.</strong> The oil is a cue. Naming what you're working toward is the part
+            that does the work.</li>
+      </ol>
+      <p>Store away from direct sunlight. External use only. Do not ingest.</p>
+    """,
+    faqs=PERSONALISED_FAQ,
+    related=[
+        ("/shop/ritual-oils/protection-oil/", "Protection Oil", "₹799", "/images/products/protection-oil.webp", "Ritual oil"),
+        ("/shop/ritual-oils/money-oil/", "Money Oil", "₹799", "/images/products/money-oil.webp", "Ritual oil"),
+        ("/shop/crystals/pyrite-bracelet/", "Pyrite Bracelet", "₹599", "/images/products/pyrite-bracelet.webp", "Crystal"),
+    ],
+    crumbs=[C, OILS, ("Personalised Intention Oil", "/shop/ritual-oils/personalised-intention-oil/")],
+    category="Ritual Oil",
+)
+
+PRODUCTS = [PROTECTION, MONEY, LOVE_OIL, PYRITE, ROSE, PERSONALISED]

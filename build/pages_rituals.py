@@ -5,7 +5,7 @@ from components import (
     cta_block, disclaimer_box, faq_block, page_hero, price_table, related_links,
     section_head, steps, trust_bar,
 )
-from layout import Page, breadcrumb_schema, faq_schema, service_schema, wa_btn
+from layout import Page, breadcrumb_schema, faq_schema, service_schema, wa, wa_btn
 from pages_tarot import service_page
 
 C = ("Consultations", "/consultations/")
@@ -100,7 +100,6 @@ KUNDALI_BODY = page_hero(
           ["Varshfal (Annual Horoscope)", ("Year ahead", "Themes, timing and areas needing attention"), "₹300"],
           ["Astrological Remedies &amp; Crystal Guidance", ("Guidance", "Simple practices where the chart supports them"), "₹500"],
           ["Vedic Kundali Analysis", ("Full chart", "Placements, houses, strengths, challenges"), "₹600"],
-          ["Kundali + Varshfal Bundle", ("Both", "The full chart plus the year ahead"), "₹799"],
         ],
         2,
       )}
@@ -168,20 +167,63 @@ KUNDALI = Page(
 
 # ============================================================ CANDLE RITUALS
 
-RITUAL_CATEGORIES = [
-    ("Healing &amp; Self-Worth", "For emotional recovery, self-acceptance, and moving through a difficult transition."),
-    ("Love &amp; Openness", "For opening to healthy connection and self-love. Never to influence a specific person."),
-    ("Relationship Harmony", "For communication, mutual understanding, and rebuilding trust where both people are willing."),
-    ("Money &amp; Abundance", "For financial intention-setting, business focus, and a less fearful relationship with money."),
-    ("Career, Recognition &amp; Success", "For visibility, interviews, promotion intentions, and creative work."),
-    ("Protection &amp; Boundaries", "For grounding, energetic boundaries, and a sense of personal security."),
-    ("Release &amp; Cleansing", "For letting go of what has ended, and creating a fresher atmosphere."),
-    ("Peace &amp; Emotional Balance", "For calm, resilience, and steadiness during a turbulent period."),
-    ("Confidence &amp; Personal Power", "For self-belief, courage, and preparing for something that matters."),
-    ("New Beginnings", "For transitions, fresh starts, and setting direction after a change."),
-    ("Home &amp; Household Peace", "For a calmer living environment and easier day-to-day interactions."),
-    ("Business &amp; Client Attraction", "For founders and practitioners setting intentions around growth and visibility."),
+SPELLS = [
+    ("A", "Healing &amp; Self-Love", "For self-worth, emotional healing, self-acceptance, inner peace, and "
+     "navigating difficult life transitions.", ["3", "5", "7", "21"]),
+    ("B", "Love Attraction", "For welcoming healthy romantic connection, opening to love, and setting "
+     "relationship intentions.", ["3", "5", "7", "21"]),
+    ("C", "Relationship Harmony &amp; Reconciliation", "For communication, mutual understanding, reconciliation, "
+     "and rebuilding trust where both people are willing.", ["5", "7", "21"]),
+    ("D", "Money Attraction &amp; Abundance", "For financial opportunity, prosperity intentions, business growth, "
+     "and a more abundant outlook.", ["3", "5", "7", "21"]),
+    ("E", "Career, Fame &amp; Success", "For professional visibility, recognition, interviews, promotion goals, "
+     "and creative success.", ["3", "5", "7", "21"]),
+    ("F", "Protection", "For spiritual protection intentions, grounding, personal boundaries, and a sense of "
+     "security.", ["3", "5", "7", "21"]),
+    ("G", "Negativity Release &amp; Cleansing", "For symbolic release, fresh beginnings, and letting go of "
+     "unwanted emotional or spiritual heaviness.", ["3", "5", "7"]),
+    ("H", "Business &amp; Client Attraction", "For entrepreneurs, creators and service providers focusing on "
+     "visibility, client engagement and growth.", ["5", "7", "21"]),
+    ("I", "Peace, Calm &amp; Emotional Balance", "For calm, resilience, emotional grounding, and peaceful "
+     "transitions.", ["3", "5", "7", "21"]),
+    ("J", "Luck &amp; Opportunity-Opening", "For fresh starts, confidence, favourable opportunities, and "
+     "goal-oriented intention-setting.", ["3", "5", "7", "21"]),
+    ("K", "Confidence &amp; Personal Power", "For self-belief, courage, assertiveness, and preparing for "
+     "important decisions or opportunities.", ["3", "5", "7"]),
 ]
+
+SPECIALISED = [
+    ("Evil Eye Release Ritual", "A cleansing-focused spiritual practice."),
+    ("Cord-Cutting &amp; Letting-Go Ritual", "For symbolic closure and moving forward."),
+    ("Commitment &amp; Relationship Harmony Ritual", "For mutual commitment and clarity."),
+    ("New Beginnings Ritual", "For transitions, fresh starts and personal goals."),
+    ("Obstacle-Overcoming Ritual", "For confidence and action toward a difficult goal."),
+    ("Recognition &amp; Public Visibility Ritual", "For creators, professionals and entrepreneurs."),
+    ("Home Peace &amp; Harmony Ritual", "For intentions around a calmer living environment."),
+    ("Personal Intention Candle Ritual", "A fully customised service for a specific concern."),
+]
+
+
+def _spell_card(code, name, desc, days):
+    chips = "".join('<span class="chip">' + d + ' days</span>' for d in days)
+    link = wa("the " + name.replace("&amp;", "&") + " ritual", "spell-" + code.lower())
+    return (
+        '<div class="cat-item" id="spell-' + code.lower() + '">'
+        "<h3>" + code + ". " + name + "</h3>"
+        "<p>" + desc + "</p>"
+        '<div class="chips">' + chips + "</div>"
+        '<div class="cat-foot">'
+        '<span class="cat-price">From ₹999</span>'
+        '<a class="btn btn-gold btn-sm" href="' + link + '" target="_blank" rel="noopener">Enquire</a>'
+        "</div></div>"
+    )
+
+
+SPELL_CARDS = "".join(_spell_card(*x) for x in SPELLS)
+SPECIALISED_CARDS = "".join(
+    '<div class="link-card" style="cursor:default"><strong>' + n + "</strong><span>" + d + "</span></div>"
+    for n, d in SPECIALISED
+)
 
 RITUAL_FAQ = [
     ("What actually happens during a candle ritual?",
@@ -281,16 +323,46 @@ RITUAL_BODY = page_hero(
 
 <section class="section">
   <div class="wrap">
-    {section_head("What rituals are available", "Every ritual is planned around your situation — these are the common focuses.")}
-    <div class="grid grid-2">
-      {''.join(f'''
-      <div class="link-card" style="cursor:default">
-        <strong>{t}</strong>
-        <span>{d}</span>
-      </div>''' for t, d in RITUAL_CATEGORIES)}
+    {section_head("Personalised &amp; custom ritual work", "For situations that need more than a standard duration.")}
+    <div style="max-width:820px;margin:0 auto">
+      {price_table(
+        ["Service", "What it covers", "Price"],
+        [
+          ["Personalised Spell Consultation", ("30 minutes", "We work out the intention and the right format"), "₹499"],
+          ["Custom 3-Day Spell", ("Personalised", "Prepared specifically for your situation"), "₹1,499"],
+          ["Custom 5-Day Spell", ("Personalised", "Extended preparation and daily work"), "₹2,499"],
+          ["Custom 7-Day Spell", ("Personalised", "A full week, written for your situation"), "₹3,499"],
+          ["Custom 21-Day Spell", ("Personalised", "Extended practice for deep or long-standing patterns"), "₹7,999"],
+          ["Two Spells", ("7 days each", "Two intentions worked in parallel"), "₹3,999"],
+          ["Three-Spell Package", ("7 days each", "Three intentions worked in parallel"), "₹5,499"],
+        ],
+        3,
+      )}
     </div>
     <p class="small muted text-center mt-3">
-      If your situation doesn't fit any of these, that's what the custom consultation is for.
+      These sit above the standard duration pricing — preparation is built around your situation rather than a
+      set format.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    {section_head("The ritual catalogue", "Eleven ritual intentions, worked over the durations each one suits.")}
+    <div class="catalogue">{SPELL_CARDS}</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    {section_head("Specialised rituals", "Named practices offered within the same duration pricing.")}
+    <div class="grid grid-2">{SPECIALISED_CARDS}</div>
+    <p class="small muted text-center mt-3">
+      If your situation doesn't fit any of these, the personalised consultation is the right starting point.
     </p>
   </div>
 </section>
