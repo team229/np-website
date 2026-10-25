@@ -215,6 +215,7 @@ SHOP_BODY = page_hero(
     '<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
     '<span class="sep">/</span><span aria-current="page">Shop</span></nav>',
     badges=["Pan-India delivery", "3–7 working days", "Small batch", "Intention-based"],
+    cta_service="Ritual Oils enquiry", cta_label="Ask about a product", cta_secondary_href="",
 ) + f"""
 {trust_bar()}
 
@@ -310,6 +311,7 @@ OILS_BODY = page_hero(
     '<span class="sep">/</span><a href="/shop/">Shop</a>'
     '<span class="sep">/</span><span aria-current="page">Ritual Oils</span></nav>',
     badges=["From ₹799", "10ml &amp; 20ml", "Pan-India delivery", "Small batch"],
+    cta_service="Ritual Oils enquiry", cta_label="Ask about a product", cta_secondary_href="",
 ) + f"""
 {trust_bar()}
 
@@ -405,6 +407,7 @@ CRYSTALS_BODY = page_hero(
     '<span class="sep">/</span><a href="/shop/">Shop</a>'
     '<span class="sep">/</span><span aria-current="page">Crystals &amp; Bracelets</span></nav>',
     badges=["From ₹599", "Natural stone", "Pan-India delivery", "Elasticated fit"],
+    cta_service="Crystal enquiry", cta_label="Ask about a product", cta_secondary_href="",
 ) + f"""
 {trust_bar()}
 

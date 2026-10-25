@@ -42,7 +42,9 @@ def service_page(
     from layout import breadcrumbs
     crumb_html = breadcrumbs(crumbs)
 
-    body = page_hero(h1, lede, crumb_html, badges=[f"From {price_from}", price_note])
+    body = page_hero(h1, lede, crumb_html,
+                     badges=[f"From {price_from}", price_note],
+                     cta_service=schema_name)
     body += f"""
 <section class="section">
   <div class="wrap">
@@ -81,7 +83,7 @@ def service_page(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "Confirmed before you pay. No add-ons afterwards.")}
     <div style="max-width:820px;margin:0 auto">
@@ -264,6 +266,7 @@ TAROT_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><span aria-current="page">Tarot Readings</span></nav>',
     badges=["From ₹599", "20–60 minutes", "Phone or video", "Hindi &amp; English"],
+    cta_service="Tarot Reading",
 ) + f"""
 {trust_bar()}
 
@@ -297,7 +300,7 @@ TAROT_BODY = page_hero(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "All readings include a written summary of the key points.")}
     <div style="max-width:820px;margin:0 auto">
@@ -410,6 +413,7 @@ LOVE_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/tarot-readings/">Tarot Readings</a>'
     '<span class="sep">/</span><span aria-current="page">Love &amp; Relationships</span></nav>',
     badges=["From ₹599", "20–45 minutes", "Hindi &amp; English", "100% confidential"],
+    cta_service="Love &amp; Relationship Tarot Reading",
 ) + f"""
 {trust_bar()}
 
@@ -458,7 +462,7 @@ LOVE_BODY = page_hero(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "Payment confirms your slot. Reschedule free with 4 hours' notice.")}
     <div style="max-width:820px;margin:0 auto">
@@ -567,6 +571,7 @@ CAREER_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/tarot-readings/">Tarot Readings</a>'
     '<span class="sep">/</span><span aria-current="page">Career &amp; Decisions</span></nav>',
     badges=["From ₹599", "20–45 minutes", "Hindi &amp; English", "Practical next steps"],
+    cta_service="Career &amp; Decision Tarot Reading",
 ) + f"""
 {trust_bar()}
 
@@ -621,7 +626,7 @@ CAREER_BODY = page_hero(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "Payment confirms your slot. Reschedule free with 4 hours' notice.")}
     <div style="max-width:820px;margin:0 auto">

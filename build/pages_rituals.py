@@ -42,6 +42,7 @@ KUNDALI_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><span aria-current="page">Vedic Kundali</span></nav>',
     badges=["From ₹300", "Delivered in 2–5 days", "Hindi &amp; English", "Plain-language report"],
+    cta_service="Vedic Kundali Analysis",
 ) + f"""
 {trust_bar()}
 
@@ -89,7 +90,7 @@ KUNDALI_BODY = page_hero(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "Reports are written, not read aloud from software.")}
     <div style="max-width:840px;margin:0 auto">
@@ -216,6 +217,7 @@ RITUAL_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><span aria-current="page">Candle Rituals</span></nav>',
     badges=["From ₹999", "3–21 days", "Consultation included", "Written summary"],
+    cta_service="Candle Ritual Consultation",
 ) + f"""
 {trust_bar()}
 
@@ -373,6 +375,7 @@ CUSTOM_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><span aria-current="page">Custom Consultation</span></nav>',
     badges=["Quoted after consultation", "60–90 minutes", "Hindi &amp; English", "No obligation"],
+    cta_service="Custom Consultation", cta_secondary_href="",
 ) + f"""
 {trust_bar()}
 

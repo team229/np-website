@@ -66,12 +66,26 @@ def hero(
 """
 
 
-def page_hero(h1: str, lede: str, crumbs: str = "", badges: list | None = None) -> str:
+def page_hero(h1: str, lede: str, crumbs: str = "", badges: list | None = None,
+              cta_service: str = "", cta_label: str = "Book on WhatsApp",
+              cta_placement: str = "page-hero",
+              cta_secondary_href: str = "#pricing") -> str:
     badge_html = ""
     if badges:
         badge_html = (
-            '<div class="hero-tags" style="justify-content:flex-start;margin-top:18px">'
+            '<div class="hero-tags" style="justify-content:flex-start;margin-top:16px">'
             + "".join(f'<span><i class="dot"></i>{b}</span>' for b in badges)
+            + "</div>"
+        )
+    cta_html = ""
+    if cta_service:
+        secondary = ""
+        if cta_secondary_href:
+            secondary = f'<a href="{cta_secondary_href}" class="btn btn-outline">See pricing</a>'
+        cta_html = (
+            '<div class="hero-ctas" style="justify-content:flex-start;margin-top:24px">'
+            + wa_btn(cta_label, cta_service, cta_placement)
+            + secondary
             + "</div>"
         )
     return f"""
@@ -81,6 +95,7 @@ def page_hero(h1: str, lede: str, crumbs: str = "", badges: list | None = None) 
     <h1 style="margin-top:14px">{h1}</h1>
     <p class="lede">{lede}</p>
     {badge_html}
+    {cta_html}
   </div>
 </section>
 """

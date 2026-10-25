@@ -44,6 +44,7 @@ CAT_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><span aria-current="page">Numerology</span></nav>',
     badges=["From ₹299", "Reports in 24–48 hours", "Hindi &amp; English", "Written, not generic"],
+    cta_service="Numerology Consultation",
 ) + f"""
 {trust_bar()}
 
@@ -285,6 +286,7 @@ HOUSE_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/numerology/">Numerology</a>'
     '<span class="sep">/</span><span aria-current="page">House &amp; Nameplate</span></nav>',
     badges=["From ₹399", "Report in 24–48 hours", "Hindi &amp; English", "Buying or renting"],
+    cta_service="House &amp; Nameplate Numerology",
 ) + f"""
 {trust_bar()}
 
@@ -317,7 +319,7 @@ HOUSE_BODY = page_hero(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "All reports delivered within 24–48 hours.")}
     <div style="max-width:820px;margin:0 auto">
@@ -417,6 +419,7 @@ VEHICLE_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/numerology/">Numerology</a>'
     '<span class="sep">/</span><span aria-current="page">Vehicle Numerology</span></nav>',
     badges=["From ₹299", "Delivered within 24 hours", "Hindi &amp; English", "Buying or existing"],
+    cta_service="Vehicle Number Numerology",
 ) + f"""
 {trust_bar()}
 
@@ -452,7 +455,7 @@ VEHICLE_BODY = page_hero(
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section" id="pricing">
   <div class="wrap">
     {section_head("Pricing", "Existing numbers within 24 hours. New-vehicle guidance the same day where possible.")}
     <div style="max-width:820px;margin:0 auto">
