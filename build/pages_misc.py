@@ -100,7 +100,7 @@ ABOUT_BODY = page_hero(
   <div class="wrap">
     <h2 style="font-size:28px;margin-bottom:24px">What I work with</h2>
     <div class="grid grid-4">
-      {service_card("/consultations/tarot-readings/", "Tarot", "Love, career and full readings.", "From ₹599", "/images/cat-tarot.webp")}
+      {service_card("/consultations/tarot-readings/", "Tarot", "Sessions, single questions and specialised readings.", "From ₹51", "/images/cat-tarot.webp")}
       {service_card("/consultations/numerology/", "Numerology", "Name, house, vehicle and marriage.", "From ₹299", "/images/cat-numerology.webp")}
       {service_card("/consultations/vedic-kundali/", "Vedic Kundali", "Birth chart and year ahead.", "From ₹300", "/images/cat-kundali.webp")}
       {service_card("/consultations/candle-rituals/", "Candle Rituals", "Intention-based ritual work.", "From ₹999", "/images/cat-candles.webp")}

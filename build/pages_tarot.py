@@ -5,7 +5,7 @@ from components import (
     cta_block, disclaimer_box, faq_block, page_hero, price_table, related_links,
     section_head, service_card, steps, trust_bar,
 )
-from layout import Page, breadcrumb_schema, faq_schema, service_schema, wa_btn
+from layout import Page, breadcrumb_schema, faq_schema, service_schema, wa, wa_btn
 
 
 def service_page(
@@ -167,8 +167,8 @@ HUB_BODY = page_hero(
     {section_head("Choose a discipline", "Not sure? Send your situation on WhatsApp and I'll recommend one.")}
     <div class="grid grid-2">
       {service_card("/consultations/tarot-readings/", "Tarot Readings",
-                    "Love, career and full readings. Best when you need a clear read on a specific situation.",
-                    "From ₹599", "/images/cat-tarot.webp")}
+                    "Sessions with unlimited questions, per-question voice notes, and specialised readings.",
+                    "From ₹51", "/images/cat-tarot.webp")}
       {service_card("/consultations/numerology/", "Numerology",
                     "Name, house, vehicle, marriage and baby-name analysis. Delivered as a written report.",
                     "From ₹299", "/images/cat-numerology.webp")}
@@ -236,64 +236,152 @@ HUB = Page(
 # ============================================================ TAROT CATEGORY
 
 TAROT_FAQ = [
-    ("Which tarot reading should I choose?",
-     "If you have one clear question, the single-question reading is enough. If the situation is tangled — "
-     "several people involved, or you keep going back and forth — book the 45-minute reading. The full "
-     "60-minute reading is for when you want the wider picture: work, relationships and direction together."),
-    ("Can tarot tell me if someone will come back?",
-     "It can show you where that person's position currently sits and what the dynamic looks like. It cannot "
-     "guarantee someone's future behaviour, and I won't pretend otherwise. What you'll get is a clear read of "
-     "the situation and a realistic view of your options."),
-    ("Do you need my birth details for a tarot reading?",
-     "No. Tarot only needs your question and a little context. Birth details are used for numerology and "
-     "kundali, which are separate services."),
-    ("Can I record the session?",
-     "Yes, you're welcome to record it for yourself. I'd ask that you don't publish it, since it contains "
-     "personal details."),
+    ("What does 'unlimited questions' actually mean?",
+     "It means you can bring as many questions as you can fit into your booked time. A 15-minute reading "
+     "usually covers one or two; a 60-minute reading often covers five or more. The limit is the clock, not a "
+     "question count."),
+    ("Should I book a session or a per-question reading?",
+     "If your situation has several strands, or you want to talk it through, book a session — you can react to "
+     "what comes up. If you have one specific question and just want the answer, the voice-note reading is "
+     "cheaper and faster."),
+    ("How are voice-note readings delivered?",
+     "As a voice note on WhatsApp, or a DM on Instagram if you prefer. You'll have it within 24–48 hours, "
+     "depending on how full the schedule is. You can reply with a follow-up question about the same reading."),
+    ("Do you read in Hindi?",
+     "Yes — Hindi, English, or a mix. Tell me when you book and the whole reading will be in that language."),
     ("What if I don't know what to ask?",
-     "That's common. Tell me what's been on your mind and I'll help you shape it into a question that will "
-     "actually produce something useful."),
-    ("Do you offer refunds?",
-     "Sessions are non-refundable once delivered. If something comes up, let me know at least 4 hours ahead "
-     "and we'll reschedule at no extra cost."),
+     "Very common. Send me a couple of lines about what's going on and I'll help you shape it into a question "
+     "that will actually produce something useful. That shaping is often half the value."),
+    ("Will you tell me exactly what's going to happen?",
+     "No. A reading shows where a situation stands, what you might be avoiding, and what your realistic options "
+     "are. It doesn't give you a guaranteed outcome, and I won't pretend otherwise."),
+    ("Can I get a refund if the reading doesn't resonate?",
+     "Readings are non-refundable once delivered. If something isn't landing, tell me — I'd rather understand "
+     "what went wrong than leave it. Rescheduling a live session is free with 4 hours' notice."),
+    ("Are the specialised readings different from a session?",
+     "They're focused readings on a defined theme — love, career, or personal guidance. Each has a set price "
+     "and can be delivered as a voice note or as a live session, whichever suits you."),
 ]
 
+
+def _spec_card(name, desc, price, slug):
+    link = wa(name, "tarot-" + slug)
+    return (
+        '<div class="cat-item" id="' + slug + '">'
+        "<h3>" + name + "</h3>"
+        "<p>" + desc + "</p>"
+        '<div class="cat-foot">'
+        '<span class="cat-price">₹' + price + "</span>"
+        '<a class="btn btn-gold btn-sm" href="' + link + '" target="_blank" rel="noopener"'
+        ' data-wa-service="' + name + '" data-wa-placement="tarot-' + slug + '">Book</a>'
+        "</div></div>"
+    )
+
+
+def _package_card(name, what, price, featured=False):
+    cls = "cat-item featured" if featured else "cat-item"
+    badge = ('<span class="cat-sub">Best value</span>' if featured
+             else '<span class="cat-sub">Package</span>')
+    link = wa("the " + name + " tarot package", "tarot-package")
+    return "".join([
+        '<div class="' + cls + '">',
+        "<h3>" + name + "</h3>",
+        badge,
+        "<p>" + what + "</p>",
+        '<div class="cat-foot">',
+        '<span class="cat-price">₹' + price + "</span>",
+        '<a class="btn btn-gold btn-sm" href="' + link + '" target="_blank" rel="noopener"'
+        ' data-wa-service="' + name + ' package" data-wa-placement="tarot-package">Book</a>',
+        "</div></div>",
+    ])
+
+
+SPEC_LOVE = "".join([
+    _spec_card("Love &amp; Relationship Reading",
+               "A focused read on where the relationship currently stands and what you're actually dealing with.",
+               "251", "love-relationship"),
+    _spec_card("Their Thoughts, Feelings &amp; Intentions",
+               "What the other person is likely carrying — their position, not a promise about their behaviour.",
+               "251", "their-thoughts"),
+    _spec_card("No Contact &amp; Reconciliation Guidance",
+               "For the silence after a break — whether to reach out, how to hold the distance, and what to expect.",
+               "351", "no-contact"),
+    _spec_card("Relationship Clarity Reading",
+               "A deeper 45-minute look at a tangled situation: several people, mixed signals, or a decision you keep circling.",
+               "501", "relationship-clarity"),
+    _spec_card("Detailed Love Life Reading",
+               "The full picture — patterns across past relationships, what keeps repeating, and what to do differently.",
+               "701", "detailed-love-life"),
+])
+
+SPEC_CAREER = "".join([
+    _spec_card("Career Guidance Reading",
+               "Where your career currently stands and what's actually holding the next step back.",
+               "251", "career-guidance"),
+    _spec_card("Job Change &amp; New Opportunities",
+               "For the offer in hand or the move you keep postponing — trade-offs, timing, and what to check.",
+               "351", "job-change"),
+    _spec_card("Money &amp; Abundance Guidance",
+               "For financial blocks, scarcity thinking, and decisions about money you've been avoiding.",
+               "351", "money-abundance"),
+    _spec_card("Career and Financial Clarity Session",
+               "A 45-minute session covering work and money together, since they're rarely separate problems.",
+               "501", "career-financial-clarity"),
+])
+
+SPEC_PERSONAL = "".join([
+    _spec_card("Yes/No Tarot Reading",
+               "One direct question, one direct answer, with a short note on what's shaping it. Per question.",
+               "51", "yes-no"),
+    _spec_card("Current Energy Reading",
+               "What you're currently carrying — yours, and what you've picked up from other people.",
+               "251", "current-energy"),
+    _spec_card("General Life Guidance",
+               "An open reading for when something feels off but you can't name it yet.",
+               "351", "general-life"),
+    _spec_card("Blockages &amp; Personal Growth Reading",
+               "What keeps stopping you at the same point, and what it would take to move past it.",
+               "501", "blockages"),
+    _spec_card("Detailed Life Guidance Session",
+               "A 60-minute session across several areas — work, relationships, direction — for a fuller picture.",
+               "701", "detailed-life"),
+])
+
+PACKAGE_CARDS = "".join([
+    _package_card("Quick Clarity", "5 questions answered by voice note, delivered within 24–48 hours.", "251"),
+    _package_card("Love Clarity", "A 30-minute personalised session, focused on one relationship situation.", "501"),
+    _package_card("Life Guidance", "A 45-minute session covering multiple concerns at once.", "701"),
+    _package_card("Complete Clarity", "A full 60-minute personalised session — the most time, the widest picture.", "951", featured=True),
+])
+
 TAROT_BODY = page_hero(
-    "Tarot Readings",
-    "A private, grounded reading about one situation — love, career, family or a decision you're sitting with. "
-    "No theatrics, no fear-selling, no guarantees I can't keep.",
+    "Online Tarot Readings",
+    "Book a live session with unlimited questions from ₹251, or a single question answered by voice note from "
+    "₹51. Hindi or English, anywhere in India.",
     '<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><span aria-current="page">Tarot Readings</span></nav>',
-    badges=["From ₹599", "20–60 minutes", "Phone or video", "Hindi &amp; English"],
+    badges=["From ₹51", "Phone, video or voice note", "Hindi &amp; English", "24–48h delivery"],
     cta_service="Tarot Reading",
 ) + f"""
 {trust_bar()}
 
 <section class="section">
   <div class="wrap">
-    <div class="split split-wide-left" style="align-items:start">
-      <div class="prose">
-        <h2 style="margin-top:0">What a tarot reading actually does</h2>
-        <p>Tarot doesn't hand you a fixed future. It reads the dynamics of a situation as they stand right now —
-           where the energy is stuck, what's being avoided, what the other people involved are likely carrying,
-           and what your realistic options look like.</p>
-        <p>In practice, that means you leave the session knowing three things: what's actually going on,
-           what you've been reluctant to look at, and what to do next. Most clients say the useful part wasn't
-           a prediction — it was hearing something out loud that they already half-knew.</p>
-
-        <h2>Choose by situation</h2>
+    {section_head("Two ways to read", "Pick by how much you need to say, not by how much you want to spend.")}
+    <div class="grid grid-2">
+      <div class="link-card" style="cursor:default;padding:24px">
+        <strong style="font-size:18px">Live session — unlimited questions</strong>
+        <span style="margin-top:8px">15 to 60 minutes on a phone or video call. Bring as many questions as fit in
+          the time, and follow the conversation where it goes.</span>
+        <span style="margin-top:12px;color:var(--gold-bright);font-size:14px">From ₹251 · 15–60 minutes</span>
       </div>
-      <div class="split-img" style="background-image:url('/images/cat-tarot.webp')"></div>
-    </div>
-
-    <div class="grid grid-2 mt-4">
-      {service_card("/consultations/tarot-readings/love/", "Love &amp; Relationship Tarot",
-                    "Breakups, confusion, marriage pressure, and the question of whether to stay or let go.",
-                    "From ₹599", "", "See this reading")}
-      {service_card("/consultations/tarot-readings/career/", "Career &amp; Decision Tarot",
-                    "Job switches, offers, layoffs, interviews, business decisions and workplace stress.",
-                    "From ₹599", "", "See this reading")}
+      <div class="link-card" style="cursor:default;padding:24px">
+        <strong style="font-size:18px">Per question — voice note</strong>
+        <span style="margin-top:8px">One, two or five specific questions, answered in a voice note on WhatsApp or
+          Instagram. No scheduling needed.</span>
+        <span style="margin-top:12px;color:var(--gold-bright);font-size:14px">From ₹51 · delivered in 24–48 hours</span>
+      </div>
     </div>
   </div>
 </section>
@@ -302,20 +390,25 @@ TAROT_BODY = page_hero(
 
 <section class="section" id="pricing">
   <div class="wrap">
-    {section_head("Pricing", "All readings include a written summary of the key points.")}
+    {section_head("Personal readings — unlimited questions", "You are booking time, not a question count. "
+                  "Use it however you need.")}
     <div style="max-width:820px;margin:0 auto">
       {price_table(
-        ["Reading", "What it covers", "Price"],
+        ["Session", "Best for", "Price"],
         [
-          ["Single Question", ("20 minutes · one focused question", "Best for a clear yes/no situation"), "₹599"],
-          ["Focused Reading", ("45 minutes · one area of life", "Love, career, family or direction"), "₹1,299"],
-          ["Full Reading", ("60 minutes · the wider picture", "Work, relationships and personal direction"), "₹1,499"],
-          ["Love Clarity Bundle", ("45-min love reading + Rose Quartz bracelet", "Shipped pan-India"), "₹1,799"],
-          ["Career Clarity Bundle", ("45-min career reading + Money Oil 10ml", "Shipped pan-India"), "₹1,899"],
+          ["15-Minute Reading", ("One or two questions", "A quick, focused read"), "₹251"],
+          ["30-Minute Reading", ("One situation in depth", "The most commonly booked length — most chosen"), "₹501"],
+          ["45-Minute Reading", ("Several connected questions", "When the situation has more than one strand"), "₹701"],
+          ["60-Minute Reading", ("The full picture", "Work, relationships and direction together"), "₹951"],
         ],
         1,
       )}
     </div>
+    <p class="small muted text-center mt-3">
+      Phone call or online consultation. “Unlimited questions” means questions asked within your booked session
+      time. Includes personalised guidance, follow-ups related to your concerns, and room to explore different
+      aspects of the situation.
+    </p>
   </div>
 </section>
 
@@ -323,11 +416,64 @@ TAROT_BODY = page_hero(
 
 <section class="section">
   <div class="wrap">
-    {section_head("How it works", "")}
+    {section_head("Per-question readings", "For a quick answer on one situation, without booking a session.")}
+    <div style="max-width:820px;margin:0 auto">
+      {price_table(
+        ["Reading", "Format", "Price"],
+        [
+          ["1 Question", ("Voice note", "One question, one focused interpretation"), "₹51"],
+          ["2 Questions", ("Voice note", "Two questions answered separately"), "₹101"],
+          ["5 Questions", ("Voice note", "Five questions — the best value per question"), "₹251"],
+        ],
+        2,
+      )}
+    </div>
+    <p class="small muted text-center mt-3">
+      Delivered as a voice note on WhatsApp or Instagram DM within 24–48 hours, subject to availability. Each
+      question gets its own personalised interpretation and guidance.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    {section_head("Specialised readings", "Focused readings on a defined theme. Available as a voice note or a "
+                  "live session, whichever suits you.")}
+
+    <h3 style="font-size:22px;margin:8px 0 16px">Love &amp; Relationships</h3>
+    <div class="catalogue">{SPEC_LOVE}</div>
+
+    <h3 style="font-size:22px;margin:44px 0 16px">Career &amp; Finance</h3>
+    <div class="catalogue">{SPEC_CAREER}</div>
+
+    <h3 style="font-size:22px;margin:44px 0 16px">Personal &amp; Spiritual Guidance</h3>
+    <div class="catalogue">{SPEC_PERSONAL}</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    {section_head("Packages", "Bundled readings at a set price, when you already know what you want.")}
+    <div class="catalogue">{PACKAGE_CARDS}</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    {section_head("How it works", "Three steps, whichever format you choose.")}
     {steps([
-      ("01", "Send your question", "One or two lines on WhatsApp. I'll tell you which reading length fits."),
-      ("02", "Confirm and pay", "Pick a slot, pay to confirm. You'll get the joining details immediately."),
-      ("03", "Have the reading", "A private call or video. You'll get a written summary afterwards."),
+      ("01", "Message your question", "One or two lines on WhatsApp. I'll tell you whether a session or a voice "
+             "note fits better."),
+      ("02", "Pay and confirm", "Payment confirms the booking — then we set a time, or I set to work on the "
+             "voice note."),
+      ("03", "Have the reading", "A private call or video, or a voice note within 24–48 hours. Either way you "
+             "get something concrete to act on."),
     ])}
   </div>
 </section>
@@ -336,37 +482,59 @@ TAROT_BODY = page_hero(
 
 <section class="section">
   <div class="wrap">
-    {section_head("Before you book", "")}
+    <div class="prose" style="max-width:74ch">
+      <h2 style="margin-top:0">What a tarot reading will and won't do</h2>
+      <p>It will show you where a situation actually stands, what you've been avoiding looking at, and what your
+         realistic options are. Most people leave knowing something they already half-knew, said out loud for
+         the first time.</p>
+      <p>It won't give you a guaranteed outcome. It won't tell you what another person will definitely do, and it
+         won't replace a lawyer, a doctor or a financial adviser. If a reading isn't the right tool for what
+         you're facing, I'll say so rather than take the booking.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
+    {section_head("Questions before you book", "")}
     {faq_block(TAROT_FAQ)}
   </div>
 </section>
 """ + related_links("Related", [
-    ("/consultations/numerology/", "Numerology", "Numbers-based analysis delivered as a report"),
-    ("/consultations/vedic-kundali/", "Vedic Kundali", "Birth chart and year-ahead reading"),
+    ("/consultations/tarot-readings/love/", "Love & Relationship Tarot", "For a relationship situation in depth"),
+    ("/consultations/tarot-readings/career/", "Career & Decision Tarot", "For a job change or business decision"),
+    ("/consultations/numerology/", "Numerology", "Numbers-based analysis, delivered as a report"),
     ("/consultations/candle-rituals/", "Candle Rituals", "Intention-based ritual work"),
 ]) + cta_block(
-    "Book a tarot reading",
-    "Tell me what's going on. I'll recommend the right length and confirm the next available slot.",
+    "Not sure which reading fits?",
+    "Send a couple of lines about your situation. I'll point you to the right format — and tell you if the "
+    "cheaper option would serve you just as well.",
     service="Tarot Reading",
 )
 
 TAROT = Page(
     path="consultations/tarot-readings/index.html",
     url="/consultations/tarot-readings/",
-    title="Online Tarot Reading India | Love & Career | From ₹599",
+    title="Online Tarot Reading India | From ₹51 | Sessions & Questions",
     description=(
-        "Book a private online tarot reading with Nisha Pathak. Love, career and full readings by phone or "
-        "video, in Hindi or English, anywhere in India. 20–60 minutes. From ₹599."
+        "Private online tarot readings with Nisha Pathak. Live sessions with unlimited questions from ₹251, or a "
+        "single question by voice note from ₹51. Hindi & English, pan-India."
     ),
-    h1="Tarot Readings",
+    h1="Online Tarot Readings",
     body=TAROT_BODY,
     nav="consultations",
     crumbs=[("Consultations", "/consultations/"), ("Tarot Readings", "/consultations/tarot-readings/")],
     og_image="/images/cat-tarot.webp",
     schema=[
-        service_schema("Tarot Reading", "Private online tarot reading by phone or video, focused on love, career or general life direction.", "/consultations/tarot-readings/", price_low="599", category="Tarot Consultation"),
+        service_schema("Tarot Reading",
+                       "Online tarot readings — live sessions with unlimited questions, per-question voice-note "
+                       "readings, and specialised love, career and personal guidance readings.",
+                       "/consultations/tarot-readings/", price_low="51", category="Tarot Consultation"),
         faq_schema(TAROT_FAQ),
-        breadcrumb_schema([("Consultations", "/consultations/"), ("Tarot Readings", "/consultations/tarot-readings/")]),
+        breadcrumb_schema([("Consultations", "/consultations/"),
+                           ("Tarot Readings", "/consultations/tarot-readings/")]),
     ],
 )
 
@@ -412,7 +580,7 @@ LOVE_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><a href="/consultations/tarot-readings/">Tarot Readings</a>'
     '<span class="sep">/</span><span aria-current="page">Love &amp; Relationships</span></nav>',
-    badges=["From ₹599", "20–45 minutes", "Hindi &amp; English", "100% confidential"],
+    badges=["From ₹251", "Voice note or live session", "Hindi &amp; English", "Confidential"],
     cta_service="Love &amp; Relationship Tarot Reading",
 ) + f"""
 {trust_bar()}
@@ -469,11 +637,13 @@ LOVE_BODY = page_hero(
       {price_table(
         ["Reading", "What it covers", "Price"],
         [
-          ["Single Question", ("20 minutes", "One specific question about one person or situation"), "₹599"],
-          ["Love &amp; Relationship Reading", ("45 minutes", "The full dynamic, plus next steps — most booked"), "₹1,299"],
-          ["Love Clarity Bundle", ("45-min reading + Rose Quartz bracelet", "Bracelet shipped pan-India"), "₹1,799"],
+          ["Love &amp; Relationship Reading", ("Focused read", "Where the relationship currently stands"), "₹251"],
+          ["Their Thoughts, Feelings &amp; Intentions", ("Focused read", "Their position — not a promise about their behaviour"), "₹251"],
+          ["No Contact &amp; Reconciliation Guidance", ("Guidance", "Whether to reach out, how to hold the distance"), "₹351"],
+          ["Relationship Clarity Reading", ("45 minutes", "For a tangled situation — most booked"), "₹501"],
+          ["Detailed Love Life Reading", ("60 minutes", "Patterns across relationships, and what to change"), "₹701"],
         ],
-        1,
+        3,
       )}
     </div>
   </div>
@@ -513,10 +683,10 @@ LOVE_BODY = page_hero(
 LOVE = Page(
     path="consultations/tarot-readings/love/index.html",
     url="/consultations/tarot-readings/love/",
-    title="Love Tarot Reading India | Relationship Clarity | ₹599",
+    title="Love Tarot Reading India | From ₹251 | Tarot with Nisha",
     description=(
         "Private online love tarot reading with Nisha Pathak. Breakups, confusion and marriage pressure. Honest "
-        "clarity, no false hope. Hindi & English. From ₹599."
+        "clarity, no false hope. Hindi & English. From ₹251."
     ),
     h1="Online Love & Relationship Tarot Reading",
     body=LOVE_BODY,
@@ -570,7 +740,7 @@ CAREER_BODY = page_hero(
     '<span class="sep">/</span><a href="/consultations/">Consultations</a>'
     '<span class="sep">/</span><a href="/consultations/tarot-readings/">Tarot Readings</a>'
     '<span class="sep">/</span><span aria-current="page">Career &amp; Decisions</span></nav>',
-    badges=["From ₹599", "20–45 minutes", "Hindi &amp; English", "Practical next steps"],
+    badges=["From ₹251", "Voice note or live session", "Hindi &amp; English", "Practical next steps"],
     cta_service="Career &amp; Decision Tarot Reading",
 ) + f"""
 {trust_bar()}
@@ -633,11 +803,12 @@ CAREER_BODY = page_hero(
       {price_table(
         ["Reading", "What it covers", "Price"],
         [
-          ["Single Question", ("20 minutes", "One decision — offer, resignation, interview"), "₹599"],
-          ["Career &amp; Decision Reading", ("45 minutes", "Full situation, trade-offs and next steps"), "₹1,299"],
-          ["Career Clarity Bundle", ("45-min reading + Money Oil 10ml", "Oil shipped pan-India"), "₹1,899"],
+          ["Career Guidance Reading", ("Focused read", "Where your career stands and what's holding it back"), "₹251"],
+          ["Job Change &amp; New Opportunities", ("Guidance", "Trade-offs, timing and what to check"), "₹351"],
+          ["Money &amp; Abundance Guidance", ("Guidance", "Financial blocks and money decisions"), "₹351"],
+          ["Career and Financial Clarity Session", ("45 minutes", "Work and money together — most booked"), "₹501"],
         ],
-        1,
+        3,
       )}
     </div>
   </div>
@@ -677,10 +848,10 @@ CAREER_BODY = page_hero(
 CAREER = Page(
     path="consultations/tarot-readings/career/index.html",
     url="/consultations/tarot-readings/career/",
-    title="Career Tarot Reading India | Job & Business | ₹599",
+    title="Career Tarot Reading India | From ₹251 | Job Decisions",
     description=(
         "Private online career tarot reading with Nisha Pathak. Job switches, offers, layoffs and interviews. "
-        "Hindi & English, pan-India. From ₹599."
+        "Hindi & English, pan-India. From ₹251."
     ),
     h1="Online Career & Decision Tarot Reading",
     body=CAREER_BODY,

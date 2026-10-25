@@ -76,7 +76,7 @@ class Page:
 # ---------------------------------------------------------------- navigation
 
 CONSULTATIONS = [
-    ("/consultations/tarot-readings/", "Tarot Readings", "Love, career and full readings"),
+    ("/consultations/tarot-readings/", "Tarot Readings", "Sessions, questions & specialised"),
     ("/consultations/numerology/", "Numerology", "Name, house, vehicle, marriage"),
     ("/consultations/vedic-kundali/", "Vedic Kundali & Varshfal", "Birth chart and annual reading"),
     ("/consultations/candle-rituals/", "Candle Rituals", "Intention-based ritual work"),

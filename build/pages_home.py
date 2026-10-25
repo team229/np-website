@@ -30,8 +30,8 @@ FAQ = [
      "Yes. Readings are available in Hindi, English or a mix of both. Tell me which you'd prefer when "
      "you book and the whole session will be in that language."),
     ("How much does a reading cost?",
-     "A single-question tarot reading starts at ₹599. A focused 45-minute reading is ₹1,299 and a full "
-     "60-minute reading is ₹1,499. Numerology reports start at ₹299, kundali analysis is ₹600, and "
+     "A single tarot question by voice note starts at ₹51, and a live session with unlimited questions starts "
+     "at ₹251 for 15 minutes. Numerology reports start at ₹299, kundali analysis is ₹600, and "
      "intention-based candle rituals start at ₹999. Exact pricing is always confirmed before you pay."),
     ("How soon can I get an appointment?",
      "Most weeks there are slots within 2–3 days. Message on WhatsApp with your situation and preferred "
@@ -78,8 +78,8 @@ BODY = (
     {section_head("Consultations", "Four disciplines, one private conversation. Every session is built around your question.")}
     <div class="grid grid-4">
       {service_card("/consultations/tarot-readings/", "Tarot Readings",
-                    "Love, career, and full readings. A grounded look at where things stand and what to do next.",
-                    "From ₹599", "/images/cat-tarot.webp")}
+                    "Sessions with unlimited questions, per-question voice notes, and specialised love or career readings.",
+                    "From ₹51", "/images/cat-tarot.webp")}
       {service_card("/consultations/numerology/", "Numerology",
                     "Name, house, vehicle, marriage and baby-name numerology — reports delivered in 24–48 hours.",
                     "From ₹299", "/images/cat-numerology.webp")}
