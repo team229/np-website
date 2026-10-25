@@ -4,21 +4,24 @@
    ============================================================ */
 
 :root {
-  --ink: #120a1e;
-  --ink-2: #1c1129;
-  --ink-3: #241734;
-  --ink-4: #2e1e42;
-  --gold: #c9a15a;
-  --gold-bright: #e8c878;
-  --gold-dim: rgba(201, 161, 90, 0.28);
-  --rose: #a8425a;
-  --rose-deep: #7c2f42;
-  --parchment: #f1e7d6;
+  /* Lifted from near-black to a readable deep aubergine */
+  --ink: #241b3a;
+  --ink-rgb: 36, 27, 58;
+  --ink-2: #2e2447;
+  --ink-3: #382c55;
+  --ink-4: #433663;
+  --gold: #dbb46e;
+  --gold-bright: #f2d79a;
+  --gold-dim: rgba(219, 180, 110, 0.32);
+  --rose: #b8495f;
+  --rose-deep: #8a3548;
+  --parchment: #f9f2e6;
   --parchment-2: #faf6ee;
-  --muted: #b6a8c7;
-  --muted-dark: #6b6357;
-  --line: rgba(201, 161, 90, 0.28);
-  --line-soft: rgba(241, 231, 214, 0.1);
+  --muted: #d8cfe8;
+  --muted-soft: #c3b8d8;
+  --muted-dark: #4a4152;
+  --line: rgba(219, 180, 110, 0.34);
+  --line-soft: rgba(249, 242, 230, 0.14);
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   --maxw: 1140px;
   --maxw-narrow: 780px;
@@ -37,7 +40,8 @@ body {
   color: var(--parchment);
   font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.66;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -64,12 +68,12 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(1.5px 1.5px at 20% 30%, rgba(241, 231, 214, 0.35) 0, transparent 60%),
-    radial-gradient(1.5px 1.5px at 75% 15%, rgba(241, 231, 214, 0.28) 0, transparent 60%),
-    radial-gradient(1px 1px at 60% 70%, rgba(241, 231, 214, 0.3) 0, transparent 60%),
-    radial-gradient(1.5px 1.5px at 85% 80%, rgba(241, 231, 214, 0.22) 0, transparent 60%),
-    radial-gradient(1px 1px at 10% 85%, rgba(241, 231, 214, 0.25) 0, transparent 60%),
-    radial-gradient(1.5px 1.5px at 40% 55%, rgba(241, 231, 214, 0.18) 0, transparent 60%);
+    radial-gradient(1.5px 1.5px at 20% 30%, rgba(249, 242, 230, 0.26) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 75% 15%, rgba(249, 242, 230, 0.20) 0, transparent 60%),
+    radial-gradient(1px 1px at 60% 70%, rgba(249, 242, 230, 0.22) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 85% 80%, rgba(249, 242, 230, 0.16) 0, transparent 60%),
+    radial-gradient(1px 1px at 10% 85%, rgba(249, 242, 230, 0.18) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 55%, rgba(249, 242, 230, 0.13) 0, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -100,7 +104,7 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 80;
-  background: rgba(18, 10, 30, 0.94);
+  background: rgba(var(--ink-rgb), 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -184,11 +188,11 @@ header.site-header {
   top: calc(100% + 6px);
   left: 0;
   min-width: 268px;
-  background: #170e24;
+  background: #33274f;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 8px;
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -213,7 +217,7 @@ header.site-header {
 .dropdown a small {
   display: block;
   font-size: 11.5px;
-  color: rgba(182, 168, 199, 0.62);
+  color: var(--muted-soft);
   margin-top: 1px;
 }
 .dropdown .dd-rule {
@@ -329,14 +333,14 @@ header.site-header {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18, 10, 30, 0.72) 0%, rgba(18, 10, 30, 0.86) 60%, var(--ink) 100%);
+  background: linear-gradient(180deg, rgba(var(--ink-rgb), 0.70) 0%, rgba(var(--ink-rgb), 0.88) 60%, var(--ink) 100%);
   z-index: 0;
 }
 .hero .wrap { position: relative; z-index: 1; }
 
 .hero-panel {
   display: inline-block;
-  background: rgba(18, 10, 30, 0.55);
+  background: rgba(var(--ink-rgb), 0.60);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(201, 161, 90, 0.3);
@@ -378,7 +382,7 @@ header.site-header {
   max-width: 56ch;
   margin: 18px auto 0;
   color: var(--muted);
-  font-size: 15.5px;
+  font-size: 16.5px;
 }
 .hero-ctas {
   display: flex;
@@ -409,7 +413,7 @@ header.site-header {
 .page-hero {
   padding: 46px 20px 42px;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(36, 23, 52, 0.6), transparent);
+  background: linear-gradient(180deg, rgba(56, 44, 85, 0.55), transparent);
 }
 .page-hero .wrap { max-width: var(--maxw); }
 .page-hero h1 {
@@ -423,7 +427,7 @@ header.site-header {
 }
 .page-hero p.lede {
   color: var(--muted);
-  font-size: 16px;
+  font-size: 16.5px;
   max-width: 62ch;
   margin: 0;
 }
@@ -433,16 +437,16 @@ header.site-header {
    ============================================================ */
 .breadcrumbs {
   font-size: 12.5px;
-  color: rgba(182, 168, 199, 0.7);
+  color: var(--muted-soft);
   padding: 12px 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   align-items: center;
 }
-.breadcrumbs a { color: rgba(182, 168, 199, 0.8); text-decoration: none; }
+.breadcrumbs a { color: var(--muted); text-decoration: none; }
 .breadcrumbs a:hover { color: var(--gold-bright); }
-.breadcrumbs .sep { opacity: 0.45; }
+.breadcrumbs .sep { color: var(--muted-soft); opacity: 0.8; }
 .breadcrumbs [aria-current] { color: var(--gold); }
 
 /* ============================================================
@@ -485,7 +489,7 @@ header.site-header {
   color: #2a2135;
 }
 .section-light h2, .section-light h3, .section-light h4 { color: #120a1e; }
-.section-light p, .section-light li { color: #4a4152; }
+.section-light p, .section-light li { color: #3f3648; }
 .section-light .lede { color: #5a5063; }
 
 .sec-head { max-width: 660px; margin: 0 auto 40px; text-align: center; }
@@ -544,7 +548,7 @@ header.site-header {
   margin-bottom: 8px;
   line-height: 1.2;
 }
-.card-body p { color: var(--muted); font-size: 14px; margin: 0 0 14px; flex: 1; }
+.card-body p { color: var(--muted); font-size: 14.5px; margin: 0 0 14px; flex: 1; }
 .card-price {
   color: var(--gold-bright);
   font-size: 13.5px;
@@ -584,10 +588,10 @@ header.site-header {
   margin: 38px 0 12px;
 }
 .prose h3 { font-size: 21px; margin: 28px 0 10px; }
-.prose p { margin: 0 0 16px; font-size: 15.5px; color: var(--muted); }
+.prose p { margin: 0 0 17px; font-size: 16.5px; color: var(--muted); }
 .section-light .prose p { color: #4a4152; }
 .prose ul, .prose ol { margin: 0 0 18px; padding-left: 22px; }
-.prose li { margin-bottom: 8px; font-size: 15.5px; color: var(--muted); }
+.prose li { margin-bottom: 9px; font-size: 16.5px; color: var(--muted); }
 .section-light .prose li { color: #4a4152; }
 .prose a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
 .section-light .prose a { color: #7a4d9e; }
@@ -610,7 +614,7 @@ header.site-header {
 .checklist li {
   position: relative;
   padding-left: 26px;
-  font-size: 15px;
+  font-size: 15.5px;
   color: var(--muted);
   line-height: 1.5;
 }
@@ -700,7 +704,7 @@ header.site-header {
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
 .faq-a p {
   color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
   padding: 0 0 20px;
   max-width: 66ch;
   margin: 0;
@@ -909,21 +913,21 @@ header.site-header {
 .tab-btn[aria-selected="true"] { color: var(--gold-bright); border-bottom-color: var(--gold); }
 .tab-panel { display: none; max-width: 72ch; }
 .tab-panel.active { display: block; }
-.tab-panel p { color: var(--muted); font-size: 15px; margin: 0 0 14px; }
+.tab-panel p { color: var(--muted); font-size: 16px; margin: 0 0 15px; }
 .tab-panel ul { padding-left: 20px; margin: 0 0 16px; }
-.tab-panel li { color: var(--muted); font-size: 15px; margin-bottom: 7px; }
+.tab-panel li { color: var(--muted); font-size: 16px; margin-bottom: 8px; }
 
 /* disclaimer box */
 .disclaimer-box {
-  border: 1px solid rgba(201, 161, 90, 0.4);
+  border: 1px solid rgba(219, 180, 110, 0.45);
   border-left: 3px solid var(--gold);
   background: rgba(201, 161, 90, 0.07);
   border-radius: 0 5px 5px 0;
-  padding: 16px 18px;
-  font-size: 13.5px;
+  padding: 17px 19px;
+  font-size: 14.5px;
   color: var(--muted);
   margin: 20px 0;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 .disclaimer-box strong { color: var(--gold-bright); }
 .section-light .disclaimer-box { color: #4a4152; }
@@ -971,7 +975,7 @@ header.site-header {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  background: rgba(18, 10, 30, 0.97);
+  background: rgba(var(--ink-rgb), 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--line);
@@ -1027,7 +1031,7 @@ footer.site-footer {
   margin-bottom: 10px;
   color: var(--parchment);
 }
-footer p { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+footer p { color: var(--muted); font-size: 14px; line-height: 1.65; }
 footer h4 {
   font-size: 12px;
   color: var(--gold-bright);
@@ -1038,7 +1042,7 @@ footer h4 {
   font-weight: 500;
 }
 footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; }
-footer a { text-decoration: none; color: var(--muted); font-size: 13.5px; }
+footer a { text-decoration: none; color: var(--muted); font-size: 14px; }
 footer a:hover { color: var(--gold-bright); }
 .foot-bottom {
   max-width: var(--maxw);
@@ -1048,7 +1052,7 @@ footer a:hover { color: var(--gold-bright); }
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: rgba(182, 168, 199, 0.75);
+  color: var(--muted-soft);
   font-size: 12px;
   line-height: 1.6;
 }
