@@ -39,6 +39,7 @@ def hero(
     eyebrow: str = "Astrologer &amp; Psychic — Nisha Pathak",
     tags: list | None = None,
     bg: str = "/images/cat-tarot.webp",
+    media_alt: str = "Tarot cards and candles on a reading table",
 ) -> str:
     tags_html = ""
     if tags:
@@ -48,9 +49,9 @@ def hero(
     sub_html = f'<p class="sub">{sub}</p>' if sub else ""
     desc_html = f'<p class="desc">{desc}</p>' if desc else ""
     return f"""
-<section class="hero" style="background-image:url('{bg}')">
-  <div class="wrap">
-    <div class="hero-inner hero-panel">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
       <span class="eyebrow"><span class="rule"></span>{eyebrow}<span class="rule"></span></span>
       <h1>{h1}</h1>
       {sub_html}
@@ -61,6 +62,8 @@ def hero(
       </div>
       {tags_html}
     </div>
+    <div class="hero-media" style="background-image:url('{bg}')"
+         role="img" aria-label="{attr(media_alt)}"></div>
   </div>
 </section>
 """
@@ -237,7 +240,7 @@ def steps(items: list) -> str:
     """items: list of (number, title, text)"""
     cells = "".join(f"""
       <div class="step" style="padding:22px 0;border-top:1px solid var(--line)">
-        <div class="num" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);letter-spacing:.04em">{n}</div>
+        <div class="num" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold-ink);letter-spacing:.04em">{n}</div>
         <h3 style="font-size:20px;margin:8px 0 6px">{t}</h3>
         <p style="color:var(--muted);font-size:14.5px;margin:0">{d}</p>
       </div>""" for n, t, d in items)

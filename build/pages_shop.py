@@ -55,7 +55,7 @@ def product_page(
         variant_rows = f"""
         <label class="small muted" for="variant" style="display:block;margin-bottom:6px">Size</label>
         <select id="variant" name="variant"
-          style="width:100%;max-width:260px;background:var(--ink);border:1px solid var(--line);color:var(--parchment);
+          style="width:100%;max-width:260px;background:var(--bg-2);border:1px solid var(--line-strong);color:var(--text);
                  padding:11px 12px;border-radius:3px;font-family:inherit;font-size:15px;margin-bottom:18px">
           {opts}
         </select>"""
