@@ -360,7 +360,7 @@ def render(p: Page) -> str:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#241b3a">
+<meta name="theme-color" content="#fbf7f0">
 <title>{e(p.title)}</title>
 <meta name="description" content="{attr(p.description)}">
 <link rel="canonical" href="{canonical}">
