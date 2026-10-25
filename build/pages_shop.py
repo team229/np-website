@@ -674,7 +674,7 @@ PROTECTION = product_page(
          is what holds it steady — the difference between cleaning a room and locking the door.</p>
       <p>It's dressed with resinous, grounding botanicals in a base oil, and comes in a brass-capped dropper bottle.
          The scent is warm and slightly smoky — closer to incense than perfume.</p>
-      <h3>Common intentions</h3>
+      <h2 style="font-size:21px;margin:18px 0 10px">Common intentions</h2>
       <ul>
         <li>Holding boundaries around a demanding workplace or family situation</li>
         <li>Grounding before or after a difficult conversation</li>
@@ -699,7 +699,7 @@ PROTECTION = product_page(
     related=[
         ("/shop/ritual-oils/money-oil/", "Money Oil", "₹799", "/images/products/money-oil.webp", "Ritual oil"),
         ("/shop/crystals/rose-quartz-bracelet/", "Rose Quartz Bracelet", "₹599", "/images/products/rose-quartz-bracelet.webp", "Crystal"),
-        ("/shop/ritual-oils/love-attraction-oil/", "Love Attraction Oil", "₹799", "/images/products/love-oil.webp", "Ritual oil"),
+        ("/shop/ritual-oils/personalised-intention-oil/", "Personalised Intention Oil", "From ₹799", "/images/cat-oils.webp", "Custom blend"),
     ],
     crumbs=[C, OILS, ("Protection Oil", "/shop/ritual-oils/protection-oil/")],
     category="Ritual Oil",
@@ -740,7 +740,7 @@ MONEY = product_page(
          exactly the missing piece.</p>
       <p>It's dressed with warm, resinous botanicals and a touch of citrus in a golden base oil. The scent is bright
          and slightly sweet.</p>
-      <h3>Common intentions</h3>
+      <h2 style="font-size:21px;margin:18px 0 10px">Common intentions</h2>
       <ul>
         <li>Starting a new month or a new financial cycle deliberately</li>
         <li>Before a negotiation, pitch or pricing conversation</li>
@@ -764,7 +764,7 @@ MONEY = product_page(
     related=[
         ("/shop/crystals/pyrite-bracelet/", "Pyrite Bracelet", "₹599", "/images/products/pyrite-bracelet.webp", "Crystal"),
         ("/shop/ritual-oils/protection-oil/", "Protection Oil", "₹799", "/images/products/protection-oil.webp", "Ritual oil"),
-        ("/shop/ritual-oils/love-attraction-oil/", "Love Attraction Oil", "₹799", "/images/products/love-oil.webp", "Ritual oil"),
+        ("/shop/ritual-oils/personalised-intention-oil/", "Personalised Intention Oil", "From ₹799", "/images/cat-oils.webp", "Custom blend"),
     ],
     crumbs=[C, OILS, ("Money Oil", "/shop/ritual-oils/money-oil/")],
     category="Ritual Oil",
@@ -803,7 +803,7 @@ LOVE_OIL = product_page(
       <p>Love Attraction Oil is about your side of the equation. The premise is simple: most people who struggle in
          relationships are not short of opportunities — they're short of the belief that they deserve a good one.</p>
       <p>It's dressed with rose and soft floral botanicals in a light base oil. The scent is gentle and warm.</p>
-      <h3>Common intentions</h3>
+      <h2 style="font-size:21px;margin:18px 0 10px">Common intentions</h2>
       <ul>
         <li>Working on self-worth after a relationship has ended</li>
         <li>Opening to connection rather than chasing it</li>
@@ -868,7 +868,7 @@ PYRITE = product_page(
          and it's also where the honest framing matters: the bracelet doesn't make you capable. It reminds you.</p>
       <p>This is a natural pyrite bead bracelet with irregular cube-cut stones — metallic gold-flecked facets that
          catch light from across a room. The variation between beads is natural, not a defect.</p>
-      <h3>Common uses</h3>
+      <h2 style="font-size:21px;margin:18px 0 10px">Common uses</h2>
       <ul>
         <li>Worn on workdays as a focus cue</li>
         <li>Paired with Money Oil for business rituals</li>
@@ -929,7 +929,7 @@ ROSE = product_page(
          or repairs a marriage. It doesn't do either, and describing it that way sets people up to be disappointed.</p>
       <p>What it is: a genuinely beautiful, soft pink stone that works well as a daily reminder to be less harsh
          with yourself. That's a modest claim, and it's the true one.</p>
-      <h3>Common uses</h3>
+      <h2 style="font-size:21px;margin:18px 0 10px">Common uses</h2>
       <ul>
         <li>Worn during a period of rebuilding self-worth</li>
         <li>Paired with the Love Attraction Oil or a love reading</li>
@@ -991,7 +991,7 @@ PERSONALISED = product_page(
       <p>This is the oil for that. We start with a short conversation — what you're working on, what you've
          already tried, and what you want the practice to actually do for you. From there I build the blend,
          tell you what's in it, and explain how to use it.</p>
-      <h3>What you get</h3>
+      <h2 style="font-size:21px;margin:18px 0 10px">What you get</h2>
       <ul>
         <li>A blend chosen for your situation, not a generic intention</li>
         <li>A written note on what's in it and why</li>

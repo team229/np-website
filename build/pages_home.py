@@ -200,5 +200,6 @@ PAGE = Page(
     h1="Online Tarot, Numerology & Spiritual Guidance — Pan India",
     body=BODY,
     nav="home",
+    preload_image="/images/cat-tarot.webp",
     schema=[faq_schema(FAQ)],
 )

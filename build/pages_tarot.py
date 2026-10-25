@@ -507,6 +507,8 @@ TAROT_BODY = page_hero(
     ("/consultations/tarot-readings/career/", "Career & Decision Tarot", "For a job change or business decision"),
     ("/consultations/numerology/", "Numerology", "Numbers-based analysis, delivered as a report"),
     ("/consultations/candle-rituals/", "Candle Rituals", "Intention-based ritual work"),
+    ("/resources/guides/questions-to-ask-in-a-tarot-reading/", "How to Ask a Good Question",
+     "12 prompts that make a reading useful"),
 ]) + cta_block(
     "Not sure which reading fits?",
     "Send a couple of lines about your situation. I'll point you to the right format — and tell you if the "

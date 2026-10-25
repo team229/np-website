@@ -131,7 +131,8 @@ CAT_BODY = page_hero(
 """ + related_links("Related", [
     ("/consultations/tarot-readings/", "Tarot Readings", "For a specific situation rather than a pattern"),
     ("/consultations/vedic-kundali/", "Vedic Kundali", "The full birth chart, planetary placements and remedies"),
-    ("/resources/guides/", "Guides", "How numerology actually works, explained plainly"),
+    ("/resources/guides/tarot-vs-numerology/", "Tarot vs Numerology", "Which reading fits your question"),
+    ("/resources/guides/", "All Guides", "Plain-language explainers"),
 ]) + cta_block(
     "Not sure which numerology reading?",
     "Send your date of birth and what you're hoping to understand. I'll tell you which report fits — the ₹299 "
@@ -350,6 +351,7 @@ HOUSE_BODY = page_hero(
     ("/consultations/numerology/vehicle/", "Vehicle Numerology", "The number on your car or scooter"),
     ("/consultations/numerology/name/", "Name Numerology", "Your personal name number"),
     ("/consultations/vedic-kundali/", "Vedic Kundali", "Traditional chart-based guidance for the home"),
+    ("/resources/guides/house-number-numerology/", "House Number Guide", "What numbers 1–9 actually mean"),
 ]) + cta_block(
     "Check your house number",
     "Send your flat or house number, the nameplate name if there is one, and who lives there.",
@@ -658,6 +660,7 @@ BABY = service_page(
         ("/consultations/numerology/name/", "Name Numerology", "For your own name and spelling variations"),
         ("/consultations/numerology/", "All Numerology", "Life path, personal year and complete charts"),
         ("/consultations/vedic-kundali/", "Vedic Kundali", "Traditional chart-based naming guidance"),
+        ("/resources/guides/baby-name-numerology/", "Baby Name Guide", "A sensible approach to naming"),
     ],
     schema_name="Baby Name Numerology",
     schema_desc="Online baby name numerology consultation checking a shortlist against the child's date of birth.",

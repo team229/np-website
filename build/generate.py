@@ -68,15 +68,16 @@ def collect() -> list:
 
 
 def sitemap(pages: list) -> str:
-    today = date.today().isoformat()
     entries = []
     for p in pages:
         if p.noindex:
             continue
+        # No <lastmod>: every page is rewritten on each build, so any date we
+        # emit would be "today" for all 32 URLs every time. A wrong lastmod is
+        # worse than none — Google recommends omitting it if it can't be accurate.
         entries.append(
             "  <url>\n"
             f"    <loc>{SITE_URL}{p.url}</loc>\n"
-            f"    <lastmod>{today}</lastmod>\n"
             "    <changefreq>monthly</changefreq>\n"
             f"    <priority>{priority(p.url)}</priority>\n"
             "  </url>"

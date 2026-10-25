@@ -1052,7 +1052,7 @@ footer.site-footer {
   color: var(--parchment);
 }
 footer p { color: var(--muted); font-size: 14px; line-height: 1.65; }
-footer h4 {
+footer .foot-head {
   font-size: 12px;
   color: var(--gold-bright);
   letter-spacing: 0.08em;

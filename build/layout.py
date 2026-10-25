@@ -71,6 +71,7 @@ class Page:
     nav: str = ""  # which top-level nav item is current
     crumbs: list = field(default_factory=list)  # [(label, url|None)]
     noindex: bool = False
+    preload_image: str = ""
 
 
 # ---------------------------------------------------------------- navigation
@@ -186,7 +187,7 @@ def footer() -> str:
          7+ years, 1,600+ clients. Hindi &amp; English, phone or video, pan-India.</p>
     </div>
     <div>
-      <h4>Consultations</h4>
+      <p class="foot-head">Consultations</p>
       <ul>
         <li><a href="/consultations/tarot-readings/">Tarot Readings</a></li>
         <li><a href="/consultations/numerology/">Numerology</a></li>
@@ -196,7 +197,7 @@ def footer() -> str:
       </ul>
     </div>
     <div>
-      <h4>Shop</h4>
+      <p class="foot-head">Shop</p>
       <ul>
         <li><a href="/shop/ritual-oils/">Ritual Oils</a></li>
         <li><a href="/shop/crystals/">Crystals &amp; Bracelets</a></li>
@@ -204,7 +205,7 @@ def footer() -> str:
       </ul>
     </div>
     <div>
-      <h4>Connect</h4>
+      <p class="foot-head">Connect</p>
       <ul>
         <li><a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram — @tarotwithnisha</a></li>
         <li><a href="{wa()}" target="_blank" rel="noopener">WhatsApp — +91 87965 90763</a></li>
@@ -241,7 +242,8 @@ def org_schema() -> dict:
         "@type": "ProfessionalService",
         "@id": SITE_URL + "/#business",
         "name": BRAND,
-        "founder": {"@type": "Person", "name": PRACTITIONER, "jobTitle": "Tarot Reader & Numerologist"},
+        "founder": {"@id": SITE_URL + "/#nisha"},
+        "employee": {"@id": SITE_URL + "/#nisha"},
         "description": (
             "Online tarot readings, numerology consultations and intention-based candle rituals "
             "with Nisha Pathak. Private, one-on-one, by phone or video across India."
@@ -256,6 +258,40 @@ def org_schema() -> dict:
         "availableLanguage": ["en", "hi"],
         "sameAs": [INSTAGRAM],
         "address": {"@type": "PostalAddress", "addressCountry": "IN"},
+    }
+
+
+def website_schema() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": SITE_URL + "/#website",
+        "url": SITE_URL + "/",
+        "name": BRAND,
+        "inLanguage": "en-IN",
+        "publisher": {"@id": SITE_URL + "/#business"},
+    }
+
+
+def person_schema() -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": SITE_URL + "/#nisha",
+        "name": PRACTITIONER,
+        "jobTitle": "Tarot Reader & Numerologist",
+        "description": (
+            "Tarot reader, numerologist and Vedic astrologer with 7+ years of practice and "
+            "1,600+ clients across India and internationally."
+        ),
+        "url": SITE_URL + "/about/",
+        "image": SITE_URL + "/images/nisha-portrait.webp",
+        "worksFor": {"@id": SITE_URL + "/#business"},
+        "knowsAbout": ["Tarot reading", "Numerology", "Vedic astrology", "Candle rituals",
+                       "Crystal healing"],
+        "knowsLanguage": [{"@type": "Language", "name": "Hindi"},
+                          {"@type": "Language", "name": "English"}],
+        "sameAs": [INSTAGRAM],
     }
 
 
@@ -335,7 +371,7 @@ def article_schema(title: str, description: str, url: str, published: str, modif
         "url": SITE_URL + url,
         "datePublished": published,
         "dateModified": modified,
-        "author": {"@type": "Person", "name": PRACTITIONER},
+        "author": {"@id": SITE_URL + "/#nisha"},
         "publisher": {"@type": "Organization", "name": BRAND},
         "mainEntityOfPage": {"@type": "WebPage", "@id": SITE_URL + url},
     }
@@ -347,11 +383,13 @@ def render(p: Page) -> str:
     canonical = SITE_URL + p.url
     schemas = p.schema if p.schema else []
     # always include the org node on every page
-    all_schema = [org_schema()] + schemas
+    all_schema = [org_schema(), website_schema()] + schemas
     schema_html = "\n".join(
         f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>'
         for s in all_schema
     )
+    preload_html = (f'<link rel="preload" as="image" href="{p.preload_image}" fetchpriority="high">'
+                    if p.preload_image else "")
     robots = '<meta name="robots" content="noindex,follow">' if p.noindex else \
              '<meta name="robots" content="index,follow,max-image-preview:large">'
 
@@ -372,17 +410,21 @@ def render(p: Page) -> str:
 <meta property="og:description" content="{attr(p.description)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{SITE_URL}{p.og_image}">
+<meta property="og:image:alt" content="{attr(p.h1 or p.title)}">
+<meta property="og:locale" content="en_IN">
+<meta name="author" content="{PRACTITIONER}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{attr(p.title)}">
 <meta name="twitter:description" content="{attr(p.description)}">
 <meta name="twitter:image" content="{SITE_URL}{p.og_image}">
+<meta name="twitter:image:alt" content="{attr(p.h1 or p.title)}">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23120A1E'/%3E%3Cpath d='M62 20a32 32 0 1 0 0 60 26 26 0 1 1 0-60Z' fill='%23C9A15A'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.add('js');</script>
+{preload_html}<script>document.documentElement.classList.add('js');</script>
 <link rel="stylesheet" href="/assets/site.css">
 
 {schema_html}

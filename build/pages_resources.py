@@ -74,6 +74,7 @@ GUIDES_BODY = page_hero(
 
 <section class="section">
   <div class="wrap">
+    <h2 class="sr-only">All guides</h2>
     <div class="grid grid-2">
       <a class="card" href="/resources/guides/house-number-numerology/">
         <div class="card-img" style="background-image:url('/images/cat-numerology.webp')"></div>

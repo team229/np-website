@@ -5,7 +5,7 @@ from components import (
     cta_block, faq_block, page_hero, service_card, steps, trust_bar,
 )
 from layout import (
-    Page, breadcrumb_schema, faq_schema, wa_btn,
+    Page, breadcrumb_schema, faq_schema, person_schema, wa_btn,
 )
 
 R = ("Resources", "/resources/")
@@ -134,7 +134,7 @@ ABOUT = Page(
     nav="about",
     crumbs=[("About", "/about/")],
     og_image="/images/nisha-portrait.webp",
-    schema=[faq_schema(ABOUT_FAQ), breadcrumb_schema([("About", "/about/")])],
+    schema=[person_schema(), faq_schema(ABOUT_FAQ), breadcrumb_schema([("About", "/about/")])],
 )
 
 
@@ -159,6 +159,7 @@ RES_BODY = page_hero(
 ) + f"""
 <section class="section">
   <div class="wrap">
+    <h2 class="sr-only">Browse resources</h2>
     <div class="grid grid-2">
       <a class="card" href="/resources/guides/">
         <div class="card-img" style="background-image:url('/images/cat-tarot.webp')"></div>
