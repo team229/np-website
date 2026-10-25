@@ -110,7 +110,7 @@ def service_card(url: str, title: str, desc: str, price: str, img: str = "",
                  link_label: str = "Learn more") -> str:
     img_html = f'<div class="card-img" style="background-image:url(\'{img}\')"></div>' if img else ""
     return f"""
-<a class="card" href="{url}">
+<a class="card" data-reveal href="{url}">
   {img_html}
   <div class="card-body">
     <h3>{txt(title)}</h3>
@@ -124,7 +124,7 @@ def service_card(url: str, title: str, desc: str, price: str, img: str = "",
 def video_card(video_id: str, thumb: str, label: str) -> str:
     """Facade card: shows the thumbnail, swaps to a YouTube iframe on click."""
     return f'''
-    <button type="button" class="video-card" data-video="{attr(video_id)}" aria-label="{attr(label)}">
+    <button type="button" data-reveal class="video-card" data-video="{attr(video_id)}" aria-label="{attr(label)}">
       <span class="video-thumb" style="background-image:url('{thumb}')"></span>
       <span class="video-play" aria-hidden="true">
         <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M1 1.5v19l18-9.5-18-9.5Z" fill="#F1E7D6"/></svg>
@@ -134,7 +134,7 @@ def video_card(video_id: str, thumb: str, label: str) -> str:
 
 def product_card(url: str, title: str, price: str, img: str, tag: str = "Ritual oil") -> str:
     return f"""
-<a class="product-card" href="{url}">
+<a class="product-card" data-reveal href="{url}">
   <div class="thumb" style="background-image:url('{img}')"></div>
   <div class="p-body">
     <div class="p-tag">{txt(tag)}</div>
@@ -190,7 +190,7 @@ def cta_block(title: str, text: str, service: str = "", secondary_label: str = "
     return f"""
 <section class="section">
   <div class="wrap">
-    <div class="cta-block">
+    <div class="cta-block" data-reveal>
       <h2>{title}</h2>
       <p>{text}</p>
       <div class="cta-row">
@@ -238,16 +238,19 @@ def disclaimer_box(text: str) -> str:
     return f'<div class="disclaimer-box">{text}</div>'
 
 
-def section_head(title: str, sub: str = "", center: bool = True) -> str:
+def section_head(title: str, sub: str = "", center: bool = True, eyebrow: str = "") -> str:
+    eyebrow_html = f'<span class="kicker">{eyebrow}</span>' if eyebrow else ""
     if center:
-        return f'<div class="sec-head"><h2>{title}</h2>' + (f"<p>{sub}</p>" if sub else "") + "</div>"
-    return f'<div class="section-head-left"><h2>{title}</h2>' + (f"<p>{sub}</p>" if sub else "") + "</div>"
+        return (f'<div class="sec-head" data-reveal>{eyebrow_html}<h2>{title}</h2>'
+                + (f"<p>{sub}</p>" if sub else "") + "</div>")
+    return (f'<div class="section-head-left" data-reveal>{eyebrow_html}<h2>{title}</h2>'
+            + (f"<p>{sub}</p>" if sub else "") + "</div>")
 
 
 def steps(items: list) -> str:
     """items: list of (number, title, text)"""
     cells = "".join(f"""
-      <div class="step" style="padding:22px 0;border-top:1px solid var(--line)">
+      <div class="step" data-reveal style="padding:22px 0;border-top:1px solid var(--line)">
         <div class="num" style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold);letter-spacing:.04em">{n}</div>
         <h3 style="font-size:20px;margin:8px 0 6px">{t}</h3>
         <p style="color:var(--muted);font-size:14.5px;margin:0">{d}</p>
@@ -258,7 +261,7 @@ def steps(items: list) -> str:
 def related_links(title: str, links: list) -> str:
     """links: list of (url, label, desc)"""
     cells = "".join(
-        f'<a class="link-card" href="{u}"><strong>{txt(l)}</strong><span>{txt(d)}</span></a>'
+        f'<a class="link-card" data-reveal href="{u}"><strong>{txt(l)}</strong><span>{txt(d)}</span></a>'
         for u, l, d in links
     )
     return f"""

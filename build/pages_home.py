@@ -60,7 +60,7 @@ BODY = (
   <div class="wrap">
     <div class="split split-wide-left">
       <div>
-        {section_head("Why people book with Nisha", "", center=False)}
+        {section_head("Why people book with Nisha", "", center=False, eyebrow="Why Nisha")}
         <div class="prose" style="margin-top:14px">
           <p>Seven years of practice and more than 1,600 clients across India and internationally — but the
              reason people come back isn't the number. It's that the reading is honest.</p>
@@ -87,10 +87,11 @@ BODY = (
 <section class="section">
   <div class="wrap">
     {section_head("Start with what's actually on your mind",
-                  "Most people arrive with a situation, not a service name. Pick the one that sounds closest.")}
+                  "Most people arrive with a situation, not a service name. Pick the one that sounds closest.",
+                  eyebrow="Find your situation")}
     <div class="grid grid-3">
       {''.join(f'''
-      <a class="link-card" href="{u}" style="padding:22px 22px 20px">
+      <a class="link-card" data-reveal href="{u}" style="padding:22px 22px 20px">
         <strong style="font-size:17px;line-height:1.35">{t}</strong>
         <span style="margin-top:6px">{d}</span>
         <span style="margin-top:12px;color:var(--gold-ink,var(--gold));font-size:13px;font-weight:500">See the right reading →</span>
@@ -103,7 +104,7 @@ BODY = (
 
 <section class="section">
   <div class="wrap">
-    {section_head("Consultations", "Four disciplines, one private conversation. Every session is built around your question.")}
+    {section_head("Consultations", "Four disciplines, one private conversation. Every session is built around your question.", eyebrow="What I offer")}
     <div class="grid grid-4">
       {service_card("/consultations/tarot-readings/", "Tarot Readings",
                     "Sessions with unlimited questions, per-question voice notes, and specialised love or career readings.",
@@ -125,7 +126,7 @@ BODY = (
 
 <section class="section">
   <div class="wrap">
-    {section_head("How a consultation works", "Three steps. No forms to fill, no packages to decode.")}
+    {section_head("How a consultation works", "Three steps. No forms to fill, no packages to decode.", eyebrow="The process")}
     {steps([
       ("01", "Message on WhatsApp", "Tell me in a couple of lines what's going on. I'll suggest the right reading — not the most expensive one."),
       ("02", "Confirm your slot", "Choose a time that works. Payment confirms the booking. You'll get the details straight away."),
@@ -136,9 +137,9 @@ BODY = (
 
 <div class="divider"></div>
 
-<section class="section">
+<section class="section-videos">
   <div class="wrap">
-    {section_head("What clients say", "A few clients on what the reading actually gave them — recorded in their own words.")}
+    {section_head("What clients say", "A few clients on what the reading actually gave them — recorded in their own words.", eyebrow="Client stories")}
     <div class="video-row">
       {video_card("IykKnUgRrG4", "/images/testimonials/client-1.webp", "Play client video 1")}
       {video_card("nRHaJHA23C8", "/images/testimonials/client-2.webp", "Play client video 2")}
@@ -154,7 +155,7 @@ BODY = (
 
 <section class="section">
   <div class="wrap">
-    {section_head("From the ritual collection", "Intention-based oils and crystals for your own practice. Pan-India delivery.")}
+    {section_head("From the ritual collection", "Intention-based oils and crystals for your own practice. Pan-India delivery.", eyebrow="Shop")}
     <div class="grid grid-4">
       {product_card("/shop/ritual-oils/protection-oil/", "Protection Oil", "₹799", "/images/products/protection-oil.webp")}
       {product_card("/shop/ritual-oils/money-oil/", "Money Oil", "₹799", "/images/products/money-oil.webp")}
@@ -171,7 +172,7 @@ BODY = (
 
 <section class="section">
   <div class="wrap">
-    {section_head("Common questions", "If yours isn't here, message me — I'll answer honestly, before you pay anything.")}
+    {section_head("Common questions", "If yours isn't here, message me — I'll answer honestly, before you pay anything.", eyebrow="Good to know")}
     {faq_block(FAQ)}
     <div class="text-center mt-4">
       <a href="/resources/faqs/" class="btn btn-outline">Read all FAQs</a>
