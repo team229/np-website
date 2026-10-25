@@ -161,6 +161,24 @@
     onScroll();
   }
 
+  /* ---------- video testimonials (click to load) ---------- */
+  document.querySelectorAll('.video-card[data-video]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (card.classList.contains('playing')) return;
+      var id = card.getAttribute('data-video');
+      if (!id) return;
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id +
+                  '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      frame.title = card.getAttribute('aria-label') || 'Client video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.setAttribute('allowfullscreen', '');
+      card.innerHTML = '';
+      card.appendChild(frame);
+      card.classList.add('playing');
+    });
+  });
+
   /* ---------- year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = String(new Date().getFullYear());

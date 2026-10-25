@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from components import (
     cta_block, faq_block, hero, price_table, product_card, section_head,
-    service_card, steps, trust_bar,
+    service_card, steps, trust_bar, video_card,
 )
 from layout import Page, faq_schema, wa_btn
 
@@ -58,6 +58,34 @@ BODY = (
     + f"""
 <section class="section">
   <div class="wrap">
+    <div class="split split-wide-left">
+      <div>
+        {section_head("Why people book with Nisha", "", center=False)}
+        <div class="prose" style="margin-top:14px">
+          <p>Seven years of practice and more than 1,600 clients across India and internationally — but the
+             reason people come back isn't the number. It's that the reading is honest.</p>
+          <p>You won't be told what you want to hear. You'll be told what the cards, the numbers or the chart
+             actually show, in plain language, with something concrete to do next.</p>
+        </div>
+        <ul class="checklist mt-3">
+          <li><strong>Grounded, not theatrical.</strong> No fear-selling, no forced remedies, no "pay more to remove a curse".</li>
+          <li><strong>Personalised.</strong> Your situation gets examined on its own terms, not matched to a template.</li>
+          <li><strong>Transparent pricing.</strong> You know the cost before you pay. Nothing is added afterwards.</li>
+          <li><strong>Hindi or English.</strong> The whole session in the language you think in.</li>
+          <li><strong>Pan-India, by phone or video.</strong> From a metro or a small town — same access.</li>
+          <li><strong>Confidential.</strong> What you share stays between the two of you.</li>
+        </ul>
+        <div class="mt-4">{wa_btn("Ask a question on WhatsApp", "", "home-why", "btn btn-gold")}</div>
+      </div>
+      <div class="split-img" style="background-image:url('/images/nisha-portrait.webp');background-position:center 38%;aspect-ratio:1/1"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="wrap">
     {section_head("Start with what's actually on your mind",
                   "Most people arrive with a situation, not a service name. Pick the one that sounds closest.")}
     <div class="grid grid-3">
@@ -65,7 +93,7 @@ BODY = (
       <a class="link-card" href="{u}" style="padding:22px 22px 20px">
         <strong style="font-size:17px;line-height:1.35">{t}</strong>
         <span style="margin-top:6px">{d}</span>
-        <span style="margin-top:12px;color:var(--gold);font-size:13px">See the right reading →</span>
+        <span style="margin-top:12px;color:var(--gold-ink,var(--gold));font-size:13px;font-weight:500">See the right reading →</span>
       </a>''' for u, t, d in SITUATIONS)}
     </div>
   </div>
@@ -97,34 +125,6 @@ BODY = (
 
 <section class="section">
   <div class="wrap">
-    <div class="split split-wide-left">
-      <div>
-        {section_head("Why people book with Nisha", "", center=False)}
-        <div class="prose" style="margin-top:14px">
-          <p>Seven years of practice and more than 1,600 clients across India and internationally — but the
-             reason people come back isn't the number. It's that the reading is honest.</p>
-          <p>You won't be told what you want to hear. You'll be told what the cards, the numbers or the chart
-             actually show, in plain language, with something concrete to do next.</p>
-        </div>
-        <ul class="checklist mt-3">
-          <li><strong>Grounded, not theatrical.</strong> No fear-selling, no forced remedies, no "pay more to remove a curse".</li>
-          <li><strong>Personalised.</strong> Your situation gets examined on its own terms, not matched to a template.</li>
-          <li><strong>Transparent pricing.</strong> You know the cost before you pay. Nothing is added afterwards.</li>
-          <li><strong>Hindi or English.</strong> The whole session in the language you think in.</li>
-          <li><strong>Pan-India, by phone or video.</strong> From a metro or a small town — same access.</li>
-          <li><strong>Confidential.</strong> What you share stays between the two of you.</li>
-        </ul>
-        <div class="mt-4">{wa_btn("Ask a question on WhatsApp", "", "home-why", "btn btn-gold")}</div>
-      </div>
-      <div class="split-img" style="background-image:url('/images/nisha-portrait.webp');background-position:center 38%;aspect-ratio:1/1"></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="section">
-  <div class="wrap">
     {section_head("How a consultation works", "Three steps. No forms to fill, no packages to decode.")}
     {steps([
       ("01", "Message on WhatsApp", "Tell me in a couple of lines what's going on. I'll suggest the right reading — not the most expensive one."),
@@ -138,14 +138,15 @@ BODY = (
 
 <section class="section">
   <div class="wrap">
-    {section_head("What clients say", "Readings are private — the messages clients choose to share live on Instagram.")}
-    <div class="test-private">
-      <p class="quote">"Everything you tell me stays between us. That's why you won't find readings published
-        here — but the messages clients send me afterwards are saved in my Instagram highlights."</p>
-      <p class="who">— Nisha</p>
-      <a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener"
-         class="btn btn-outline btn-sm">See client messages on Instagram</a>
+    {section_head("What clients say", "A few clients on what the reading actually gave them — recorded in their own words.")}
+    <div class="video-row">
+      {video_card("IykKnUgRrG4", "/images/testimonials/client-1.webp", "Play client video 1")}
+      {video_card("nRHaJHA23C8", "/images/testimonials/client-2.webp", "Play client video 2")}
+      {video_card("8ombybvZP5g", "/images/testimonials/client-3.webp", "Play client video 3")}
     </div>
+    <p class="small muted text-center mt-3" style="max-width:60ch;margin:20px auto 0">
+      Readings themselves stay private. These clients chose to record their own experience and share it.
+    </p>
   </div>
 </section>
 
@@ -192,8 +193,8 @@ PAGE = Page(
     url="/",
     title="Online Tarot, Numerology & Spiritual Guidance | Pan India",
     description=(
-        "Private online tarot readings, numerology and Vedic kundali consultations with Nisha Pathak. "
-        "7+ years, 1,600+ clients. Hindi & English, phone or video, pan-India. From ₹299."
+        "Private online tarot readings, numerology and Vedic kundali with Nisha Pathak. 7+ years, 1,600+ "
+        "clients. Hindi & English, pan-India. Tarot from ₹51."
     ),
     h1="Online Tarot, Numerology & Spiritual Guidance — Pan India",
     body=BODY,

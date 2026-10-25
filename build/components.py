@@ -121,6 +121,17 @@ def service_card(url: str, title: str, desc: str, price: str, img: str = "",
 </a>"""
 
 
+def video_card(video_id: str, thumb: str, label: str) -> str:
+    """Facade card: shows the thumbnail, swaps to a YouTube iframe on click."""
+    return f'''
+    <button type="button" class="video-card" data-video="{attr(video_id)}" aria-label="{attr(label)}">
+      <span class="video-thumb" style="background-image:url('{thumb}')"></span>
+      <span class="video-play" aria-hidden="true">
+        <svg width="18" height="20" viewBox="0 0 20 22" fill="none"><path d="M1 1.5v19l18-9.5-18-9.5Z" fill="#F1E7D6"/></svg>
+      </span>
+    </button>'''
+
+
 def product_card(url: str, title: str, price: str, img: str, tag: str = "Ritual oil") -> str:
     return f"""
 <a class="product-card" href="{url}">
