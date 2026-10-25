@@ -929,6 +929,35 @@ header.site-header {
 .section-light .disclaimer-box { color: #4a4152; }
 .section-light .disclaimer-box strong { color: #7a4d9e; }
 
+/* ---------- contact strip ---------- */
+.contact-list {
+  display: grid;
+  gap: 13px;
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--ink-2);
+}
+.contact-list > div {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 14px;
+  align-items: baseline;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+.contact-list .k {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.contact-list a { color: var(--parchment); text-decoration: underline; text-underline-offset: 2px; }
+.contact-list a:hover { color: var(--gold-bright); }
+@media (max-width: 460px) {
+  .contact-list > div { grid-template-columns: 1fr; gap: 3px; }
+}
+
 /* ============================================================
    STICKY MOBILE CTA
    ============================================================ */

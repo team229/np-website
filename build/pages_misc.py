@@ -86,13 +86,10 @@ ABOUT_BODY = page_hero(
 
 <section class="section-tight">
   <div class="wrap">
-    <div class="link-card" style="cursor:default;display:grid;gap:10px;padding:24px 26px">
-      <div><strong style="display:inline;font-size:15px;color:var(--gold)">WhatsApp</strong>
-        <span style="display:inline;margin-left:10px">+91 87965 90763 — fastest, for bookings and questions</span></div>
-      <div><strong style="display:inline;font-size:15px;color:var(--gold)">Email</strong>
-        <span style="display:inline;margin-left:10px"><a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a></span></div>
-      <div><strong style="display:inline;font-size:15px;color:var(--gold)">Instagram</strong>
-        <span style="display:inline;margin-left:10px"><a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener">@tarotwithnisha</a></span></div>
+    <div class="contact-list">
+      <div><span class="k">WhatsApp</span><span>+91 87965 90763 — fastest, for bookings and questions</span></div>
+      <div><span class="k">Email</span><span><a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a></span></div>
+      <div><span class="k">Instagram</span><span><a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener">@tarotwithnisha</a></span></div>
     </div>
   </div>
 </section>
