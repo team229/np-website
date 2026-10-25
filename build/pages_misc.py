@@ -84,6 +84,21 @@ ABOUT_BODY = page_hero(
 
 <div class="divider"></div>
 
+<section class="section-tight">
+  <div class="wrap">
+    <div class="link-card" style="cursor:default;display:grid;gap:10px;padding:24px 26px">
+      <div><strong style="display:inline;font-size:15px;color:var(--gold)">WhatsApp</strong>
+        <span style="display:inline;margin-left:10px">+91 87965 90763 — fastest, for bookings and questions</span></div>
+      <div><strong style="display:inline;font-size:15px;color:var(--gold)">Email</strong>
+        <span style="display:inline;margin-left:10px"><a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a></span></div>
+      <div><strong style="display:inline;font-size:15px;color:var(--gold)">Instagram</strong>
+        <span style="display:inline;margin-left:10px"><a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener">@tarotwithnisha</a></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section class="section">
   <div class="wrap">
     <h2 style="font-size:28px;margin-bottom:24px">What I work with</h2>

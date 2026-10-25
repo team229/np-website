@@ -208,7 +208,7 @@ def footer() -> str:
       <ul>
         <li><a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram — @tarotwithnisha</a></li>
         <li><a href="{wa()}" target="_blank" rel="noopener">WhatsApp — +91 87965 90763</a></li>
-        <li><a href="mailto:{EMAIL}">Email</a></li>
+        <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
         <li><a href="/about/">About Nisha</a></li>
         <li><a href="/disclaimer/">Disclaimer</a></li>
       </ul>
