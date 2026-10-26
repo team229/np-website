@@ -4,124 +4,150 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Internal theme comparison: three palettes applied to the same components. Not indexed.">
-<title>Theme comparison — Tarot with Nisha</title>
+<meta name="description" content="Internal design comparison: typography and palette combinations. Not indexed.">
+<title>Design comparison — Tarot with Nisha</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Jost', system-ui, sans-serif; background: #14101c; color: #eee; }
 
-  .bar {
-    position: sticky; top: 0; z-index: 20;
-    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
-    padding: 14px 20px; background: #0e0b14; border-bottom: 1px solid #2e2440;
-  }
-  .bar h1 { font-family: 'Cormorant Garamond', serif; font-size: 19px; margin: 0 16px 0 0; font-weight: 600; }
+  /* ---------- control bar ---------- */
+  .bar { position: sticky; top: 0; z-index: 30; background: #0b0a0e; border-bottom: 1px solid #26232b; padding: 12px 18px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; max-width: 1180px; margin: 0 auto; }
+  .row + .row { margin-top: 8px; }
+  .lbl { font: 500 11px/1 'Inter', system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #7d7688; width: 58px; }
   .bar button {
-    font: inherit; font-size: 13.5px; padding: 9px 16px; border-radius: 4px; cursor: pointer;
-    background: transparent; color: #cfc4dd; border: 1px solid #3b2f52;
+    font: 500 12.5px/1 'Inter', system-ui, sans-serif; padding: 8px 13px; border-radius: 5px;
+    background: transparent; color: #b9b2c4; border: 1px solid #332e3c; cursor: pointer;
   }
-  .bar button[aria-pressed="true"] { background: #c9a15a; color: #1b1424; border-color: #c9a15a; font-weight: 600; }
-  .bar .hint { font-size: 12.5px; color: #8f85a0; margin-left: auto; }
+  .bar button[aria-pressed="true"] { background: #efeade; color: #16131a; border-color: #efeade; font-weight: 600; }
+  .hint { font: 400 11.5px/1.4 'Inter', system-ui, sans-serif; color: #6f6879; margin-left: auto; }
 
-  /* ---------- theme tokens ---------- */
+  /* ---------- palettes ---------- */
   #demo {
-    --bg: #201829; --card: #2a2036; --raised: #352943;
-    --text: #f6efe3; --muted: #d5cbdf; --dim: #b8adc6;
-    --accent: #c9a15a; --accent-text: #f0d49b; --on-accent: #1c1522;
-    --border: rgba(201,161,90,.34); --hero: #241b3a;
-    background: var(--bg); color: var(--text);
-    transition: background .25s ease;
+    --bg:#f7f4ee; --card:#ffffff; --raised:#efeade; --ink:#141210; --body:#55504a; --dim:#6f6a62;
+    --accent:#7a3b2e; --on-accent:#fffaf3; --accent-text:#7a3b2e;
+    --rule:#ded7c9; --hero-overlay: .58;
+    --font-display:'Newsreader', Georgia, serif;
+    --font-body:'Inter', system-ui, sans-serif;
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body);
   }
-  #demo[data-theme="b"] {
-    --bg: #fcf8f0; --card: #ffffff; --raised: #f4ede1;
-    --text: #241c2e; --muted: #4c4356; --dim: #6b6275;
-    --accent: #b8873a; --accent-text: #7a5510; --on-accent: #241c2e;
-    --border: rgba(36,28,46,.14); --hero: #211a2e;
+  #demo[data-theme="graphite"] {
+    --bg:#111214; --card:#191b1e; --raised:#202326; --ink:#f3f0e9; --body:#c5c0b6; --dim:#948e84;
+    --accent:#c9a227; --on-accent:#141210; --accent-text:#e2c368;
+    --rule:rgba(201,162,39,.26); --hero-overlay: .5;
   }
-  #demo[data-theme="c"] {
-    --bg: #0f2426; --card: #16302f; --raised: #1e3c3a;
-    --text: #edf4f1; --muted: #c2d4ce; --dim: #9db5ae;
-    --accent: #c9a85c; --accent-text: #e9ce94; --on-accent: #0f2426;
-    --border: rgba(201,168,92,.32); --hero: #16302f;
+  #demo[data-theme="sage"] {
+    --bg:#f3f3ed; --card:#ffffff; --raised:#e9eae1; --ink:#1b211c; --body:#4c554e; --dim:#6d766e;
+    --accent:#42594a; --on-accent:#f6f8f4; --accent-text:#3a5142;
+    --rule:#d5d8cc; --hero-overlay: .55;
+  }
+  #demo[data-theme="ember"] {
+    --bg:#201829; --card:#2a2036; --raised:#352943; --ink:#f6efe3; --body:#d5cbdf; --dim:#b8adc6;
+    --accent:#c9a15a; --on-accent:#1c1522; --accent-text:#f0d49b;
+    --rule:rgba(201,161,90,.34); --hero-overlay: .55;
   }
 
+  /* ---------- type pairings ---------- */
+  #demo[data-type="newsreader"] { --font-display:'Newsreader', Georgia, serif; --font-body:'Inter', system-ui, sans-serif; }
+  #demo[data-type="fraunces"]   { --font-display:'Fraunces', Georgia, serif;  --font-body:'Inter', system-ui, sans-serif; }
+  #demo[data-type="instrument"] { --font-display:'Instrument Serif', Georgia, serif; --font-body:'Inter', system-ui, sans-serif; }
+  #demo[data-type="cormorant"]  { --font-display:'Cormorant Garamond', Georgia, serif; --font-body:'Jost', system-ui, sans-serif; }
+
+  /* ---------- page ---------- */
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
-  .sec { padding: 46px 20px; }
+  .sec { padding: 52px 20px; }
+
   .hero {
-    background:
-      linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.72)),
-      url('/images/cat-tarot.webp') center/cover;
-    padding: 64px 20px; text-align: center;
-    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden; padding: 78px 20px 72px; text-align: center;
+    background: linear-gradient(180deg, rgba(10,8,14,var(--hero-overlay)), rgba(10,8,14,calc(var(--hero-overlay) + .12))),
+                url('/images/cat-tarot.webp') center/cover;
+    border-bottom: 1px solid var(--rule);
   }
-  #demo[data-theme="b"] .hero { color: #f6efe3; }
-  .eyebrow { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 12px; }
-  #demo[data-theme="b"] .hero .eyebrow { color: #e8c878; }
-  h2.display { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(28px,4.4vw,42px); margin: 0 0 10px; letter-spacing: -.015em; line-height: 1.1; }
-  .hero p { margin: 0 auto; max-width: 52ch; color: #d8d0e2; font-size: 16px; }
-  #demo[data-theme="b"] .hero h2, #demo[data-theme="b"] .hero p { color: #f6efe3; }
-  #demo[data-theme="b"] .hero p { color: #d5cbd8; }
+  .hero, .hero * { color: #f7f2e8; }
+  .eyebrow {
+    font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: #e3c98d; margin: 0 0 18px;
+  }
+  .display {
+    font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4.8vw, 54px);
+    line-height: 1.06; letter-spacing: -.022em; margin: 0 0 16px; color: var(--ink);
+  }
+  .hero .display { color: #fbf7ee; }
+  .lede { font-family: var(--font-body); font-size: 17px; line-height: 1.62; color: var(--body); max-width: 56ch; margin: 0 auto; }
+  .hero .lede { color: #ddd5c8; }
 
   .btn {
-    display: inline-block; padding: 14px 28px; border-radius: 3px; text-decoration: none;
-    font-size: 14.5px; font-weight: 600; background: var(--accent); color: var(--on-accent);
-    border: 1px solid var(--accent);
+    display: inline-block; font-family: var(--font-body); font-size: 14.5px; font-weight: 600;
+    letter-spacing: .01em; padding: 15px 30px; border-radius: 3px; text-decoration: none;
+    background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent);
   }
-  .btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
-  #demo[data-theme="b"] .hero .btn.ghost { color: #f6efe3; border-color: rgba(246,239,227,.35); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
+  .hero .btn.ghost { color: #f7f2e8; border-color: rgba(247,242,232,.4); }
 
-  .trust { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px 20px; padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--raised); }
+  .trust { display: grid; grid-template-columns: repeat(2,1fr); gap: 11px 20px; padding: 17px 20px; background: var(--raised); border-bottom: 1px solid var(--rule); }
   @media (min-width: 720px) { .trust { grid-template-columns: repeat(4,1fr); } }
-  .trust div { font-size: 13px; color: var(--muted); }
+  .trust div { font-family: var(--font-body); font-size: 12.5px; color: var(--body); }
   .trust span { color: var(--accent-text); margin-right: 7px; }
+
+  .kicker { font-family: var(--font-body); font-size: 10.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-text); text-align: center; display: block; margin-bottom: 12px; }
 
   .grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
   @media (min-width: 760px) { .grid { grid-template-columns: repeat(3,1fr); } }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
-  .card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; margin: 0 0 8px; }
-  .card p { color: var(--muted); font-size: 14.5px; margin: 0 0 14px; }
-  .price { color: var(--accent-text); font-size: 14px; font-weight: 500; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 24px; }
+  .card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 600; margin: 0 0 9px; letter-spacing: -.012em; }
+  .card p { font-family: var(--font-body); font-size: 14.5px; line-height: 1.62; color: var(--body); margin: 0 0 16px; }
+  .price { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--accent-text); font-variant-numeric: tabular-nums; }
 
   .prose { max-width: 66ch; }
-  .prose p { color: var(--muted); font-size: 16.5px; line-height: 1.66; margin: 0 0 16px; }
-  .prose strong { color: var(--text); }
+  .prose h2 { font-family: var(--font-display); font-size: clamp(23px, 3vw, 31px); font-weight: 600; letter-spacing: -.018em; margin: 0 0 16px; }
+  .prose p { font-family: var(--font-body); font-size: 16.5px; line-height: 1.72; color: var(--body); margin: 0 0 17px; }
+  .prose strong { color: var(--ink); font-weight: 600; }
 
-  table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  th { text-align: left; padding: 12px 14px; background: var(--raised); color: var(--accent-text); font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
-  td { padding: 13px 14px; border-bottom: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 14.5px; background: var(--card); border: 1px solid var(--rule); }
+  th { text-align: left; padding: 12px 15px; background: var(--raised); color: var(--accent-text); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-bottom: 1px solid var(--rule); }
+  td { padding: 14px 15px; border-bottom: 1px solid var(--rule); color: var(--body); }
   tr:last-child td { border-bottom: none; }
-  td.amt { color: var(--accent-text); font-weight: 600; }
+  td.amt { color: var(--accent-text); font-weight: 600; font-variant-numeric: tabular-nums; }
 
-  .cta { border: 1px solid var(--border); border-radius: 10px; padding: 34px 24px; text-align: center; background: var(--raised); }
-  .cta p { color: var(--muted); margin: 0 0 20px; }
+  .cta { border: 1px solid var(--rule); border-radius: 8px; padding: 38px 26px; text-align: center; background: var(--raised); }
+  .cta p { font-family: var(--font-body); color: var(--body); margin: 0 0 22px; }
 
-  .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-  .sw { font-size: 11px; padding: 6px 9px; border-radius: 3px; border: 1px solid var(--border); }
-  .note { font-size: 12.5px; color: var(--dim); margin-top: 18px; }
+  .meta { font-family: var(--font-body); font-size: 12px; color: var(--dim); text-align: center; margin-top: 20px; }
 </style>
 </head>
 <body>
 
 <div class="bar">
-  <h1>Theme comparison</h1>
-  <button type="button" data-set="a" aria-pressed="true">A · Ember</button>
-  <button type="button" data-set="b" aria-pressed="false">B · Two-tone</button>
-  <button type="button" data-set="c" aria-pressed="false">C · Verdigris</button>
-  <span class="hint">Same components, three palettes. Click to switch.</span>
+  <div class="row">
+    <span class="lbl">Theme</span>
+    <button data-theme="ivory" aria-pressed="true">Ivory &amp; Ink</button>
+    <button data-theme="graphite" aria-pressed="false">Graphite &amp; Brass</button>
+    <button data-theme="sage" aria-pressed="false">Sage &amp; Ivory</button>
+    <button data-theme="ember" aria-pressed="false">Ember (current)</button>
+    <span class="hint">Mix any theme with any typeface.</span>
+  </div>
+  <div class="row">
+    <span class="lbl">Type</span>
+    <button data-type="newsreader" aria-pressed="true">Newsreader + Inter</button>
+    <button data-type="fraunces" aria-pressed="false">Fraunces + Inter</button>
+    <button data-type="instrument" aria-pressed="false">Instrument Serif + Inter</button>
+    <button data-type="cormorant" aria-pressed="false">Cormorant + Jost (current)</button>
+  </div>
 </div>
 
-<div id="demo" data-theme="a">
+<div id="demo" data-theme="ivory" data-type="newsreader">
 
   <section class="hero">
     <p class="eyebrow">Astrologer &amp; Psychic — Nisha Pathak</p>
-    <h2 class="display">Online Tarot, Numerology &amp;<br>Spiritual Guidance</h2>
-    <p>Private one-on-one consultations — tarot, numerology, Vedic kundali and intention-based rituals.</p>
-    <p style="margin-top:24px">
+    <h1 class="display">Online Tarot, Numerology<br>&amp; Spiritual Guidance</h1>
+    <p class="lede">Private one-on-one consultations — tarot, numerology, Vedic kundali and intention-based rituals. Hindi or English, anywhere in India.</p>
+    <p style="margin-top:28px">
       <a class="btn" href="#">Book a Consultation</a>
-      <a class="btn ghost" href="#">Browse services</a>
+      <a class="btn ghost" href="#" style="margin-left:8px">Browse services</a>
     </p>
   </section>
 
@@ -134,9 +160,9 @@
 
   <section class="sec">
     <div class="wrap">
-      <p class="eyebrow" style="text-align:center">What I offer</p>
-      <h2 class="display" style="text-align:center;font-size:clamp(24px,3.4vw,32px)">Consultations</h2>
-      <div class="grid" style="margin-top:26px">
+      <span class="kicker">What I offer</span>
+      <h2 class="display" style="text-align:center;font-size:clamp(26px,3.6vw,36px);margin-bottom:30px">Consultations</h2>
+      <div class="grid">
         <div class="card">
           <h3>Tarot Readings</h3>
           <p>Sessions with unlimited questions, per-question voice notes, and specialised love or career readings.</p>
@@ -144,7 +170,7 @@
         </div>
         <div class="card">
           <h3>Numerology</h3>
-          <p>Name, house, vehicle, marriage and baby-name numerology — reports in 24–48 hours.</p>
+          <p>Name, house, vehicle, marriage and baby-name numerology — reports delivered in 24–48 hours.</p>
           <p class="price">From ₹299</p>
         </div>
         <div class="card">
@@ -153,32 +179,22 @@
           <p class="price">From ₹300</p>
         </div>
       </div>
-      <div class="swatches">
-        <span class="sw">page</span><span class="sw" style="background:var(--card)">card</span>
-        <span class="sw" style="background:var(--raised)">raised</span>
-        <span class="sw" style="background:var(--accent)">accent fill</span>
-        <span class="sw" style="color:var(--accent-text)">accent text</span>
-      </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
       <div class="prose">
-        <h2 class="display" style="font-size:clamp(22px,3vw,28px)">Long-form reading test</h2>
-        <p>Seven years of practice and more than 1,600 clients across India and internationally — but the reason
-           people come back isn't the number. It's that the reading is honest. <strong>You won't be told what you
-           want to hear.</strong> You'll be told what the cards, the numbers or the chart actually show, in plain
-           language, with something concrete to do next.</p>
-        <p>This paragraph exists to test sustained reading. Guides on this site run 900 to 1,400 words, and service
-           pages run similar lengths. If body text feels heavy here, it will feel heavy there.</p>
+        <h2>Long-form reading test — 1,200 words, paragraph five</h2>
+        <p>Seven years of practice and more than 1,600 clients across India and internationally — but the reason people come back isn't the number. It's that the reading is honest. <strong>You won't be told what you want to hear.</strong> You'll be told what the cards, the numbers or the chart actually show, in plain language, with something concrete to do next.</p>
+        <p>Most people who book a love reading already know something is off. What they don't have is language for it — or permission to trust what they've noticed. This paragraph exists to test sustained reading at the size and measure the guides use.</p>
       </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2 class="display" style="font-size:clamp(22px,3vw,28px);margin-bottom:18px">Pricing</h2>
+      <h2 class="display" style="font-size:clamp(23px,3vw,31px);margin-bottom:20px">Pricing</h2>
       <table>
         <thead><tr><th>Session</th><th>Best for</th><th>Price</th></tr></thead>
         <tbody>
@@ -193,26 +209,29 @@
   <section class="sec">
     <div class="wrap">
       <div class="cta">
-        <h2 class="display" style="font-size:clamp(22px,3vw,28px)">Not sure which reading you need?</h2>
+        <h2 class="display" style="font-size:clamp(23px,3vw,31px);margin-bottom:12px">Not sure which reading you need?</h2>
         <p>Send a couple of lines about your situation. I'll tell you which consultation fits.</p>
         <a class="btn" href="#">Book on WhatsApp</a>
       </div>
-      <p class="note">Contrast on every pairing shown here clears WCAG AA. The difference is hierarchy, warmth
-         and how the page feels over 900 words.</p>
+      <p class="meta">All palettes clear WCAG AA. Judge the type by the paragraph, not the headline.</p>
     </div>
   </section>
 
 </div>
 
 <script>
-  document.querySelectorAll('.bar button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.querySelectorAll('.bar button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-      b.setAttribute('aria-pressed', 'true');
-      document.getElementById('demo').setAttribute('data-theme', b.dataset.set);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  function bind(attr, key) {
+    document.querySelectorAll('button[data-' + attr + ']').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('button[data-' + attr + ']').forEach(function (x) { x.setAttribute('aria-pressed','false'); });
+        b.setAttribute('aria-pressed','true');
+        document.getElementById('demo').setAttribute('data-' + key, b.getAttribute('data-' + attr));
+        if (attr === 'theme') window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
-  });
+  }
+  bind('theme', 'theme');
+  bind('type', 'type');
 </script>
 </body>
 </html>
