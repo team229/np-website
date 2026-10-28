@@ -144,6 +144,7 @@ BODY = (
       {video_card("IykKnUgRrG4", "/images/testimonials/client-1.webp", "Play client video 1")}
       {video_card("nRHaJHA23C8", "/images/testimonials/client-2.webp", "Play client video 2")}
       {video_card("8ombybvZP5g", "/images/testimonials/client-3.webp", "Play client video 3")}
+      {video_card("MqrrWm31MfY", "/images/testimonials/client-4.webp", "Play client video 4")}
     </div>
     <p class="small muted text-center mt-3" style="max-width:60ch;margin:20px auto 0">
       Readings themselves stay private. These clients chose to record their own experience and share it.

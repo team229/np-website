@@ -88,7 +88,7 @@ ABOUT_BODY = page_hero(
   <div class="wrap">
     <div class="contact-list">
       <div><span class="k">WhatsApp</span><span>+91 87965 90763 — fastest, for bookings and questions</span></div>
-      <div><span class="k">Email</span><span><a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a></span></div>
+      <div><span class="k">Email</span><span><a href="mailto:tarotwithnishaa@gmail.com">tarotwithnishaa@gmail.com</a></span></div>
       <div><span class="k">Instagram</span><span><a href="https://www.instagram.com/tarotwithnisha/" target="_blank" rel="noopener">@tarotwithnisha</a></span></div>
     </div>
   </div>
@@ -281,7 +281,7 @@ DISCLAIMER_BODY = page_hero(
 
       <h2>Contact</h2>
       <p>Questions about anything here can be sent to
-         <a href="mailto:nishak1410@gmail.com">nishak1410@gmail.com</a> or via WhatsApp on +91 87965 90763.</p>
+         <a href="mailto:tarotwithnishaa@gmail.com">tarotwithnishaa@gmail.com</a> or via WhatsApp on +91 87965 90763.</p>
     </div>
   </div>
 </section>

@@ -14,7 +14,7 @@ SITE_URL = "https://www.tarotwithnisha.com"
 BRAND = "Tarot with Nisha"
 PRACTITIONER = "Nisha Pathak"
 WHATSAPP = "918796590763"
-EMAIL = "nishak1410@gmail.com"
+EMAIL = "tarotwithnishaa@gmail.com"
 INSTAGRAM = "https://www.instagram.com/tarotwithnisha/"
 
 DEFAULT_OG = "/images/og-image.jpg"
